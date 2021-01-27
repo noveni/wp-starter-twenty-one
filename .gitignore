@@ -182,3 +182,8 @@ starter-theme.code-workspace
 .vscode/
 
 vendor/
+assets/css/*
+assets/icons/*
+assets/img/*
+assets/js/*
+assets/*.*

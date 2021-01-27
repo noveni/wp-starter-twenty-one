@@ -1,0 +1,30 @@
+{
+    "variables": {
+        "color": {
+            "black": "#333333",
+            "white": "#ffffff",
+            "white-alt": "#fafbfc",
+            "grey": "#666666",
+            "grey-alt": "#999999",
+            "lightgrey": "#E6E6E6",
+            "red": "#FA6557",
+            "green": "#35CC62",
+            "blue": "#0ECCCC",
+            "yellow": "#FFB54C"
+        },
+        "fontsize": {
+            "xs": 10,
+            "s": 12,
+            "m": 16,
+            "l": 20
+        },
+        "breakpoints": {
+            "xs": 0,
+            "s": 600,
+            "m": 960,
+            "l": 1280,
+            "hd": 1440,
+            "xl": 1920
+        }
+    }
+}
