@@ -7,8 +7,8 @@ const path = require('path');
 require("@tinypixelco/laravel-mix-wp-blocks")
 
 // Front theme
-mix.js('src/scripts/theme/index.js', 'assets/js/theme.js')
-    .block('src/scripts/editor/index.js', 'assets/js/editor.js')
+mix.js('src/scripts/theme/index.js', 'js/theme.js')
+    .block('src/scripts/editor/index.js', 'js/editor.js')
     .sass('src/styles/theme.scss', 'style.css')
     .sass('src/styles/editor.scss', 'css/editor.css')
     .options({
