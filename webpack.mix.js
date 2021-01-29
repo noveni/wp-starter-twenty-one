@@ -9,7 +9,7 @@ require("@tinypixelco/laravel-mix-wp-blocks")
 // Front theme
 mix.js('src/scripts/theme/index.js', 'js/theme.js')
     .block('src/scripts/editor/index.js', 'js/editor.js')
-    .sass('src/styles/theme.scss', 'style.css')
+    .sass('src/styles/theme.scss', 'css/style.css')
     .sass('src/styles/editor.scss', 'css/editor.css')
     .options({
       fileLoaderDirs: {
