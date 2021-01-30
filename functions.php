@@ -35,6 +35,7 @@ require get_template_directory() . '/classes/EcrannoirTwentyOne.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Options.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Scripts.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Meta.php';
+require get_template_directory() . '/classes/EcrannoirTwentyOne-Icons.php';
 
 $shared_theme_configuration = ecrannoir_twenty_one_get_config_data();
 $theme_configuration = array(
@@ -65,9 +66,14 @@ $theme_configuration = array(
 // $theme = new EcrannoirTwentyOne($theme_configuration);
 $theme = new EcrannoirTwentyOne($theme_configuration);
 
-// Load Utilities
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
+
+// Assets function and filters
+require get_template_directory() . '/inc/template-assets.php';
+
+// Menu functions and filters.
+require get_template_directory() . '/inc/menu-functions.php';
 
 // Custom template tags for the theme.
 require get_template_directory() . '/inc/template-tags.php';

@@ -1,7 +1,6 @@
 <header id="site-header" class="sticky-header" role="banner">
 
 <!-- Branding -->
-
-<!-- Site-nav -->
+<?php get_template_part( 'template-parts/header/site-nav' ); ?>
 
 </header>
