@@ -12,7 +12,7 @@ if ( have_posts() ) {
 	// Load posts loop.
 	while ( have_posts() ) {
 		the_post();
-        get_template_part( 'template-parts/content/content', get_post_type() );
+        get_template_part( 'template-parts/content/content', ! is_singular() ? 'excerpt' : '' );
 	}
 
     // Previous/next page navigation.
