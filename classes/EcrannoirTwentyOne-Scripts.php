@@ -23,7 +23,7 @@ class EcranNoirTwentyOne_Scripts
         
         $handleFileName = $customHandleStyleName !== '' ?? 'ecrannoirtwentyone-' . $styleName . '-styles';
         // Enqueue Style
-        wp_enqueue_style($handleFileName, get_template_directory_uri() . '/assets/' . $styleName . '.css', array(), $script_asset['version'], 'all');
+        wp_enqueue_style($handleFileName, get_template_directory_uri() . '/assets/css/' . $styleName . '.css', array(), $script_asset['version'], 'all');
     }
     
     public static function toRegisterScript($scriptName, $customHandleScriptName) {

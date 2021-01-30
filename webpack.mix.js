@@ -53,7 +53,7 @@ mix.webpackConfig({
       context: path.resolve(__dirname, 'src/styles'),
     }),
     new FaviconsWebpackPlugin({
-      logo: './src/favicon.png',
+      logo: path.resolve(__dirname, './src/favicon.png'),
       prefix: mix.inProduction() ? path.join('wp-content/themes', path.basename(__dirname), 'assets/icons') : './icons',
       outputPath: './icons/',
       inject: false,
