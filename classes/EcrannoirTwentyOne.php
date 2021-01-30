@@ -15,19 +15,19 @@ class EcrannoirTwentyOne
     private $theme_settings = null;
 
     /**
-     * The Location Menu 
+     * The theme configuration
      */
-    private $locations_menu = array();
+    protected $theme_configuration = array();
 
     /**
-     * The Side bar config
+     * Is the theme need to be clean
      */
-    private $sidebars = array();
+    private $clean_wordpress = false;
 
     /**
      * Get Theme Variables Config from json file
      */
-    private $theme_config_vars = null;
+    private $theme_shared_config = null;
 
     /**
      * Determines whether a class has already been instanciated.
@@ -39,8 +39,22 @@ class EcrannoirTwentyOne
 	/**
      * Constructor. This allows the class to be only initialized once.
      */
-    private function __construct()
+    public function __construct( array $theme_configuration = array())
     {
+        $defaults = array(
+            'theme_content_width' => 780,
+            'disable_comment' => false,
+            'clean' => false,
+            'menus' => array(
+                'primary'   => __( 'Header Menu', 'ecrannoirtwentyone' ),
+                'mobile'    => __( 'Mobile Menu', 'ecrannoirtwentyone' ),
+            ),
+            'widgets' => array(),
+            'theme_json_config' => array()
+        );
+
+        $this->theme_configuration = wp_parse_args( $theme_configuration, $defaults );
+        $this->clean_wordpress = $this->theme_configuration['clean'];
         $this->init();
     }
 
@@ -58,28 +72,39 @@ class EcrannoirTwentyOne
 
         // Retrieve Theme Settings From Database
         $this->theme_settings = get_option( 'ecrannoirtwentyone-settings-option' );
-        $this->theme_config_vars = (array) json_decode(utf8_encode(file_get_contents(get_template_directory() . '/themeConfig.json')), true);
-        
-        /**
-         * Loads our translations before loading anything else
-         */
-        if( is_dir( get_stylesheet_directory() . '/languages' ) ) {
-            $path = get_stylesheet_directory() . '/languages';
-        } else {
-            $path = get_template_directory() . '/languages'; 
+        $this->theme_shared_config = $this->theme_configuration['theme_json_config'];
+
+        // Clean All Useless Stuff
+        if ($this->clean_wordpress === true) {
+            add_action('after_setup_theme', [ $this, 'cleanWordpressAction' ]);
         }
 
-        add_action('after_setup_theme', function () use ($path){
-            load_theme_textdomain('ecrannoirtwentyone', $path);
-        });
+        // Setup Admin
+        $this->setupAdmin();
+        add_action( 'after_setup_theme', [ $this, 'themeSetupAction'] );
+        add_action( 'widgets_init', [ $this, 'widgetSetupAction'] );
+
+        /**
+         * Set the content width in pixels, based on the theme's design and stylesheet.
+         *
+         * Priority 0 to make it available to lower priority callbacks.
+         */
+        $theme_content_width = $this->theme_configuration['theme_content_width'];
+        add_action( 'after_setup_theme', function() use ($theme_content_width) {
+            $GLOBALS['content_width'] = $theme_content_width;
+        }, 0 );
+
+        // Enqueue scripts and styles.
+        $this->enqueueScripts();
+        
+
+        $this->globalFilter();
+
+        $this->disableComment();
+
     }
 
-    public function clean()
-    {  
-        add_action('after_setup_theme', [ $this, 'cleanAction' ]);
-    }
-
-    public function setupAdmin()
+    private function setupAdmin()
     {
         show_admin_bar(false);
 
@@ -89,10 +114,10 @@ class EcrannoirTwentyOne
             return "<span id=\"footer-thankyou\">Propulsé par <a href=\"https://fr.wordpress.org\">WordPress</a> - Avec  <a href=\"https://ecrannoir.be\">Ecran Noir</a>.</span>";
         });
 
-        add_filter('login_errors', [ $this, 'customLoginErrorMsg' ]);
+        add_filter('login_errors', 'ecrannoir_twenty_one_custom_login_error_msg');
 
         if (is_admin()) {
-			$theme_setting = new EcranNoirTwentyOne_Options();
+			new EcranNoirTwentyOne_Options();
 		}
 
     }
@@ -114,46 +139,10 @@ class EcrannoirTwentyOne
         remove_meta_box( 'dashboard_browser_nag', 'dashboard', 'normal');
     }
 
-    // Handler Method for setup theme
-    public function themeSetup()
-    {
-        add_action( 'after_setup_theme', [ $this, 'themeSetupAction'] );
-    }
-
-    // Handler Method for setup theme
-    public function widgetSetup()
-    {
-        add_action( 'widgets_init', [ $this, 'widgetSetupAction'] );
-    }
-
-    public function setMenu($locations)
-    {
-        $this->locations_menu = $locations;
-    }
-
-    public function setSidebar($sidebars)
-    {
-        $this->sidebars = $sidebars;
-    }
-
-    public function getConfigValue($key = false)
-    {
-        $configData = $this->theme_config_vars;
-        $return_value = $configData['variables'];
-
-        if ($key) {
-            if (key_exists($key, $configData['variables'])) {
-                $return_value = $configData['variables'][$key];
-            }
-        }
-
-        return $return_value;
-    }
-
     /**
      * Remove Script, style feed rss etc
      */
-    public function cleanAction()
+    public function cleanWordpressAction()
     {
         remove_action('wp_head', 'feed_links_extra', 3);
         add_action('wp_head', 'ob_start', 1, 0);
@@ -189,6 +178,16 @@ class EcrannoirTwentyOne
      */
     public function themeSetupAction()
     {
+        /**
+         * Loads our translations before loading anything else
+         */
+        if( is_dir( get_stylesheet_directory() . '/languages' ) ) {
+            $path = get_stylesheet_directory() . '/languages';
+        } else {
+            $path = get_template_directory() . '/languages'; 
+        }
+        load_theme_textdomain('ecrannoirtwentyone', $path);
+
         /*
         * Let WordPress manage the document title.
         * This theme does not use a hard-coded <title> tag in the document head,
@@ -222,7 +221,7 @@ class EcrannoirTwentyOne
         add_theme_support( 'post-thumbnails' );
         set_post_thumbnail_size( 1568, 9999 );
 
-        register_nav_menus( $this->locations_menu );
+        register_nav_menus( $this->theme_configuration['menus'] );
 
         /*
 		 * Switch default core markup for search form, comment form, and comments
@@ -259,7 +258,7 @@ class EcrannoirTwentyOne
         // Enqueue editor styles.
         add_editor_style( $editor_stylesheet_path );
         
-        $configFontSizes = $this->getConfigValue('fontsize');
+        $configFontSizes = ecrannoir_twenty_one_get_config_value('fontsize', $this->theme_shared_config);
         $editorFontSizes = [];
         foreach ($configFontSizes as $fontSizeName => $fontSizeValue) {
             $editorFontSizes[] = array(
@@ -271,7 +270,7 @@ class EcrannoirTwentyOne
         }
         add_theme_support( 'editor-font-sizes', $editorFontSizes );
 
-        $editorColor = $this->getConfigValue('color');
+        $editorColor = ecrannoir_twenty_one_get_config_value('color', $this->theme_shared_config);
         $editorColorPalette = [];
         foreach ($editorColor as $colorName => $colorHex) {
             $editorColorPalette[] = array(
@@ -316,9 +315,10 @@ class EcrannoirTwentyOne
             'before_widget' => '<div class="widget %2$s">',
             'after_widget'  => '</div>',
         ];
+        $sidebars = $this->theme_configuration['widgets'];
 
-        if (!empty($this->sidebars)) {
-            foreach ($this->sidebars as $sidebar) {
+        if (!empty($sidebars)) {
+            foreach ($sidebars as $sidebar) {
                 register_sidebar(
                     array_merge(
                         $config,
@@ -330,22 +330,10 @@ class EcrannoirTwentyOne
     }
 
     /**
-     * Set the content width in pixels, based on the theme's design and stylesheet.
-     *
-     * Priority 0 to make it available to lower priority callbacks.
-     */
-    public function themeContentWidth($width)
-    {
-        add_action( 'after_setup_theme', function() use ($width) {
-            $GLOBALS['content_width'] = $width;
-        }, 0 );
-    }
-
-    /**
      * Enqueue scripts and styles.
      * 
      */
-    public function enqueueScripts()
+    private function enqueueScripts()
     {
         /**
 		 * Enqueue front-end assets.
@@ -399,7 +387,7 @@ class EcrannoirTwentyOne
     /**
      * Add global Filter
      */
-    public function globalFilter()
+    private function globalFilter()
     {
         add_filter( 'wp_revisions_to_keep', function( $num, $post ) {
 
@@ -412,26 +400,9 @@ class EcrannoirTwentyOne
     }
 
     /**
-     * Replace WP default login error messages
-     */
-    public function customLoginErrorMsg( $error )
-    {
-
-        // we will override only the above errors and not anything else
-        if ( is_int( strpos( $error, 'le mot de passe que vous avez saisi pour') ) || 
-            is_int( strpos( $error, 'Adresse e-mail inconnue' ) ) || 
-            is_int( strpos( $error, 'Identifiant inconnu' ) ) 
-        ) {
-            $error = '<strong>Erreur:</strong> Oops. Informations de connexion incorrectes.<br /><a href="' . wp_lostpassword_url() . '">Mot de passe perdu ?</a>';
-        }
-
-        return $error;
-    }
-
-    /**
      * Disable Comment
      */
-    public function disableComment()
+    private function disableComment()
     {
         add_action( 'widgets_init', function() {
 

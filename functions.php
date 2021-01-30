@@ -28,54 +28,41 @@ define( 'THEME_ROOT_DIR_THEME', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 define( 'THEME_ROOT_URI', get_theme_root_uri('wp-starter-twenty-one', 'wp-starter-twenty-one') . DIRECTORY_SEPARATOR );
 define( 'ECRANNOIR_POST_REVISIONS', 0 );
 
+// Import file
+require get_template_directory() . '/inc/theme-helpers.php';
+
 require get_template_directory() . '/classes/EcrannoirTwentyOne.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Options.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Scripts.php';
 
-
-$theme = EcrannoirTwentyOne::instance();
-
-// Clean All Useless Stuff
-$theme->clean();
-
-// Setup Admin
-$theme->setupAdmin();
-
-/**
- * Setup the Theme
- */
-$locations_menus = array(
-    'primary'   => __( 'Header Menu', 'ecrannoirtwentyone' ),
-    'mobile'    => __( 'Mobile Menu', 'ecrannoirtwentyone' ),
-    'footer'    => __( 'Footer Menu', 'ecrannoirtwentyone' ),
-    'social'    => __( 'Social Menu', 'ecrannoirtwentyone' ),
-    // 'lang' => __('Langue Menu', 'ecrannoirtwentyone'),
-    'menu404'   => __( '404 Menu', 'ecrannoirtwentyone' ),
-);
-
-$siderbars = array(
-    array(
-        'name'          => __('Footer Sidebar 1', 'ecrannoirtwentyone'),
-        'id'            => 'sidebar-1',
-        'description'   => __( 'Add Widgets here to appear in the footer.', 'ecrannoirtwentyone' ),
+$shared_theme_configuration = ecrannoir_twenty_one_get_config_data();
+$theme_configuration = array(
+    'theme_content_width' => ecrannoir_twenty_one_get_config_value( 'content_width', $shared_theme_configuration),
+    'disable_comment' => true,
+    'clean' => true,
+    'menus' => array(
+        'primary'   => __( 'Header Menu', 'ecrannoirtwentyone' ),
+        'mobile'    => __( 'Mobile Menu', 'ecrannoirtwentyone' ),
+        'footer'    => __( 'Footer Menu', 'ecrannoirtwentyone' ),
+        'social'    => __( 'Social Menu', 'ecrannoirtwentyone' ),
+        'menu404'   => __( '404 Menu', 'ecrannoirtwentyone' ),
     ),
-    array(
-        'name'          => __('Footer Sidebar 2', 'ecrannoirtwentyone'),
-        'id'            => 'sidebar-2',
-        'description'   => __( 'Add Widgets here to appear in the footer.', 'ecrannoirtwentyone' ),
-    )
+    'widgets' => array(
+        array(
+            'name'          => __('Footer Sidebar 1', 'ecrannoirtwentyone'),
+            'id'            => 'sidebar-1',
+            'description'   => __( 'Add Widgets here to appear in the footer.', 'ecrannoirtwentyone' ),
+        ),
+        array(
+            'name'          => __('Footer Sidebar 2', 'ecrannoirtwentyone'),
+            'id'            => 'sidebar-2',
+            'description'   => __( 'Add Widgets here to appear in the footer.', 'ecrannoirtwentyone' ),
+        )
+    ),
+    'theme_json_config' => $shared_theme_configuration
 );
-$theme->setMenu($locations_menus);
-$theme->setSidebar($siderbars);
-$theme->themeSetup();
-$theme->widgetSetup();
-$theme->themeContentWidth($theme->getConfigValue('content_width'));
-
-// Enqueue Script
-$theme->enqueueScripts();
-
-$theme->globalFilter();
-$theme->disableComment();
+// $theme = new EcrannoirTwentyOne($theme_configuration);
+$theme = new EcrannoirTwentyOne($theme_configuration);
 
 // Load Utilities
 // Enhance the theme by hooking into WordPress.
