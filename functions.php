@@ -75,6 +75,7 @@ $theme->themeContentWidth($theme->getConfigValue('content_width'));
 $theme->enqueueScripts();
 
 $theme->globalFilter();
+$theme->disableComment();
 
 // Load Utilities
 // Enhance the theme by hooking into WordPress.
