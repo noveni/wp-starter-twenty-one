@@ -68,3 +68,25 @@ function ecrannoir_twenty_one_custom_login_error_msg( $error )
 
     return $error;
 }
+
+
+/**
+ * Activate WordPress Maintenance Mode
+ */
+function ecrannoir_twenty_one_maintenance_mode() {
+    if(!current_user_can('edit_themes') || !is_user_logged_in()){
+        $site_title = get_bloginfo( 'name' );
+        wp_die('<div style="text-align:center"><h1 style="color:black">' . $site_title . '</h1><p>Nous effectuons une maintenance. Nous serons de retour en ligne sous peu!</p></div>');
+    }
+}
+
+
+/**
+ * Redirect always to https
+ */
+function ecrannoir_twenty_one_redirect() {
+    if (!is_ssl()) {
+        wp_redirect('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], 301);
+        exit();
+    }
+}

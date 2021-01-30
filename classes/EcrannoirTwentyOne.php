@@ -24,6 +24,12 @@ class EcrannoirTwentyOne
      */
     private $clean_wordpress = false;
 
+
+    /**
+     * Is the theme need to disable comment
+     */
+    private $disable_comment = false;
+
     /**
      * Get Theme Variables Config from json file
      */
@@ -55,6 +61,7 @@ class EcrannoirTwentyOne
 
         $this->theme_configuration = wp_parse_args( $theme_configuration, $defaults );
         $this->clean_wordpress = $this->theme_configuration['clean'];
+        $this->disable_comment = $this->theme_configuration['disable_comment'];
         $this->init();
     }
 
@@ -70,6 +77,8 @@ class EcrannoirTwentyOne
     
     public function init() {
 
+        add_action('template_redirect', 'ecrannoir_twenty_one_redirect' );
+
         // Retrieve Theme Settings From Database
         $this->theme_settings = get_option( 'ecrannoirtwentyone-settings-option' );
         $this->theme_shared_config = $this->theme_configuration['theme_json_config'];
@@ -79,9 +88,16 @@ class EcrannoirTwentyOne
             add_action('after_setup_theme', [ $this, 'cleanWordpressAction' ]);
         }
 
+        $maintenance_mode = boolval( $this->theme_settings['maintenance_mode'] ?? false);
+		if ($maintenance_mode === true) {
+			add_action('get_header', 'ecrannoir_twenty_one_maintenance_mode');
+		}
+
         // Setup Admin
         $this->setupAdmin();
+        // Setup theme
         add_action( 'after_setup_theme', [ $this, 'themeSetupAction'] );
+        // Setup Widget
         add_action( 'widgets_init', [ $this, 'widgetSetupAction'] );
 
         /**
@@ -100,7 +116,12 @@ class EcrannoirTwentyOne
 
         $this->globalFilter();
 
-        $this->disableComment();
+        // Clean All Useless Stuff
+        if ($this->disable_comment === true) {
+            $this->disableComment();
+        }
+
+        $this->addMeta();
 
     }
 
@@ -484,5 +505,20 @@ class EcrannoirTwentyOne
             } );
             add_filter( 'pre_option_default_pingback_flag', '__return_zero' );
         }
+    }
+
+    /**
+     * Add Meta to Theme
+     */
+    public function addMeta()
+    {
+        add_action( 'wp_head', [EcranNoirTwentyOne_Meta::class, 'print_meta'], 5);
+		add_action( 'wp_head', [EcranNoirTwentyOne_Meta::class, 'printFavicon'], 101);
+
+		if (isset($this->theme_settings['ga_measurement_id'])) {
+			add_action( 'wp_head', function() {
+				EcranNoirTwentyOne_Meta::addAnalytics($this->theme_settings['ga_measurement_id']);
+			}, 102);
+		}
     }
 }

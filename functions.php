@@ -34,6 +34,7 @@ require get_template_directory() . '/inc/theme-helpers.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Options.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Scripts.php';
+require get_template_directory() . '/classes/EcrannoirTwentyOne-Meta.php';
 
 $shared_theme_configuration = ecrannoir_twenty_one_get_config_data();
 $theme_configuration = array(
