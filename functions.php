@@ -47,9 +47,14 @@ $theme_configuration = array(
         'mobile'    => __( 'Mobile Menu', 'ecrannoirtwentyone' ),
         'footer'    => __( 'Footer Menu', 'ecrannoirtwentyone' ),
         'social'    => __( 'Social Menu', 'ecrannoirtwentyone' ),
-        'menu404'   => __( '404 Menu', 'ecrannoirtwentyone' ),
+        'legals'    => __( 'CGV & Legals', 'ecrannoirtwentyone')
     ),
     'widgets' => array(
+        array(
+            'name'          => __('Site Description', 'ecrannoirtwentyone'),
+            'id'            => 'site-description',
+            'description'   => __( 'Add description here to appear in the footer.', 'ecrannoirtwentyone' ),
+        ),
         array(
             'name'          => __('Footer Sidebar 1', 'ecrannoirtwentyone'),
             'id'            => 'sidebar-1',

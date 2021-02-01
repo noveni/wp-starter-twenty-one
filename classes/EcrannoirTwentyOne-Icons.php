@@ -182,8 +182,12 @@ class EcranNoirTwentyOne_Icons {
                 if (array_key_exists('path', $arr[$icon])) {
                     $icon_content = file_get_contents( get_template_directory() . $arr[$icon]['path'], true);
                 }
-            }
-			$repl = sprintf( '<svg class="svg-icon" width="%d" height="%d" aria-hidden="true" role="img" focusable="false" ', $size, $size );
+			}
+			if ($size) {
+				$repl = sprintf( '<svg class="svg-icon" width="%d" height="%d" aria-hidden="true" role="img" focusable="false" ', $size, $size );
+			} else {
+				$repl = sprintf( '<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" ', $size, $size );
+			}
 
 			$svg = preg_replace( '/^<svg /', $repl, trim( $icon_content ) ); // Add extra attributes to SVG code.
 		}
