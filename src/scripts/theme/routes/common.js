@@ -1,7 +1,6 @@
-import coverModals from '../elements/coverModal';
-import modalMenu from '../elements/modalMenu';
-import primaryMenu from '../elements/primaryMenu';
-import toggles from '../elements/toggles';
+import primaryMenu from '../elements/primary-navigation';
+import ecrannoirtwentyoneResponsiveEmbeds from '../elements/responsive-embeds';
+import skipLinkFocus from '../elements/skip-link-focus-fix';
 
 import { touchEnabled, intrinsicRatioVideos } from '../../utils/dom';
 
@@ -45,14 +44,19 @@ export default {
 
 		document.documentElement.classList.remove('no-js');
 		window.ecrannoir = ecrannoir;
-		toggles.init();	// Handle toggles
-		coverModals.init(toggles.clickedEl);	// Handle cover modals
 		intrinsicRatioVideos();	// Retain aspect ratio of videos on window resize
-		modalMenu.init(toggles.clickedEl);	// Modal Menu
 		primaryMenu();	// Primary Menu
 		touchEnabled();	// Add class to body if device is touch-enabled
 
-		addHeaderHeightAsMarginToElement('#site-content');
+		// Run on initial load.
+		ecrannoirtwentyoneResponsiveEmbeds();
+		skipLinkFocus();
+
+		// Run on resize.
+		window.onresize = ecrannoirtwentyoneResponsiveEmbeds;
+
+
+		// addHeaderHeightAsMarginToElement('#site-content');
 
 	},
 	finalize() {
