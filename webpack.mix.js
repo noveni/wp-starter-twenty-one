@@ -101,6 +101,9 @@ mix.browserSync({
   files: [
     "src/styles/**/*.scss",
     "src/scripts/",
-    "templates/"
+    "template-parts/",
+    "inc/",
+    "classes/",
+    "*.php"
   ]
 });
