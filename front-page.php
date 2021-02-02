@@ -1,8 +1,8 @@
 <?php
 /**
- * The main template file
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * The front-page.php template file is used to render your site’s front page, whether the front page displays the blog posts index (mentioned above) or a static page
+ * 
+ * https://developer.wordpress.org/themes/basics/template-hierarchy/#front-page-display
  */
 
 get_header();
@@ -18,11 +18,6 @@ if ( have_posts() ) {
 
     // Previous/next page navigation.
     get_template_part( 'template-parts/pagination/pagination' );
-
-} else {
-
-	// If no content, include the "No posts found" template.
-	get_template_part( 'template-parts/content/content-none' );
 
 }
 

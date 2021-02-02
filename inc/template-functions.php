@@ -66,6 +66,21 @@ add_filter( 'body_class', 'ecrannoir_twenty_one_body_classes' );
 
 
 /**
+ * Determines if post thumbnail can be displayed.
+ *
+ * @since Twenty Twenty-One 1.0
+ *
+ * @return bool
+ */
+function ecrannoir_twenty_one_can_show_post_thumbnail() {
+	return apply_filters(
+		'ecrannoir_twenty_one_can_show_post_thumbnail',
+		! post_password_required() && ! is_attachment() && has_post_thumbnail()
+	);
+}
+
+
+/**
  * Creates continue reading text
  */
 function ecrannoir_twenty_one_continue_reading_text() {
