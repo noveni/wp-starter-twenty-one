@@ -3,8 +3,8 @@ import domReady from '@wordpress/dom-ready';
 
 import { unregisterBlockStyle, registerBlockStyle } from '@wordpress/blocks';
 
-import './ExampleEditableBlock'
-import './ExampleDynamicBlock'
+// import './ExampleEditableBlock'
+// import './ExampleDynamicBlock'
 /**
  * Remove unused blocks
  *

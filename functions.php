@@ -35,6 +35,7 @@ require get_template_directory() . '/classes/EcrannoirTwentyOne.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Options.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Scripts.php';
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Meta.php';
+// SVG Icons class.
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Icons.php';
 
 $shared_theme_configuration = ecrannoir_twenty_one_get_config_data();
@@ -83,5 +84,10 @@ require get_template_directory() . '/inc/menu-functions.php';
 // Custom template tags for the theme.
 require get_template_directory() . '/inc/template-tags.php';
 
+// Block Patterns.
+require get_template_directory() . '/inc/block-patterns.php';
+
+// Block Styles.
+require get_template_directory() . '/inc/block-styles.php';
 
 
