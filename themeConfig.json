@@ -1,16 +1,16 @@
 {
     "variables": {
         "color": {
-            "black": "#333333",
+            "black": "#000",
             "white": "#ffffff",
             "white-alt": "#fafbfc",
-            "grey": "#666666",
-            "grey-alt": "#999999",
-            "lightgrey": "#E6E6E6",
-            "red": "#FA6557",
-            "green": "#35CC62",
-            "blue": "#0ECCCC",
-            "yellow": "#FFB54C"
+            "grey": "#39414d",
+            "grey-alt": "#28303d",
+            "lightgrey": "#f0f0f0",
+            "red": "#e4d1d1",
+            "green": "#d1e4dd",
+            "blue": "#d1dfe4",
+            "yellow": "#eeeadd"
         },
         "fontsize": {
             "xs": 10,

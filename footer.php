@@ -15,7 +15,7 @@ $separator = '<span class="separator"> | </span>';
 		</div><!-- #primary -->
 	</div><!-- #content -->
 
-	<footer>
+	<footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="site-info">
 		<div class="site-name">
 			<a class="footer-logo" href="<?php echo esc_url( get_home_url( null, '/' ) ) ?>">

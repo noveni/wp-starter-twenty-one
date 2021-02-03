@@ -3,8 +3,14 @@
  * Displays the site header.
  *
  */
+
+$wrapper_classes  = 'site-header';
+$wrapper_classes .= has_custom_logo() ? ' has-logo' : '';
+$wrapper_classes .= true === get_theme_mod( 'display_title_and_tagline', true ) ? ' has-title-and-tagline' : '';
+$wrapper_classes .= has_nav_menu( 'primary' ) ? ' has-menu' : '';
 ?>
-<header id="site-header" class="sticky-header" role="banner">
+
+<header id="masthead" class="<?php echo esc_attr( $wrapper_classes ); ?>" role="banner">
 
 <!-- Branding -->
 <?php get_template_part( 'template-parts/header/site-branding' ); ?>
