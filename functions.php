@@ -90,4 +90,7 @@ require get_template_directory() . '/inc/block-patterns.php';
 // Block Styles.
 require get_template_directory() . '/inc/block-styles.php';
 
+// Custom Post Types
+require get_template_directory() . '/inc/custom-post-type.php';
+
 
