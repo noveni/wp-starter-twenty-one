@@ -94,3 +94,15 @@ require get_template_directory() . '/inc/block-styles.php';
 require get_template_directory() . '/inc/custom-post-type.php';
 
 
+// Contact Form 7
+if (class_exists('WPCF7')) {
+    add_filter( 'wpcf7_load_js', '__return_false' );
+    add_filter( 'wpcf7_load_css', '__return_false' );
+
+    function load_wpcf7_js() {
+        if (is_page( 'contact' )){
+            wpcf7_enqueue_scripts();
+        }
+    }
+    add_action( 'wp_footer', 'load_wpcf7_js' );
+}
