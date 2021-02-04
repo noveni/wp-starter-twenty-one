@@ -271,83 +271,83 @@ $global--admin-bar--height: 0;
 :root {
 
 	/* Font Family */
-	--global--font-primary: var(--font-headings, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif);
-	--global--font-secondary: var(--font-base, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif);
+	--global--font-primary: #{$global--font-primary};
+	--global--font-secondary: #{$global--font-secondary};
 
 	/* Font Size */
-	--global--font-size-base: 1.25rem; // 20px / 16px
-	--global--font-size-xs: 1rem; // 16px / 16px
-	--global--font-size-sm: 1.125rem; // 18px / 16px
-	--global--font-size-md: 1.25rem; // 20px / 16px
-	--global--font-size-lg: 1.5rem; // 24px / 16px
-	--global--font-size-xl: 2.25rem; // 36px / 16px
-	--global--font-size-xxl: 4rem; // 64px / 16px
-	--global--font-size-xxxl: 5rem; // 80px / 16px
-	--global--font-size-page-title: var(--global--font-size-xxl);
-	--global--letter-spacing: normal;
+	--global--font-size-base: #{$global--font-size-base};
+	--global--font-size-xs: #{$global--font-size-xs};
+	--global--font-size-sm: #{$global--font-size-sm};
+	--global--font-size-md: #{$global--font-size-md};
+	--global--font-size-lg: #{$global--font-size-lg};
+	--global--font-size-xl: #{$global--font-size-xl};
+	--global--font-size-xxl: #{$global--font-size-xxl};
+	--global--font-size-xxxl: #{$global--font-size-xxxl};
+	--global--font-size-page-title: #{$global--font-size-page-title};
+	--global--letter-spacing: #{$global--letter-spacing};
 
 	/* Line Height */
-	--global--line-height-body: 1.7;
-	--global--line-height-heading: 1.3;
-	--global--line-height-page-title: 1.1;
+	--global--line-height-body: #{$global--line-height-body};
+	--global--line-height-heading: #{$global--line-height-heading};
+	--global--line-height-page-title: #{$global--line-height-page-title};
 
 	/* Headings */
-	--heading--font-family: var(--global--font-primary);
+	--heading--font-family: #{$heading--font-family};
 
-	--heading--font-size-h6: var(--global--font-size-xs);
-	--heading--font-size-h5: var(--global--font-size-sm);
-	--heading--font-size-h4: var(--global--font-size-lg);
-	--heading--font-size-h3: calc(1.25 * var(--global--font-size-lg));
-	--heading--font-size-h2: var(--global--font-size-xl);
-	--heading--font-size-h1: var(--global--font-size-page-title);
+	--heading--font-size-h6: #{$heading--font-size-h6};
+	--heading--font-size-h5: #{$heading--font-size-h5};
+	--heading--font-size-h4: #{$heading--font-size-h4};
+	--heading--font-size-h3: #{$heading--font-size-h3};
+	--heading--font-size-h2: #{$heading--font-size-h2};
+	--heading--font-size-h1: #{$heading--font-size-h1};
 
-	--heading--letter-spacing-h6: 0.05em;
-	--heading--letter-spacing-h5: 0.05em;
-	--heading--letter-spacing-h4: var(--global--letter-spacing);
-	--heading--letter-spacing-h3: var(--global--letter-spacing);
-	--heading--letter-spacing-h2: var(--global--letter-spacing);
-	--heading--letter-spacing-h1: var(--global--letter-spacing);
+	--heading--letter-spacing-h6: #{$heading--letter-spacing-h6};
+	--heading--letter-spacing-h5: #{$heading--letter-spacing-h5};
+	--heading--letter-spacing-h4: #{$heading--letter-spacing-h4};
+	--heading--letter-spacing-h3: #{$heading--letter-spacing-h3};
+	--heading--letter-spacing-h2: #{$heading--letter-spacing-h2};
+	--heading--letter-spacing-h1: #{$heading--letter-spacing-h1};
 
-	--heading--line-height-h6: var(--global--line-height-heading);
-	--heading--line-height-h5: var(--global--line-height-heading);
-	--heading--line-height-h4: var(--global--line-height-heading);
-	--heading--line-height-h3: var(--global--line-height-heading);
-	--heading--line-height-h2: var(--global--line-height-heading);
-	--heading--line-height-h1: var(--global--line-height-page-title);
+	--heading--line-height-h6: #{$heading--line-height-h6};
+	--heading--line-height-h5: #{$heading--line-height-h5};
+	--heading--line-height-h4: #{$heading--line-height-h4};
+	--heading--line-height-h3: #{$heading--line-height-h3};
+	--heading--line-height-h2: #{$heading--line-height-h2};
+	--heading--line-height-h1: #{$heading--line-height-h1};
 
-	--heading--font-weight: normal;
-	--heading--font-weight-page-title: 300;
-	--heading--font-weight-strong: 600;
+	--heading--font-weight: #{$heading--font-weight};
+	--heading--font-weight-page-title: #{$heading--font-weight-page-title};
+	--heading--font-weight-strong: #{$heading--font-weight-strong};
 
 	/* Block: Latest posts */
-	--latest-posts--title-font-family: var(--heading--font-family);
-	--latest-posts--title-font-size: var(--heading--font-size-h3);
-	--latest-posts--description-font-family: var(--global--font-secondary);
-	--latest-posts--description-font-size: var(--global--font-size-sm);
+	--latest-posts--title-font-family: #{$latest-posts--title-font-family};
+	--latest-posts--title-font-size: #{$latest-posts--title-font-size};
+	--latest-posts--description-font-family: #{$latest-posts--description-font-family};
+	--latest-posts--description-font-size: #{$latest-posts--description-font-size};
 
-	--list--font-family: var(--global--font-secondary);
-	--definition-term--font-family: var(--global--font-primary);
+	--list--font-family: #{$list--font-family};
+	--definition-term--font-family: #{$definition-term--font-family};
 
 	/* Colors */
-	--global--color-black: #000;
-	--global--color-dark-gray: #28303d;
-	--global--color-gray: #39414d;
-	--global--color-light-gray: #f0f0f0;
-	--global--color-green: #d1e4dd;
-	--global--color-blue: #d1dfe4;
-	--global--color-purple: #d1d1e4;
-	--global--color-red: #e4d1d1;
-	--global--color-orange: #e4dad1;
-	--global--color-yellow: #eeeadd;
-	--global--color-white: #fff;
-	--global--color-white-50: rgba(255, 255, 255, 0.5); // Used for disabled buttons
-	--global--color-white-90: rgba(255, 255, 255, 0.9); // Used in form fields.
+	--global--color-black: #{$global--color-black};
+	--global--color-dark-gray: #{$global--color-gray-alt};
+	--global--color-gray: #{$global--color-gray};
+	--global--color-light-gray: #{$global--color-light-gray};
+	--global--color-green: #{$global--color-green};
+	--global--color-blue: #{$global--color-blue};
+	--global--color-purple: #{$global--color-purple};
+	--global--color-red: #{$global--color-red};
+	--global--color-orange: #{$global--color-orange};
+	--global--color-yellow: #{$global--color-yellow};
+	--global--color-white: #{$global--color-white};
+	--global--color-white-50: #{$global--color-white-50}; // Used for disabled buttons
+	--global--color-white-90: #{$global--color-white-90}; // Used in form fields.
 
-	--global--color-primary: var(--global--color-dark-gray); /* Body text color, site title, footer text color. */
-	--global--color-secondary: var(--global--color-gray); /* Headings */
-	--global--color-primary-hover: var(--global--color-primary);
-	--global--color-background: var(--global--color-green); /* Mint, default body background */
-	--global--color-border: var(--global--color-primary); /* Used for borders (separators) */
+	--global--color-primary: #{$global--color-primary}; /* Body text color, site title, footer text color. */
+	--global--color-secondary: #{$global--color-secondary}; /* Headings */
+	--global--color-primary-hover: #{$global--color-primary-hover};
+	--global--color-background: #{$global--color-background}; /* Mint, default body background */
+	--global--color-border: #{$global--color-border}; /* Used for borders (separators) */
 
 	/* Spacing */
 	--global--spacing-unit: #{2 * $baseline-unit}; // 20px
