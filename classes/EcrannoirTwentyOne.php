@@ -391,7 +391,7 @@ class EcrannoirTwentyOne
 				?>
 				<style type="text/css">
 				#login h1 a, .login h1 a {
-					background-image: url(<?php echo get_template_directory_uri() . '/assets/img/logo.svg'; ?>);
+					background-image: url(<?php echo get_template_directory_uri() . '/assets/img/logo-theme-author.svg'; ?>);
 					background-size: 80%;
 					height: 100px;
 					width: 100%;

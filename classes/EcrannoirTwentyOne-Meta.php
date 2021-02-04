@@ -83,7 +83,7 @@ class EcranNoirTwentyOne_Meta {
     public static function getOgImages()
     {
         $default_image = array(
-            'url' => get_template_directory_uri() . '/dist/img/logo.svg',
+            'url' => get_template_directory_uri() . '/assets/img/logo.svg',
             'height' => 1080,
             'width' => 1080,
             'type' => 'image/png'
