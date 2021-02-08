@@ -187,12 +187,6 @@ $button--padding-vertical: 15px;
 $button--padding-horizontal: calc(2 * #{$button--padding-vertical});
 
 /* Header */
-$branding--color-text: $global--color-primary;
-$branding--color-link: $global--color-primary;
-$branding--color-link-hover: $global--color-secondary;
-$branding--title--font-family: $global--font-primary;
-$branding--title--font-size: $global--font-size-lg;
-
 $branding--logo--max-width: 300px;
 $branding--logo--max-height: 100px;
 $branding--logo--max-width-mobile: 96px;
