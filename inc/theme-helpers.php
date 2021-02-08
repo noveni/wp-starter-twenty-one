@@ -40,11 +40,11 @@ function ecrannoir_twenty_one_get_config_value($key = false, $data = false) {
         return false;
     }
 
-    $return_value = $configData['variables'];
+    $return_value = $configData;
 
     if ($key) {
-        if (key_exists($key, $configData['variables'])) {
-            $return_value = $configData['variables'][$key];
+        if (key_exists($key, $configData)) {
+            $return_value = $configData[$key];
         }
     }
 

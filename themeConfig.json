@@ -1,31 +1,45 @@
 {
-    "variables": {
-        "color": {
-            "black": "#000",
-            "white": "#ffffff",
-            "white-alt": "#fafbfc",
-            "grey": "#39414d",
-            "grey-alt": "#28303d",
-            "lightgrey": "#f0f0f0",
-            "red": "#e4d1d1",
-            "green": "#d1e4dd",
-            "blue": "#d1dfe4",
-            "yellow": "#eeeadd"
+    "theme-color": {
+        "black": "#000",
+        "white": "#ffffff",
+        "white-alt": "#fafbfc",
+        "grey": "#39414d",
+        "grey-alt": "#28303d",
+        "lightgrey": "#f0f0f0",
+        "red": "#e4d1d1",
+        "green": "#d1e4dd",
+        "blue": "#d1dfe4",
+        "yellow": "#eeeadd"
+    },
+    "theme-font-size": {
+        "base": {
+            "name": "Base",
+            "shortname": "base",
+            "size": 10,
+            "slug": "base"
         },
-        "fontsize": {
-            "xs": 10,
-            "s": 12,
-            "m": 16,
-            "l": 20
+        "xs": 8,
+        "s": 12,
+        "sm": 14,
+        "md": 16,
+        "lg": 18,
+        "xl": 25,
+        "xxl": 30,
+        "xxxl": {
+            "name": "Gigantic",
+            "shortname": "Gigantic",
+            "size": 40,
+            "slug": "xxxl"
         },
-        "breakpoints": {
-            "xs": 0,
-            "s": 600,
-            "m": 960,
-            "l": 1280,
-            "hd": 1440,
-            "xl": 1920
-        },
-        "content_width": 750
-    }
+        "page-title": 40
+    },
+    "theme-breakpoints": {
+        "xs": 0,
+        "s": 600,
+        "m": 960,
+        "l": 1280,
+        "hd": 1440,
+        "xl": 1920
+    },
+    "theme-content-width": 750
 }

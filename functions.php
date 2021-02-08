@@ -40,7 +40,7 @@ require get_template_directory() . '/classes/EcrannoirTwentyOne-Icons.php';
 
 $shared_theme_configuration = ecrannoir_twenty_one_get_config_data();
 $theme_configuration = array(
-    'theme_content_width' => ecrannoir_twenty_one_get_config_value( 'content_width', $shared_theme_configuration),
+    'theme_content_width' => ecrannoir_twenty_one_get_config_value( 'theme-content-width', $shared_theme_configuration),
     'disable_comment' => true,
     'clean' => true,
     'menus' => array(
