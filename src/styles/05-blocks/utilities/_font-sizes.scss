@@ -1,14 +1,33 @@
 // Gutenberg Font-size utility classes
 :root {
 
+
+	@each $font-size-key, $font-size-value in $theme-font-size {
+		$the-font-size: null;
+		$the-font-size-name: null;
+
+		@if type-of($font-size-value) == "map" {
+			$the-font-size: map-get($font-size-value, size);
+			$the-font-size-name: map-get($font-size-value, slug);
+		} @else {
+			$the-font-size: $font-size-value;
+			$the-font-size-name: $font-size-key;
+		}
+
+		.is-#{$the-font-size-name}-text,
+		.has-#{$the-font-size-name}-font-size {
+			font-size: #{($the-font-size / 10)}rem;
+		}
+	}
+
 	.is-extra-small-text,
 	.has-extra-small-font-size {
-		font-size: var(--global--font-size-xs);
+		font-size: $global--font-size-xs;
 	}
 
 	.is-small-text,
 	.has-small-font-size {
-		font-size: var(--global--font-size-sm);
+		font-size: $global--font-size-sm;
 	}
 
 	.is-regular-text,
@@ -16,38 +35,38 @@
 	.is-normal-font-size,
 	.has-normal-font-size,
 	.has-medium-font-size {
-		font-size: var(--global--font-size-base);
+		font-size: $global--font-size-base;
 	}
 
 	.is-large-text,
 	.has-large-font-size {
-		font-size: var(--global--font-size-lg);
-		line-height: var(--global--line-height-heading);
+		font-size: $global--font-size-lg;
+		line-height: $global--line-height-heading;
 	}
 
 	.is-larger-text,
 	.has-larger-font-size,
 	.is-extra-large-text,
 	.has-extra-large-font-size {
-		font-size: var(--global--font-size-xl);
-		line-height: var(--global--line-height-heading);
+		font-size: $global--font-size-xl;
+		line-height: $global--line-height-heading;
 	}
 
 	.is-huge-text,
 	.has-huge-font-size {
-		font-size: var(--global--font-size-xxl);
-		line-height: var(--global--line-height-heading);
+		font-size: $global--font-size-xxl;
+		line-height: $global--line-height-heading;
 
 		// This size is meant to mimic the page titles, so the font weight is reduced to match.
-		font-weight: var(--heading--font-weight-page-title);
+		font-weight: $heading--font-weight-page-title;
 	}
 
 	.is-gigantic-text,
 	.has-gigantic-font-size {
-		font-size: var(--global--font-size-xxxl);
-		line-height: var(--global--line-height-heading);
+		font-size: $global--font-size-xxxl;
+		line-height: $global--line-height-heading;
 
 		// This size is meant to mimic the page titles, so the font weight is reduced to match.
-		font-weight: var(--heading--font-weight-page-title);
+		font-weight: $heading--font-weight-page-title;
 	}
 }

@@ -4,24 +4,24 @@
 	display: flex;
 	align-items: flex-start;
 	flex-wrap: wrap;
-	row-gap: var(--global--spacing-vertical); // Add space in case the menu wraps below the site branding.
+	row-gap: $global--spacing-vertical; // Add space in case the menu wraps below the site branding.
 
 	.wp-custom-logo & {
 		align-items: center;
 	}
 
 	@include media(mobile) {
-		padding-top: calc(var(--global--spacing-vertical) / 0.75); // 40px
+		padding-top: calc(#{$global--spacing-vertical} / 0.75); // 40px
 	}
 
 	@include media(desktop) {
-		padding-top: calc(2.4 * var(--global--spacing-vertical)); // 60px
+		padding-top: calc(2.4 * #{$global--spacing-vertical}); // 60px
 	}
 }
 
 // Site branding
 .site-branding {
-	color: var(--branding--color-text);
+	color: $global--color-primary;
 	margin-right: 140px;
 
 	&:last-child {
@@ -39,17 +39,17 @@
 // Site title
 .site-title {
 
-	color: var(--branding--color-link);
+	color: $global--color-primary;
 	font-family: var(--branding--title--font-family);
-	font-size: var(--branding--title--font-size-mobile);
+	font-size: $heading--font-size-h4;
 	letter-spacing: normal;
-	text-transform: var(--branding--title--text-transform);
-	line-height: var(--global--line-height-heading);
-	margin-bottom: calc(var(--global--spacing-vertical) / 6);
+	text-transform: uppercase;
+	line-height: $global--line-height-heading;
+	margin-bottom: calc(#{$global--spacing-vertical} / 6);
 
 	a {
 		color: currentColor;
-		font-weight: var(--branding--title--font-weight);
+		font-weight: normal;
 
 		&:link,
 		&:visited,
@@ -59,21 +59,21 @@
 
 		&:hover,
 		&:focus {
-			color: var(--branding--color-link-hover);
+			color: $global--color-secondary;
 		}
 
 	}
 
 	@include media(mobile) {
-		font-size: var(--branding--title--font-size);
+		font-size: $global--font-size-lg;
 	}
 }
 
 // Site description
 .site-description {
 	color: currentColor;
-	font-family: var(--branding--description--font-family);
-	font-size: var(--branding--description--font-size);
+	font-family: $global--font-secondary;
+	font-size: $global--font-size-sm;
 	line-height: 1.4;
 }
 
@@ -90,17 +90,17 @@ a.custom-logo-link {
 }
 
 .site-title > a {
-	text-decoration-color: var(--global--color-secondary);
+	text-decoration-color: $global--color-secondary;
 }
 
 // Site logo
 .site-logo {
 
-	margin: calc(var(--global--spacing-vertical) / 2) 0;
+	margin: calc(#{$global--spacing-vertical} / 2) 0;
 
 	.site-header > & {
 		width: 100%;
-		padding-bottom: calc(var(--global--spacing-vertical) * 1.5);
+		padding-bottom: calc(#{$global--spacing-vertical} * 1.5);
 		border-bottom: 1px solid;
 		text-align: center;
 	}
@@ -108,8 +108,8 @@ a.custom-logo-link {
 	.custom-logo {
 		margin-left: auto;
 		margin-right: auto;
-		max-width: var(--branding--logo--max-width-mobile);
-		max-height: var(--branding--logo--max-height-mobile);
+		max-width: $branding--logo--max-width-mobile;
+		max-height: $branding--logo--max-height-mobile;
 		height: auto;
 		display: inline-block;
 		width: auto;
@@ -118,8 +118,8 @@ a.custom-logo-link {
 	@include media(mobile) {
 
 		.custom-logo {
-			max-width: var(--branding--logo--max-width);
-			max-height: var(--branding--logo--max-height);
+			max-width: $branding--logo--max-width;
+			max-height: $branding--logo--max-height;
 			height: auto;
 			width: auto;
 		}
@@ -138,16 +138,16 @@ a.custom-logo-link {
 
 					.site-logo {
 						position: absolute;
-						padding-top: calc(0.5 * var(--global--spacing-vertical));
+						padding-top: calc(0.5 * #{$global--spacing-vertical});
 						margin-top: 0;
-						top: var(--global--admin-bar--height);
+						top: $global--admin-bar--height;
 
 						.primary-navigation-open & {
 							display: none;
 						}
 
 						img {
-							max-height: calc(var(--button--padding-vertical) - (0.25 * var(--global--spacing-unit)) + 1.7em);
+							max-height: calc(#{$button--padding-vertical} - (0.25 * #{$global--spacing-unit}) + 1.7em);
 						}
 					}
 				}
@@ -182,14 +182,14 @@ a.custom-logo-link {
 					.menu-button-container {
 						position: relative;
 						padding-top: 0;
-						margin-top: calc(0px - var(--button--padding-vertical) + (0.25 * var(--global--spacing-unit)));
+						margin-top: calc(0 - #{$button--padding-vertical} + (0.25 * #{$global--spacing-unit}));
 
 						#primary-mobile-menu {
 							// The 4.5px here is to offset the icon size horizontallly
 							// (the icon's width is larger than the path's width and has extra space on the sides).
-							padding-left: calc(var(--global--spacing-horizontal) * 0.6 - 4.5px);
-							padding-right: calc(var(--global--spacing-horizontal) * 0.6 - 4.5px);
-							margin-right: calc(0px - var(--global--spacing-horizontal) * 0.6);
+							padding-left: calc(#{$global--spacing-horizontal} * 0.6 - 4.5px);
+							padding-right: calc(#{$global--spacing-horizontal} * 0.6 - 4.5px);
+							margin-right: calc(0 - #{$global--spacing-horizontal} * 0.6);
 						}
 					}
 				}

@@ -2,24 +2,24 @@
 
 // All navigation
 .navigation {
-	color: var(--global--color-primary);
+	color: $global--color-primary;
 
 	a {
-		color: var(--global--color-primary);
+		color: $global--color-primary;
 		text-decoration: none;
 
 		&:hover {
-			color: var(--global--color-primary-hover);
+			color: $global--color-primary-hover;
 			text-decoration: underline;
 			text-decoration-style: dotted;
 		}
 
 		&:focus {
-			color: var(--global--color-secondary);
+			color: $global--color-secondary;
 		}
 
 		&:active {
-			color: var(--global--color-primary);
+			color: $global--color-primary;
 		}
 	}
 
@@ -50,7 +50,7 @@
 				flex: 0 1 auto;
 				margin-bottom: inherit;
 				margin-top: inherit;
-				max-width: calc(50% - (0.5 * var(--global--spacing-unit)));
+				max-width: calc(50% - (0.5 * #{$global--spacing-unit}));
 			}
 
 			.nav-next {
@@ -69,40 +69,40 @@
 	.nav-previous .svg-icon,
 	.prev .svg-icon {
 		top: -2px;
-		margin-right: calc(0.25 * var(--global--spacing-unit));
+		margin-right: calc(0.25 * #{$global--spacing-unit});
 	}
 
 	.nav-next .svg-icon,
 	.next .svg-icon {
 		top: -1px;
-		margin-left: calc(0.25 * var(--global--spacing-unit));
+		margin-left: calc(0.25 * #{$global--spacing-unit});
 	}
 }
 
 // Singular navigation
 .post-navigation {
 
-	margin: var(--global--spacing-vertical) auto;
+	margin: $global--spacing-vertical auto;
 
 	@include media(desktop) {
-		margin: var(--global--spacing-vertical) auto;
+		margin: $global--spacing-vertical auto;
 	}
 
 	@extend %responsive-alignwide-width;
 
 	.meta-nav {
-		line-height: var(--global--line-height-body);
-		color: var(--global--color-primary);
+		line-height: $global--line-height-body;
+		color: $global--color-primary;
 	}
 
 	.post-title {
 		display: inline-block;
-		font-family: var(--global--font-primary);
-		font-size: var(--global--font-size-lg);
-		font-weight: var(--pagination--font-weight-strong);
-		line-height: var(--global--line-height-heading);
+		font-family: $global--font-primary;
+		font-size: $global--font-size-lg;
+		font-weight: 600;
+		line-height: $global--line-height-heading;
 		@include media(desktop) {
-			margin: 5px calc(24px + (0.25 * var(--global--spacing-unit))) 0;
+			margin: 5px calc(24px + (0.25 * #{$global--spacing-unit})) 0;
 		}
 	}
 
@@ -114,8 +114,8 @@
 
 	.nav-next,
 	.nav-previous {
-		margin-top: var(--global--spacing-vertical);
-		margin-bottom: var(--global--spacing-vertical);
+		margin-top: $global--spacing-vertical;
+		margin-bottom: $global--spacing-vertical;
 
 		&:first-child {
 			margin-top: 0;
@@ -131,22 +131,22 @@
 .pagination,
 .comments-pagination {
 
-	border-top: 3px solid var(--global--color-border);
-	padding-top: var(--global--spacing-vertical);
-	margin: var(--global--spacing-vertical) auto;
+	border-top: 3px solid $global--color-border;
+	padding-top: $global--spacing-vertical;
+	margin: $global--spacing-vertical auto;
 
 	@include media(desktop) {
-		margin: var(--global--spacing-vertical) auto;
+		margin: $global--spacing-vertical auto;
 	}
 
 	@extend %responsive-alignwide-width;
 
 	// Resets the top margin added to the .nav-links items below.
 	.nav-links {
-		margin-top: calc(-1 * var(--global--spacing-vertical));
+		margin-top: calc(-1 * #{$global--spacing-vertical});
 
 		a:hover {
-			color: var(--pagination--color-link-hover);
+			color: $global--color-primary-hover;
 		}
 
 		.is-dark-theme & {
@@ -154,7 +154,7 @@
 			a:active,
 			a:hover:active,
 			a:hover:focus {
-				color: var(--global--color-background);
+				color: $global--color-background;
 			}
 		}
 
@@ -163,19 +163,19 @@
 			a:active,
 			a:hover:active,
 			a:hover:focus {
-				color: var(--global--color-white);
+				color: $global--color-white;
 			}
 		}
 	}
 
 	.nav-links > * {
-		color: var(--pagination--color-text);
-		font-family: var(--pagination--font-family);
-		font-size: var(--pagination--font-size);
-		font-weight: var(--pagination--font-weight);
-		margin-top: var(--global--spacing-vertical);
-		margin-left: calc(0.66 * var(--global--spacing-unit));
-		margin-right: calc(0.66 * var(--global--spacing-unit));
+		color: $global--color-primary;
+		font-family: $global--font-secondary;
+		font-size: $global--font-size-lg;
+		font-weight: normal;
+		margin-top: $global--spacing-vertical;
+		margin-left: calc(0.66 * #{$global--spacing-unit});
+		margin-right: calc(0.66 * #{$global--spacing-unit});
 
 		&.current {
 			text-decoration: underline;
@@ -230,14 +230,14 @@
 
 // Comments pagination
 .comments-pagination {
-	padding-top: calc(0.66 * var(--global--spacing-vertical));
-	margin: calc(3 * var(--global--spacing-vertical)) auto;
+	padding-top: calc(0.66 * #{$global--spacing-vertical});
+	margin: calc(3 * #{$global--spacing-vertical}) auto;
 
 	@include media(desktop) {
-		margin: calc(3 * var(--global--spacing-vertical)) auto calc(4 * var(--global--spacing-vertical)) auto;
+		margin: calc(3 * #{$global--spacing-vertical}) auto calc(4 * #{$global--spacing-vertical}) auto;
 	}
 
 	.nav-links > * {
-		font-size: var(--global--font-size-md);
+		font-size: $global--font-size-md;
 	}
 }

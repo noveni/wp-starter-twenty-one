@@ -7,12 +7,12 @@
 	.wp-block-column {
 
 		> * {
-			margin-top: calc(0.66 * var(--global--spacing-vertical));
-			margin-bottom: calc(0.66 * var(--global--spacing-vertical));
+			margin-top: calc(0.66 * #{$global--spacing-vertical});
+			margin-bottom: calc(0.66 * #{$global--spacing-vertical});
 
 			@include media(mobile) {
-				margin-top: var(--global--spacing-vertical);
-				margin-bottom: var(--global--spacing-vertical);
+				margin-top: $global--spacing-vertical;
+				margin-bottom: $global--spacing-vertical;
 			}
 
 			&:first-child {
@@ -30,10 +30,10 @@
 	}
 
 	.wp-block-column:not(:last-child) {
-		margin-bottom: calc(0.66 * var(--global--spacing-vertical));
+		margin-bottom: calc(0.66 * #{$global--spacing-vertical});
 
 		@include media(mobile) {
-			margin-bottom: var(--global--spacing-vertical);
+			margin-bottom: $global--spacing-vertical;
 		}
 
 		@include media(desktop) {
@@ -50,8 +50,8 @@
 			.wp-block-column {
 
 				&:nth-child(2n) {
-					margin-left: calc(-2 * var(--global--spacing-horizontal));
-					margin-top: calc(2.5 * var(--global--spacing-horizontal));
+					margin-left: calc(-2 * #{$global--spacing-horizontal});
+					margin-top: calc(2.5 * #{$global--spacing-horizontal});
 					z-index: 2;
 
 					// Provide text-based child blocks with a default background color to ensure they're readable.
@@ -67,15 +67,15 @@
 					> pre {
 
 						&:not(.has-background) {
-							background-color: var(--global--color-background);
-							padding: var(--global--spacing-unit);
+							background-color: $global--color-background;
+							padding: $global--spacing-unit;
 						}
 					}
 
 					// Lists should still have their usual left padding.
 					> ul:not(.has-background),
 					> ol:not(.has-background) {
-						padding-left: calc(2 * var(--global--spacing-horizontal));
+						padding-left: calc(2 * #{$global--spacing-horizontal});
 					}
 
 					&.is-vertically-aligned-center {
@@ -97,8 +97,8 @@
 			h4:not(.has-background),
 			h5:not(.has-background),
 			h6:not(.has-background) {
-				padding-left: var(--global--spacing-unit);
-				padding-right: var(--global--spacing-unit);
+				padding-left: $global--spacing-unit;
+				padding-right: $global--spacing-unit;
 			}
 		}
 	}

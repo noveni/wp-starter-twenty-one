@@ -4,13 +4,13 @@
 		padding: 0;
 
 		.wp-block-navigation-link__content {
-			padding: var(--primary-nav--padding);
+			padding: $primary-nav--padding;
 		}
 
 		.wp-block-navigation-link__label {
-			font-family: var(--primary-nav--font-family);
-			font-size: var(--primary-nav--font-size);
-			font-weight: var(--primary-nav--font-weight);
+			font-family: $global--font-secondary;
+			font-size: $primary-nav--font-size;
+			font-weight: normal;
 		}
 	}
 
@@ -30,7 +30,7 @@
 			.wp-block-navigation__container {
 				border: none;
 				left: 0;
-				margin-left: var(--primary-nav--padding);
+				margin-left: $primary-nav--padding;
 				min-width: max-content;
 				opacity: 0;
 				padding: 0;
@@ -41,7 +41,7 @@
 
 					.wp-block-navigation-link__content {
 						display: inline-block;
-						padding: calc(0.5 * var(--primary-nav--padding)) var(--primary-nav--padding);
+						padding: calc(0.5 * #{$primary-nav--padding}) $primary-nav--padding;
 					}
 				}
 
@@ -64,12 +64,12 @@
 		> .has-child {
 
 			> .wp-block-navigation__container {
-				background: var(--global--color-background);
+				background: $global--color-background;
 				margin: 0;
 				padding: 0;
 				position: absolute;
 				top: 100%;
-				border: 1px solid var(--primary-nav--border-color);
+				border: 1px solid $primary-nav--border-color;
 
 				&:before,
 				&:after {
@@ -78,15 +78,15 @@
 					position: absolute;
 					width: 0;
 					top: -10px;
-					left: var(--global--spacing-horizontal);
+					left: $global--spacing-horizontal;
 					border-style: solid;
-					border-color: var(--primary-nav--border-color) transparent;
+					border-color: $primary-nav--border-color transparent;
 					border-width: 0 7px 10px 7px;
 				}
 
 				&:after {
 					top: -9px;
-					border-color: var(--global--color-background) transparent;
+					border-color: $global--color-background transparent;
 				}
 			}
 		}
@@ -95,10 +95,10 @@
 	&:not(.has-background) {
 
 		.wp-block-navigation__container {
-			background: var(--global--color-background);
+			background: $global--color-background;
 
 			.wp-block-navigation__container {
-				background: var(--global--color-background);
+				background: $global--color-background;
 			}
 		}
 	}
@@ -111,7 +111,7 @@
 
 				&:hover,
 				&:focus {
-					color: var(--primary-nav--color-link-hover);
+					color: $primary-nav--color-link-hover;
 				}
 
 				&:hover {

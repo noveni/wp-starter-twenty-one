@@ -8,11 +8,11 @@
 	@include innerblock-margin-clear(".wp-block-media-text__content");
 
 	.wp-block-media-text__content {
-		padding: var(--global--spacing-horizontal);
+		padding: $global--spacing-horizontal;
 	}
 
 	// Block Styles
 	&.is-style-twentytwentyone-border {
-		border: calc(3 * var(--separator--height)) solid var(--global--color-border);
+		border: calc(3 * 1px) solid $global--color-border;
 	}
 }

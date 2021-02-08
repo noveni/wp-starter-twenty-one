@@ -1,27 +1,27 @@
 .wp-block-navigation {
 
 	.wp-block-navigation__container {
-		background: var(--global--color-background);
+		background: $global--color-background;
 		padding: 0;
 	}
 
 	.wp-block-navigation-link {
 
 		.wp-block-navigation-link__content {
-			padding: var(--primary-nav--padding);
+			padding: $primary-nav--padding;
 		}
 
 		.wp-block-navigation-link__label {
-			font-family: var(--primary-nav--font-family);
-			font-size: var(--primary-nav--font-size);
-			font-weight: var(--primary-nav--font-weight);
+			font-family: $global--font-secondary;
+			font-size: $primary-nav--font-size;
+			font-weight: normal;
 		}
 	}
 
 	.has-child {
 
 		.wp-block-navigation__container {
-			box-shadow: var(--global--elevation);
+			box-shadow: $global--elevation;
 		}
 	}
 
@@ -33,7 +33,7 @@
 
 				&:hover,
 				&:focus {
-					color: var(--primary-nav--color-link-hover);
+					color: $primary-nav--color-link-hover;
 				}
 			}
 		}

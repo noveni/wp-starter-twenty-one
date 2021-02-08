@@ -3,7 +3,7 @@
 }
 
 .no-results.not-found > *:first-child {
-	margin-bottom: calc(3 * var(--global--spacing-vertical));
+	margin-bottom: calc(3 * #{$global--spacing-vertical});
 }
 
 // Styling for wp_link_pages.
@@ -12,8 +12,8 @@
 
 	.post-page-numbers {
 		display: inline-block;
-		margin-left: calc(0.66 * var(--global--spacing-unit));
-		margin-right: calc(0.66 * var(--global--spacing-unit));
+		margin-left: calc(0.66 * #{$global--spacing-unit});
+		margin-right: calc(0.66 * #{$global--spacing-unit});
 		min-width: 44px;
 		min-height: 44px;
 

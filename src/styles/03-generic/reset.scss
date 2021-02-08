@@ -44,8 +44,8 @@ html {
 	box-sizing: border-box;
 
 	// HTML resets
-	font-family: var(--global--font-secondary);
-	line-height: var(--global--line-height-body);
+	font-family: $global--font-secondary;
+	line-height: $global--line-height-body;
 }
 
 /**
@@ -62,11 +62,11 @@ html {
 
 // body resets
 body {
-	font-size: var(--global--font-size-base);
+	font-size: $global--font-size-base;
 	font-weight: normal;
-	color: var(--global--color-primary);
+	color: $global--color-primary;
 	text-align: left;
-	background-color: var(--global--color-background);
+	background-color: $global--color-background;
 }
 
 

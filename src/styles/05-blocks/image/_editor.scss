@@ -12,9 +12,9 @@
 
 .wp-block-image.is-style-twentytwentyone-border img,
 .wp-block-image.is-style-twentytwentyone-image-frame img {
-	border: calc(3 * var(--separator--height)) solid var(--global--color-border);
+	border: calc(3 * 1px) solid $global--color-border;
 }
 
 .wp-block-image.is-style-twentytwentyone-image-frame img {
-	padding: var(--global--spacing-unit);
+	padding: $global--spacing-unit;
 }

@@ -7,12 +7,12 @@
 	justify-content: space-between;
 	position: absolute;
 	right: 0;
-	padding-top: calc(0.5 * var(--global--spacing-vertical));
-	padding-bottom: calc(0.25 * var(--global--spacing-vertical));
+	padding-top: calc(0.5 * #{$global--spacing-vertical});
+	padding-bottom: calc(0.25 * #{$global--spacing-vertical});
 
 	#primary-mobile-menu {
 		margin-left: auto;
-		padding: calc(var(--button--padding-vertical) - (0.25 * var(--global--spacing-unit))) calc(0.5 * var(--button--padding-horizontal));
+		padding: calc(#{$button--padding-vertical} - (0.25 * #{$global--spacing-unit})) calc(0.5 * #{$button--padding-horizontal});
 	}
 
 	@include media(mobile-only) {
@@ -22,18 +22,18 @@
 	// Override specificty from default button styles.
 	.button.button {
 		display: flex;
-		font-size: var(--primary-nav--font-size-button);
-		font-weight: var(--primary-nav--font-weight-button);
+		font-size: $global--font-size-xs;
+		font-weight: 500;
 		background-color: transparent;
 		border: none;
-		color: var(--primary-nav--color-link);
+		color: $primary-nav--color-link;
 
 		.dropdown-icon {
 			display: flex;
 			align-items: center;
 
 			.svg-icon {
-				margin-left: calc(0.25 * var(--global--spacing-unit));
+				margin-left: calc(0.25 * #{$global--spacing-unit});
 			}
 
 			// Menu icon is off-center vertically to prevent blurry pixels.
@@ -71,7 +71,7 @@
 	.primary-navigation-open & {
 		width: 100%;
 		z-index: 500;
-		background-color: var(--global--color-background);
+		background-color: $global--color-background;
 
 		#primary-mobile-menu {
 			position: static;
@@ -81,10 +81,10 @@
 
 .primary-navigation {
 	position: absolute;
-	top: var(--global--admin-bar--height);
+	top: $global--admin-bar--height;
 	right: 0;
-	color: var(--primary-nav--color-text);
-	font-size: var(--primary-nav--font-size);
+	color: $primary-nav--color-text;
+	font-size: $primary-nav--font-size;
 	line-height: 1.15;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -99,13 +99,13 @@
 		bottom: 0;
 		left: 0;
 		// Height of the menu-button-container using font size, line height, and total padding, plus 5px so the focus of the first item is visible.
-		padding-top: calc(var(--button--line-height) * var(--primary-nav--font-size-button) + 42px + 5px);
-		padding-left: var(--global--spacing-unit);
-		padding-right: var(--global--spacing-unit);
-		padding-bottom: var(--global--spacing-horizontal);
-		background-color: var(--global--color-background);
+		padding-top: calc(1.5 * #{$global--font-size-xs} + 42px + 5px);
+		padding-left: $global--spacing-unit;
+		padding-right: $global--spacing-unit;
+		padding-bottom: $global--spacing-horizontal;
+		background-color: $global--color-background;
 		transition: all .15s ease-in-out;
-		transform: translateY(var(--global--spacing-vertical));
+		transform: translateY($global--spacing-vertical);
 
 		@include media(mobile-only) {
 			height: 100vh;
@@ -120,15 +120,15 @@
 			}
 
 			.admin-bar .has-logo.has-title-and-tagline & {
-				top: var(--global--admin-bar--height);
+				top: $global--admin-bar--height;
 			}
 
 			.admin-bar & {
-				height: calc(100vh - var(--global--admin-bar--height));
+				height: calc(100vh - #{$global--admin-bar--height});
 			}
 
 			&:focus {
-				border: 2px solid var(--global--color-primary);
+				border: 2px solid $global--color-primary;
 			}
 		}
 	}
@@ -231,7 +231,7 @@
 		// Sub-menu buttons
 		.sub-menu-toggle {
 			display: flex;
-			height: calc(2 * var(--primary-nav--padding) + 1.15em + 1px);
+			height: calc(2 * #{$primary-nav--padding} + 1.15em + 1px);
 			width: 44px;
 			padding: 0;
 			justify-content: center;
@@ -241,7 +241,7 @@
 			border: none;
 
 			&:focus {
-				outline: 2px solid var(--wp--style--color--link, var(--global--color-primary));
+				outline: 2px solid var(--wp--style--color--link, $global--color-primary);
 			}
 
 			@include media(mobile-only) {
@@ -298,19 +298,19 @@
 					position: absolute;
 					width: 0;
 					top: -10px;
-					left: var(--global--spacing-horizontal);
+					left: $global--spacing-horizontal;
 					border-style: solid;
-					border-color: var(--primary-nav--border-color) transparent;
+					border-color: $primary-nav--border-color transparent;
 					border-width: 0 7px 10px 7px;
 				}
 
 				&:after {
 					top: -9px;
-					border-color: var(--global--color-background) transparent;
+					border-color: $global--color-background transparent;
 				}
 
 				li {
-					background: var(--global--color-background);
+					background: $global--color-background;
 				}
 
 				&.submenu-reposition-left {
@@ -325,7 +325,7 @@
 					&:after {
 
 						/* rtl:ignore */
-						left: var(--global--spacing-horizontal);
+						left: $global--spacing-horizontal;
 
 						/* rtl:ignore */
 						right: auto;
@@ -347,7 +347,7 @@
 						left: auto;
 
 						/* rtl:ignore */
-						right: var(--global--spacing-horizontal);
+						right: $global--spacing-horizontal;
 					}
 				}
 			}
@@ -356,25 +356,25 @@
 
 	// Top-level Item Link Colors
 	.primary-menu > .menu-item:hover > a {
-		color: var(--primary-nav--color-link-hover);
+		color: $primary-nav--color-link-hover;
 	}
 
 	.primary-menu-container {
 		@include media(mobile) {
 			// Better align with the site title when the menu wraps.
-			margin-right: calc(0px - var(--primary-nav--padding));
-			margin-left: calc(0px - var(--primary-nav--padding));
+			margin-right: calc(0 - #{$primary-nav--padding});
+			margin-left: calc(0 - #{$primary-nav--padding});
 
 			// Top-level Menu Item
 			> ul > .menu-item {
 				display: flex;
 
 				> a {
-					padding-left: var(--primary-nav--padding);
-					padding-right: var(--primary-nav--padding);
+					padding-left: $primary-nav--padding;
+					padding-right: $primary-nav--padding;
 
 					+ .sub-menu-toggle {
-						margin-left: calc(5px - var(--primary-nav--padding));
+						margin-left: calc(5px - #{$primary-nav--padding});
 					}
 				}
 			}
@@ -384,27 +384,27 @@
 	// Menu Item Link
 	a {
 		display: block;
-		font-family: var(--primary-nav--font-family-mobile);
-		font-size: var(--primary-nav--font-size-mobile);
-		font-weight: var(--primary-nav--font-weight);
-		padding: var(--primary-nav--padding) 0;
+		font-family: $global--font-primary;
+		font-size: $global--font-size-sm;
+		font-weight: normal;
+		padding: $primary-nav--padding 0;
 		text-decoration: none;
 
 		@include media(mobile) {
 			display: block;
-			font-family: var(--primary-nav--font-family);
-			font-size: var(--primary-nav--font-size);
-			font-weight: var(--primary-nav--font-weight);
+			font-family: $global--font-secondary;
+			font-size: $primary-nav--font-size;
+			font-weight: normal;
 		}
 
 		+ svg {
-			fill: var(--primary-nav--color-text);
+			fill: $primary-nav--color-text;
 		}
 
 		&:hover,
 		&:link,
 		&:visited {
-			color: var(--primary-nav--color-link-hover);
+			color: $primary-nav--color-link-hover;
 		}
 
 		&:hover {
@@ -436,8 +436,8 @@
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		margin-left: var(--primary-nav--padding);
-		border: 1px solid var(--primary-nav--border-color);
+		margin-left: $primary-nav--padding;
+		border: 1px solid $primary-nav--border-color;
 
 		.sub-menu {
 			border: none;
@@ -463,14 +463,14 @@
 			}
 
 			> a {
-				padding: calc(1.25 * var(--primary-nav--padding)) var(--primary-nav--padding);
+				padding: calc(1.25 * #{$primary-nav--padding}) $primary-nav--padding;
 				display: block;
-				font-size: var(--primary-nav--font-size-sub-menu-mobile);
-				font-style: var(--primary-nav--font-style-sub-menu-mobile);
+				font-size: $global--font-size-sm;
+				font-style: normal;
 
 				@include media(mobile) {
-					font-size: var(--primary-nav--font-size-sub-menu);
-					font-style: var(--primary-nav--font-style);
+					font-size: $global--font-size-xs;
+					font-style: normal;
 				}
 			}
 		}
@@ -500,7 +500,7 @@
 	.menu-item-description {
 		display: block;
 		clear: both;
-		font-size: var(--global--font-size-xs);
+		font-size: $global--font-size-xs;
 		text-transform: none;
 		line-height: 1.7;
 

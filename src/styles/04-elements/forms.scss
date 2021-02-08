@@ -13,19 +13,19 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 .site textarea {
-	border: var(--form--border-width) solid var(--form--border-color);
-	border-radius: var(--form--border-radius);
-	color: var(--form--color-text);
-	line-height: var(--global--line-height-body);
-	padding: var(--form--spacing-unit);
+	border: $form--border-width solid $form--border-color;
+	border-radius: $form--border-radius;
+	color: $form--color-text;
+	line-height: $global--line-height-body;
+	padding: $form--spacing-unit;
 	// Gives a little more space for the outline offset.
 	margin: 0 2px;
 	max-width: 100%;
 
 	&:focus {
-		color: var(--form--color-text);
+		color: $form--color-text;
 		outline-offset: 2px;
-		outline: 2px dotted var(--form--border-color);
+		outline: 2px dotted $form--border-color;
 	}
 
 	&:disabled {
@@ -33,7 +33,7 @@ input[type="color"],
 	}
 
 	.is-dark-theme & {
-		background: var(--global--color-white-90);
+		background: $global--color-white-90;
 	}
 }
 
@@ -44,14 +44,14 @@ input[type="search"] {
 		outline-offset: -7px;
 
 		.is-dark-theme & {
-			outline-color: var(--global--color-background);
+			outline-color: $global--color-background;
 		}
 	}
 }
 
 input[type="color"] {
-	padding: calc(var(--form--spacing-unit) / 2);
-	height: calc(4 * var(--form--spacing-unit));
+	padding: calc(#{$form--spacing-unit} / 2);
+	height: calc(4 * #{$form--spacing-unit});
 }
 
 input[type="email"],
@@ -62,24 +62,24 @@ input[type="url"] {
 }
 
 select {
-	border: var(--form--border-width) solid var(--form--border-color);
-	color: var(--form--color-text);
+	border: $form--border-width solid $form--border-color;
+	color: $form--color-text;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
-	line-height: var(--global--line-height-body);
-	padding: var(--form--spacing-unit) calc(3 * var(--form--spacing-unit)) var(--form--spacing-unit) var(--form--spacing-unit);
-	background: var(--global--color-white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2328303d'><polygon points='0,0 10,0 5,5'/></svg>") no-repeat; // stylelint-disable-line function-url-quotes
-	background-position: right var(--form--spacing-unit) top 60%;
+	line-height: $global--line-height-body;
+	padding: $form--spacing-unit calc(3 * #{$form--spacing-unit}) $form--spacing-unit $form--spacing-unit;
+	background: $global--color-white url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2328303d'><polygon points='0,0 10,0 5,5'/></svg>") no-repeat; // stylelint-disable-line function-url-quotes
+	background-position: right $form--spacing-unit top 60%;
 
 	&:focus {
 		outline-offset: 2px;
-		outline: 2px dotted var(--form--border-color);
+		outline: 2px dotted $form--border-color;
 	}
 
 	.is-dark-theme & {
-		background: var(--global--color-white-90) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2328303d'><polygon points='0,0 10,0 5,5'/></svg>") no-repeat; // stylelint-disable-line function-url-quotes
-		background-position: right var(--form--spacing-unit) top 60%;
+		background: $global--color-white-90 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2328303d'><polygon points='0,0 10,0 5,5'/></svg>") no-repeat; // stylelint-disable-line function-url-quotes
+		background-position: right $form--spacing-unit top 60%;
 	}
 }
 
@@ -88,9 +88,9 @@ textarea {
 }
 
 label {
-	font-size: var(--form--font-size);
-	font-weight: var(--form--label-weight);
-	margin-bottom: calc(var(--global--spacing-vertical) / 3);
+	font-size: $form--font-size;
+	font-weight: $form--label-weight;
+	margin-bottom: calc(#{$global--spacing-vertical} / 3);
 }
 
 /**
@@ -107,15 +107,15 @@ License: MIT.
 		position: relative;
 		width: 25px;
 		height: 25px;
-		border: var(--form--border-width) solid var(--form--border-color);
-		background: var(--global--color-white);
+		border: $form--border-width solid $form--border-color;
+		background: $global--color-white;
 
 		&:disabled {
 			opacity: 0.7;
 		}
 
 		.is-dark-theme & {
-			background: var(--global--color-white-90);
+			background: $global--color-white-90;
 		}
 	}
 
@@ -123,7 +123,7 @@ License: MIT.
 
 		&:focus {
 			outline-offset: 2px;
-			outline: 2px dotted var(--form--border-color);
+			outline: 2px dotted $form--border-color;
 		}
 
 		&:after {
@@ -135,14 +135,14 @@ License: MIT.
 			position: absolute;
 			width: 7px;
 			height: 13px;
-			border: 3px solid var(--form--color-text);
+			border: 3px solid $form--color-text;
 			border-top: 0;
 			border-left: 0;
 			transform: rotate(30deg);
 		}
 
 		&:checked {
-			color: var(--form--color-text);
+			color: $form--color-text;
 
 			&:after {
 				opacity: 1;
@@ -155,7 +155,7 @@ License: MIT.
 
 		&:focus {
 			outline-offset: 2px;
-			outline: 2px dotted var(--form--border-color);
+			outline: 2px dotted $form--border-color;
 		}
 
 		&:after {
@@ -168,11 +168,11 @@ License: MIT.
 			width: 11px;
 			height: 11px;
 			border-radius: 50%;
-			background: var(--form--color-text);
+			background: $form--color-text;
 		}
 
 		&:checked {
-			border: 4px solid var(--form--border-color);
+			border: 4px solid $form--border-color;
 
 			&:after {
 				opacity: 1;
@@ -181,7 +181,7 @@ License: MIT.
 			// Focus style for checked radio buttons.
 			&:focus {
 				outline-offset: 4px;
-				outline: 2px dotted var(--form--border-color);
+				outline: 2px dotted $form--border-color;
 			}
 		}
 	}
@@ -191,7 +191,7 @@ input[type="checkbox"] + label,
 input[type="radio"] + label {
 	display: inline-block;
 	padding-left: 10px;
-	font-size: var(--global--font-size-xs);
+	font-size: $global--font-size-xs;
 	vertical-align: top;
 }
 
@@ -204,7 +204,7 @@ input[type="radio"] + label {
 		-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
 		width: 100%; /* Specific width is required for Firefox. */
 		height: 6px;
-		background: var(--form--color-ranged);
+		background: $form--color-ranged;
 		border-radius: 6px;
 		outline-offset: 10px;
 
@@ -215,20 +215,20 @@ input[type="radio"] + label {
 
 	input[type="range"]::-webkit-slider-thumb {
 		-webkit-appearance: none;
-		border: 3px solid var(--form--color-ranged);
+		border: 3px solid $form--color-ranged;
 		height: 44px;
 		width: 44px;
 		border-radius: 50%;
-		background: var(--global--color-background);
+		background: $global--color-background;
 		cursor: pointer;
 	}
 
 	input[type="range"]::-moz-range-thumb {
-		border: 3px solid var(--form--color-ranged);
+		border: 3px solid $form--color-ranged;
 		height: 44px;
 		width: 44px;
 		border-radius: 50%;
-		background: var(--global--color-background);
+		background: $global--color-background;
 		cursor: pointer;
 		box-sizing: border-box;
 	}
@@ -239,38 +239,38 @@ input[type="range"]::-ms-track {
 	height: 6px;
 	border-radius: 6px;
 	border-width: 19px 0;
-	border-color: var(--global--color-background);
+	border-color: $global--color-background;
 	background: transparent;
 	color: transparent;
 	cursor: pointer;
 }
 
 input[type="range"]::-ms-fill-upper {
-	background: var(--form--color-ranged);
+	background: $form--color-ranged;
 	border-radius: 6px;
 }
 
 input[type="range"]::-ms-fill-lower {
-	background: var(--form--color-ranged);
+	background: $form--color-ranged;
 	border-radius: 6px;
 }
 
 input[type="range"]::-ms-thumb {
-	border: 3px solid var(--form--color-ranged);
+	border: 3px solid $form--color-ranged;
 	height: 44px;
 	width: 44px;
 	border-radius: 50%;
-	background: var(--global--color-background);
+	background: $global--color-background;
 	cursor: pointer;
 }
 
 fieldset {
 	display: grid;
-	border-color: var(--global--color-secondary);
-	padding: var(--global--spacing-horizontal);
+	border-color: $global--color-secondary;
+	padding: $global--spacing-horizontal;
 
 	legend {
-		font-size: var(--global--font-size-lg);
+		font-size: $global--font-size-lg;
 	}
 
 	input {
@@ -280,7 +280,7 @@ fieldset {
 		}
 
 		&:not([type="submit"]) {
-			margin-bottom: var(--global--spacing-unit);
+			margin-bottom: $global--spacing-unit;
 		}
 
 		&[type="radio"],
@@ -290,9 +290,9 @@ fieldset {
 
 		&[type="radio"] + label,
 		&[type="checkbox"] + label {
-			font-size: var(--form--font-size);
+			font-size: $form--font-size;
 			padding-left: 0;
-			margin-bottom: var(--global--spacing-unit);
+			margin-bottom: $global--spacing-unit;
 		}
 	}
 }
@@ -302,7 +302,7 @@ fieldset {
 }
 
 .post-password-message {
-	font-size: var(--global--font-size-lg);
+	font-size: $global--font-size-lg;
 }
 
 .post-password-form {
@@ -316,14 +316,14 @@ fieldset {
 
 	input[type="password"] {
 		flex-grow: 1;
-		margin-top: calc(var(--global--spacing-vertical) / 3);
-		margin-right: calc(0.66 * var(--global--spacing-horizontal));
+		margin-top: calc(#{$global--spacing-vertical} / 3);
+		margin-right: calc(0.66 * #{$global--spacing-horizontal});
 	}
 
 	&__submit {
-		margin-top: calc(var(--global--spacing-vertical) / 3);
+		margin-top: calc(#{$global--spacing-vertical} / 3);
 		@include media(tablet) {
-			margin-left: calc(0.4 * var(--global--spacing-horizontal));
+			margin-left: calc(0.4 * #{$global--spacing-horizontal});
 		}
 	}
 }

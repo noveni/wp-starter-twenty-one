@@ -7,7 +7,7 @@
 	@include media(mobile-only) {
 
 		&[style] {
-			height: var(--global--spacing-unit) !important;
+			height: $global--spacing-unit !important;
 		}
 	}
 }

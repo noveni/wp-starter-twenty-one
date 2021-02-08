@@ -1,7 +1,7 @@
 .wp-block-pullquote {
-	padding: calc(2 * var(--global--spacing-unit)) 0;
+	padding: calc(2 * #{$global--spacing-unit}) 0;
 	text-align: center;
-	border-width: var(--pullquote--border-width);
+	border-width: 3px;
 	border-bottom-style: solid;
 	border-top-style: solid;
 	color: currentColor;
@@ -20,12 +20,12 @@
 	}
 
 	p {
-		font-family: var(--pullquote--font-family);
-		font-size: var(--pullquote--font-size);
-		font-style: var(--pullquote--font-style);
+		font-family: $global--font-primary;
+		font-size: $heading--font-size-h3;
+		font-style: normal;
 		font-weight: 700;
-		letter-spacing: var(--pullquote--letter-spacing);
-		line-height: var(--pullquote--line-height);
+		letter-spacing: normal;
+		line-height: 1.3;
 		margin: 0;
 	}
 
@@ -38,8 +38,8 @@
 	footer {
 		color: currentColor;
 		display: block;
-		font-size: var(--global--font-size-xs);
-		font-style: var(--pullquote--font-style);
+		font-size: $global--font-size-xs;
+		font-style: normal;
 		text-transform: none;
 	}
 
@@ -65,18 +65,18 @@
 
 	&.alignfull:not(.is-style-solid-color) > p,
 	&.alignfull:not(.is-style-solid-color) blockquote {
-		padding: 0 calc(2 * var(--global--spacing-unit));
+		padding: 0 calc(2 * #{$global--spacing-unit});
 	}
 
 	&.is-style-solid-color {
-		color: var(--pullquote--color-foreground);
-		padding: calc(2.5 * var(--global--spacing-unit));
-		border-width: var(--pullquote--border-width);
+		color: $global--color-primary;
+		padding: calc(2.5 * #{$global--spacing-unit});
+		border-width: 3px;
 		border-style: solid;
-		border-color: var(--pullquote--border-color);
+		border-color: $global--color-primary;
 
 		@media (min-width: 600px) {
-			padding: calc(5 * var(--global--spacing-unit));
+			padding: calc(5 * #{$global--spacing-unit});
 		}
 
 		blockquote::before {
@@ -88,7 +88,7 @@
 			max-width: inherit;
 
 			p {
-				font-size: var(--pullquote--font-size);
+				font-size: $heading--font-size-h3;
 			}
 		}
 
@@ -100,7 +100,7 @@
 
 		&.alignleft,
 		&.alignright {
-			padding: var(--global--spacing-unit);
+			padding: $global--spacing-unit;
 
 			blockquote {
 				max-width: initial;

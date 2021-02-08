@@ -4,8 +4,8 @@
 .comments-area {
 
 	> * {
-		margin-top: var(--global--spacing-vertical);
-		margin-bottom: var(--global--spacing-vertical);
+		margin-top: $global--spacing-vertical;
+		margin-bottom: $global--spacing-vertical;
 
 		&:first-child {
 			margin-top: 0;
@@ -42,8 +42,8 @@
 
 .comments-title,
 .comment-reply-title {
-	font-size: var(--heading--font-size-h2);
-	letter-spacing: var(--heading--letter-spacing-h2);
+	font-size: $heading--font-size-h2;
+	letter-spacing: $heading--letter-spacing-h2;
 }
 
 .comment-reply-title {
@@ -53,8 +53,8 @@
 	small {
 
 		a {
-			font-family: var(--global--font-secondary);
-			font-size: var(--global--font-size-xs);
+			font-family: $global--font-secondary;
+			font-size: $global--font-size-xs;
 			font-style: normal;
 			font-weight: normal;
 			letter-spacing: normal;
@@ -64,7 +64,7 @@
 
 /* Nested comment reply title*/
 .comment .comment-respond .comment-reply-title {
-	font-size: var(--global--font-size-lg);
+	font-size: $global--font-size-lg;
 }
 
 /**
@@ -75,8 +75,8 @@
 	list-style: none;
 
 	> li {
-		margin-top: var(--global--spacing-vertical);
-		margin-bottom: var(--global--spacing-vertical);
+		margin-top: $global--spacing-vertical;
+		margin-bottom: $global--spacing-vertical;
 	}
 
 }
@@ -86,8 +86,8 @@
 	padding-left: 0;
 
 	> li {
-		margin-top: var(--global--spacing-vertical);
-		margin-bottom: var(--global--spacing-vertical);
+		margin-top: $global--spacing-vertical;
+		margin-bottom: $global--spacing-vertical;
 	}
 
 }
@@ -95,7 +95,7 @@
 .comment-list .depth-2,
 .comment-list .depth-3 {
 	@include media(mobile) {
-		padding-left: calc(4 * var(--global--spacing-horizontal));
+		padding-left: calc(4 * #{$global--spacing-horizontal});
 	}
 }
 
@@ -105,8 +105,8 @@
 .comment-meta {
 
 	.comment-author {
-		line-height: var(--global--line-height-heading);
-		margin-bottom: calc(0.25 * var(--global--spacing-unit));
+		line-height: $global--line-height-heading;
+		margin-bottom: calc(0.25 * #{$global--spacing-unit});
 
 		@include media(mobile) {
 			margin-bottom: 0;
@@ -114,9 +114,9 @@
 		}
 
 		.fn {
-			font-family: var(--global--font-secondary);
+			font-family: $global--font-secondary;
 			font-weight: normal;
-			font-size: var(--global--font-size-lg);
+			font-size: $global--font-size-lg;
 			hyphens: auto;
 			word-wrap: break-word;
 			word-break: break-word;
@@ -125,12 +125,12 @@
 	}
 
 	.comment-metadata {
-		color: var(--global--color-primary);
-		font-size: var(--global--font-size-xs);
+		color: $global--color-primary;
+		font-size: $global--font-size-xs;
 		padding: 8px 0 9px 0;
 
 		.edit-link {
-			margin-left: var(--global--spacing-horizontal);
+			margin-left: $global--spacing-horizontal;
 		}
 
 	}
@@ -145,8 +145,8 @@
 }
 
 .reply {
-	font-size: var(--global--font-size-sm);
-	line-height: var(--global--line-height-heading);
+	font-size: $global--font-size-sm;
+	line-height: $global--line-height-heading;
 }
 
 .bypostauthor {
@@ -159,17 +159,17 @@
 
 .pingback .url,
 .trackback .url {
-	font-family: var(--global--font-primary);
+	font-family: $global--font-primary;
 }
 
 // Comment body
 .comment-body {
 	position: relative;
-	margin-bottom: calc(1.7 * var(--global--spacing-vertical));
+	margin-bottom: calc(1.7 * #{$global--spacing-vertical});
 
 	> * {
-		margin-top: var(--global--spacing-vertical);
-		margin-bottom: var(--global--spacing-vertical);
+		margin-top: $global--spacing-vertical;
+		margin-bottom: $global--spacing-vertical;
 	}
 
 	.reply {
@@ -184,17 +184,17 @@
 // Pingbacks & Trackbacks
 .pingback .comment-body,
 .trackback .comment-body {
-	margin-top: var(--global--spacing-vertical);
-	margin-bottom: var(--global--spacing-vertical);
+	margin-top: $global--spacing-vertical;
+	margin-bottom: $global--spacing-vertical;
 }
 
 .comment-respond {
-	margin-top: var(--global--spacing-vertical);
+	margin-top: $global--spacing-vertical;
 }
 
 .comment-respond > * {
-	margin-top: var(--global--spacing-unit);
-	margin-bottom: var(--global--spacing-unit);
+	margin-top: $global--spacing-unit;
+	margin-bottom: $global--spacing-unit;
 
 	&:first-child {
 		margin-top: 0;
@@ -204,7 +204,7 @@
 		margin-bottom: 0;
 
 		&.comment-form {
-			margin-bottom: var(--global--spacing-vertical);
+			margin-bottom: $global--spacing-vertical;
 		}
 	}
 }
@@ -226,7 +226,7 @@
 	}
 
 	.comment-notes {
-		font-size: var(--global--font-size-sm);
+		font-size: $global--font-size-sm;
 	}
 
 	.comment-form-url,
@@ -246,13 +246,13 @@
 
 	.comment-form-cookies-consent > label,
 	.comment-notes {
-		font-size: var(--global--font-size-xs);
+		font-size: $global--font-size-xs;
 		font-weight: normal;
 	}
 }
 
 .comment-form > p {
-	margin-bottom: var(--global--spacing-unit);
+	margin-bottom: $global--spacing-unit;
 
 	&:first-of-type {
 		margin-top: 0;
@@ -268,10 +268,10 @@
 	input[type="url"],
 	textarea {
 		display: block;
-		font-size: var(--global--font-size-sm);
-		margin-bottom: calc(.5 * var(--global--spacing-unit));
+		font-size: $global--font-size-sm;
+		margin-bottom: calc(.5 * #{$global--spacing-unit});
 		width: 100%;
-		font-weight: var(--form--label-weight);
+		font-weight: $form--label-weight;
 	}
 
 	&.comment-form-cookies-consent {
@@ -281,7 +281,7 @@
 	@include media(mobile) {
 
 		&.comment-form-author {
-			margin-right: calc(1.5 * var(--global--spacing-horizontal));
+			margin-right: calc(1.5 * #{$global--spacing-horizontal});
 		}
 
 		&.comment-notes,

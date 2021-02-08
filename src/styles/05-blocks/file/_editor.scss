@@ -17,7 +17,7 @@
 		display: inline-block;
 
 		&:hover {
-			color: var(--button--color-text-hover);
+			color: $button--color-text-hover;
 			background: transparent;
 		}
 	}

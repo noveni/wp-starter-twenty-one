@@ -1,14 +1,14 @@
 html {
-	font-family: var(--global--font-secondary);
-	line-height: var(--global--line-height-body);
+	font-family: $global--font-secondary;
+	line-height: $global--line-height-body;
 }
 
 body {
-	--wp--typography--line-height: var(--global--line-height-body);
-	color: var(--global--color-primary);
-	background-color: var(--global--color-background);
-	font-family: var(--global--font-secondary);
-	font-size: var(--global--font-size-base);
+	--wp--typography--line-height: $global--line-height-body;
+	color: $global--color-primary;
+	background-color: $global--color-background;
+	font-family: $global--font-secondary;
+	font-size: $global--font-size-base;
 	font-weight: normal;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -16,14 +16,14 @@ body {
 
 // Links styles
 .wp-block a {
-	color: var(--wp--style--color--link, var(--global--color-primary));
+	color: var(--wp--style--color--link, $global--color-primary);
 
 	&:hover {
 		text-decoration-style: dotted;
 	}
 
 	&:focus {
-		outline: 2px solid var(--wp--style--color--link, var(--global--color-primary));
+		outline: 2px solid var(--wp--style--color--link, $global--color-primary);
 		text-decoration: none;
 	}
 }
@@ -34,7 +34,7 @@ body {
 	// Target both current level and nested block.
 	.has-link-color a,
 	&.has-link-color a {
-		color: var(--wp--style--color--link, var(--global--color-primary));
+		color: var(--wp--style--color--link, $global--color-primary);
 	}
 }
 

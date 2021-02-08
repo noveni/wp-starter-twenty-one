@@ -7,12 +7,12 @@ table,
 	}
 
 	th {
-		font-family: var(--heading--font-family);
+		font-family: $heading--font-family;
 	}
 
 	td,
 	th {
-		padding: calc(0.5 * var(--global--spacing-unit));
+		padding: calc(0.5 * #{$global--spacing-unit});
 	}
 
 	&.is-style-regular .has-background,
@@ -20,11 +20,11 @@ table,
 	&.is-style-stripes .has-background thead tr,
 	&.is-style-stripes .has-background tfoot tr,
 	&.is-style-stripes .has-background tbody tr {
-		color: var(--table--has-background-text-color);
+		color: $global--color-primary;
 	}
 
 	&.is-style-stripes {
-		border-color: var(--table--stripes-border-color);
+		border-color: $global--color-secondary;
 
 		th,
 		td {
@@ -32,11 +32,11 @@ table,
 		}
 
 		tbody tr:nth-child(odd) {
-			background-color: var(--table--stripes-background-color);
+			background-color: $global--color-light-gray;
 		}
 
 		.has-background tbody tr:nth-child(odd) {
-			background-color: var(--global--color-white-90);
+			background-color: $global--color-white-90;
 		}
 	}
 }
@@ -65,14 +65,14 @@ table.wp-calendar-table {
 	caption {
 		font-weight: bold;
 		text-align: left;
-		margin-bottom: var(--global--spacing-unit);
+		margin-bottom: $global--spacing-unit;
 		color: currentColor;
 	}
 }
 
 .wp-calendar-nav {
 	text-align: left;
-	margin-top: calc(var(--global--spacing-unit) / 2);
+	margin-top: calc(#{$global--spacing-unit} / 2);
 
 	svg {
 		height: 1em;

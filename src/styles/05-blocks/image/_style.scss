@@ -2,20 +2,20 @@
 	text-align: center;
 
 	figcaption {
-		color: var(--global--color-primary);
-		font-size: var(--global--font-size-xs);
-		line-height: var(--global--line-height-body);
-		margin-top: calc(0.5 * var(--global--spacing-unit));
-		margin-bottom: var(--global--spacing-unit);
+		color: $global--color-primary;
+		font-size: $global--font-size-xs;
+		line-height: $global--line-height-body;
+		margin-top: calc(0.5 * #{$global--spacing-unit});
+		margin-bottom: $global--spacing-unit;
 		text-align: center;
 	}
 
 	.alignright {
-		margin-left: var(--global--spacing-horizontal);
+		margin-left: $global--spacing-horizontal;
 	}
 
 	.alignleft {
-		margin-right: var(--global--spacing-horizontal);
+		margin-right: $global--spacing-horizontal;
 	}
 
 	a:focus img {
@@ -44,11 +44,11 @@ img {
 // Block Styles
 .wp-block-image.is-style-twentytwentyone-border img,
 .wp-block-image.is-style-twentytwentyone-image-frame img {
-	border: calc(3 * var(--separator--height)) solid var(--global--color-border);
+	border: calc(3 * 1px) solid $global--color-border;
 }
 
 .wp-block-image.is-style-twentytwentyone-image-frame img {
-	padding: var(--global--spacing-unit);
+	padding: $global--spacing-unit;
 }
 
 .entry-content {

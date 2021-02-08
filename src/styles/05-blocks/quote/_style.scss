@@ -3,8 +3,8 @@
 
 	&:before {
 		content: "\201C";
-		font-size: var(--quote--font-size);
-		line-height: var(--quote--line-height);
+		font-size: $global--font-size-md;
+		line-height: $global--line-height-body;
 		left: 8px;
 	}
 
@@ -24,7 +24,7 @@
 	 * Block Options
 	 */
 	&.has-text-align-right {
-		margin: var(--global--spacing-vertical) var(--global--spacing-horizontal) var(--global--spacing-vertical) auto;
+		margin: $global--spacing-vertical $global--spacing-horizontal $global--spacing-vertical auto;
 		padding-right: 0;
 		border-right: none;
 
@@ -36,15 +36,15 @@
 		// Align the quote left of the text.
 		p:before {
 			content: "\201D";
-			font-size: var(--quote--font-size);
+			font-size: $global--font-size-md;
 			font-weight: normal;
-			line-height: var(--quote--line-height);
+			line-height: $global--line-height-body;
 			margin-right: 5px;
 		}
 	}
 
 	&.has-text-align-center {
-		margin: var(--global--spacing-vertical) auto;
+		margin: $global--spacing-vertical auto;
 
 		&:before {
 			display: none;
@@ -57,19 +57,19 @@
 		padding-right: 0;
 
 		/* Resetting margins to match _block-container.scss */
-		margin-top: var(--global--spacing-vertical);
-		margin-bottom: var(--global--spacing-vertical);
+		margin-top: $global--spacing-vertical;
+		margin-bottom: $global--spacing-vertical;
 
 		p {
-			font-size: var(--quote--font-size-large);
-			font-style: var(--quote--font-style-large);
-			line-height: var(--quote--line-height-large);
+			font-size: $global--font-size-xl;
+			font-style: normal;
+			line-height: 1.35;
 		}
 
 		&:before {
-			font-size: var(--quote--font-size-large);
-			line-height: var(--quote--line-height-large);
-			left: calc(-1 * var(--global--spacing-horizontal));
+			font-size: $global--font-size-xl;
+			line-height: 1.35;
+			left: calc(-1 * #{$global--spacing-horizontal});
 		}
 
 		&.has-text-align-right {
@@ -82,9 +82,9 @@
 			// Align the quote left of the text.
 			p:before {
 				content: "\201D";
-				font-size: var(--quote--font-size-large);
+				font-size: $global--font-size-xl;
 				font-weight: normal;
-				line-height: var(--quote--line-height-large);
+				line-height: 1.35;
 				margin-right: 10px;
 			}
 		}
@@ -92,12 +92,12 @@
 		.wp-block-quote__citation,
 		cite,
 		footer {
-			color: var(--global--color-primary);
-			font-size: var(--global--font-size-sm);
+			color: $global--color-primary;
+			font-size: $global--font-size-sm;
 		}
 
 		@include media(mobile-only) {
-			padding-left: var(--global--spacing-horizontal);
+			padding-left: $global--spacing-horizontal;
 
 			&:before {
 				left: 0;
@@ -105,7 +105,7 @@
 
 			&.has-text-align-right {
 				padding-left: 0;
-				padding-right: var(--global--spacing-horizontal);
+				padding-right: $global--spacing-horizontal;
 
 				&:before {
 					right: 0;
@@ -123,7 +123,7 @@
 
 		&.has-text-align-right {
 			padding-left: 0;
-			padding-right: calc(0.5 * var(--global--spacing-horizontal));
+			padding-right: calc(0.5 * #{$global--spacing-horizontal});
 
 			&:before {
 				right: 0;

@@ -20,17 +20,17 @@
 // Button style
 // - Applies button styles to blocks and elements that share them.
 @mixin button-style() {
-	line-height: var(--button--line-height);
-	color: var(--button--color-text);
+	line-height: 1.5;
+	color: $button--color-text-hover;
 	cursor: pointer;
-	font-weight: var(--button--font-weight);
-	font-family: var(--button--font-family);
-	font-size: var(--button--font-size);
-	background-color: var(--button--color-background);
-	border-radius: var(--button--border-radius);
-	border: var(--button--border-width) solid var(--button--color-background);
+	font-weight: 500;
+	font-family: $global--font-primary;
+	font-size: $global--font-size-base;
+	background-color: $button--color-background;
+	border-radius: 0;
+	border: $button--border-width solid $button--color-background;
 	text-decoration: none;
-	padding: var(--button--padding-vertical) var(--button--padding-horizontal);
+	padding: $button--padding-vertical $button--padding-horizontal;
 
 	&:focus {
 		background: transparent;
@@ -38,18 +38,18 @@
 		outline: 2px dotted currentColor;
 
 		.is-dark-theme & {
-			color: var(--button--color-background);
+			color: $button--color-background;
 		}
 
 		&:not(.has-background) {
-			color: var(--button--color-text-hover);
+			color: $button--color-text-hover;
 		}
 	}
 
 	&:disabled {
-		background-color: var(--global--color-white-50);
-		border-color: var(--global--color-white-50);
-		color: var(--button--color-text-active);
+		background-color: $global--color-white-50;
+		border-color: $global--color-white-50;
+		color: $button--color-text-active;
 	}
 }
 

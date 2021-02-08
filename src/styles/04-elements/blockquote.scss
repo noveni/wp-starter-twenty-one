@@ -1,11 +1,11 @@
 blockquote {
 	padding: 0;
 	position: relative;
-	margin: var(--global--spacing-vertical) 0 var(--global--spacing-vertical) var(--global--spacing-horizontal);
+	margin: $global--spacing-vertical 0 $global--spacing-vertical $global--spacing-horizontal;
 
 	> * {
-		margin-top: var(--global--spacing-unit);
-		margin-bottom: var(--global--spacing-unit);
+		margin-top: $global--spacing-unit;
+		margin-bottom: $global--spacing-unit;
 
 		&:first-child {
 			margin-top: 0;
@@ -17,20 +17,20 @@ blockquote {
 	}
 
 	p {
-		letter-spacing: var(--heading--letter-spacing-h4);
-		font-family: var(--quote--font-family);
-		font-size: var(--quote--font-size);
-		font-style: var(--quote--font-style);
-		font-weight: var(--quote--font-weight);
-		line-height: var(--quote--line-height);
+		letter-spacing: $heading--letter-spacing-h4;
+		font-family: $global--font-secondary;
+		font-size: $global--font-size-md;
+		font-style: normal;
+		font-weight: 700;
+		line-height: $global--line-height-body;
 	}
 
 	cite,
 	footer {
 		font-weight: normal;
-		color: var(--global--color-primary);
-		font-size: var(--global--font-size-xs);
-		letter-spacing: var(--global--letter-spacing);
+		color: $global--color-primary;
+		font-size: $global--font-size-xs;
+		letter-spacing: $global--letter-spacing;
 	}
 
 	&.alignleft,
@@ -39,40 +39,40 @@ blockquote {
 		padding-left: inherit;
 
 		p {
-			font-size: var(--heading--font-size-h5);
+			font-size: $heading--font-size-h5;
 			max-width: inherit;
 			width: inherit;
 		}
 
 		cite,
 		footer {
-			font-size: var(--global--font-size-xs);
-			letter-spacing: var(--global--letter-spacing);
+			font-size: $global--font-size-xs;
+			letter-spacing: $global--letter-spacing;
 		}
 	}
 
 	strong {
-		font-weight: var(--quote--font-weight-strong);
+		font-weight: bolder;
 	}
 
 	&:before {
 		content: "\201C";
-		font-size: var(--quote--font-size);
-		line-height: var(--quote--line-height);
+		font-size: $global--font-size-md;
+		line-height: $global--line-height-body;
 		position: absolute;
-		left: calc(-0.5 * var(--global--spacing-horizontal));
+		left: calc(-0.5 * #{$global--spacing-horizontal});
 	}
 
 	.wp-block-quote__citation,
 	cite,
 	footer {
-		color: var(--global--color-primary);
-		font-size: var(--global--font-size-xs);
-		font-style: var(--quote--font-style-cite);
+		color: $global--color-primary;
+		font-size: $global--font-size-xs;
+		font-style: normal;
 	}
 
 	@include media(mobile-only) {
-		padding-left: calc(0.5 * var(--global--spacing-horizontal));
+		padding-left: calc(0.5 * #{$global--spacing-horizontal});
 
 		&:before {
 			left: 0;

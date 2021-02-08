@@ -16,7 +16,7 @@
 	// End IE clearfix.
 
 	&.has-background {
-		padding: var(--global--spacing-vertical);
+		padding: $global--spacing-vertical;
 
 		[data-align="full"] & {
 			margin-top: 0;
@@ -26,13 +26,13 @@
 
 	// Block Styles
 	&.is-style-twentytwentyone-border {
-		border: calc(3 * var(--separator--height)) solid var(--global--color-border);
-		padding: var(--global--spacing-vertical);
+		border: calc(3 * 1px) solid $global--color-border;
+		padding: $global--spacing-vertical;
 
 		.wp-block-group__inner-container > [data-align="full"] {
-			max-width: calc(var(--responsive--alignfull-width) + (2 * var(--global--spacing-vertical)));
-			width: calc(var(--responsive--alignfull-width) + (2 * var(--global--spacing-vertical)));
-			margin-left: calc(-1 * var(--global--spacing-vertical));
+			max-width: calc(var(--responsive--alignfull-width) + (2 * #{$global--spacing-vertical}));
+			width: calc(var(--responsive--alignfull-width) + (2 * #{$global--spacing-vertical}));
+			margin-left: calc(-1 * #{$global--spacing-vertical});
 		}
 	}
 

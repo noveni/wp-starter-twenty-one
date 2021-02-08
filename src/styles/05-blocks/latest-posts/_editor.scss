@@ -3,8 +3,8 @@
 
 	// Vertical margins logic
 	&:not(.is-grid) > li {
-		margin-top: calc(1.666 * var(--global--spacing-vertical));
-		margin-bottom: calc(1.666 * var(--global--spacing-vertical));
+		margin-top: calc(1.666 * #{$global--spacing-vertical});
+		margin-bottom: calc(1.666 * #{$global--spacing-vertical});
 
 		&:first-child {
 			margin-top: 0;
@@ -20,7 +20,7 @@
 		word-break: break-word;
 
 		> li {
-			margin-bottom: var(--global--spacing-vertical);
+			margin-bottom: $global--spacing-vertical;
 
 			&:last-child {
 				margin-bottom: 0;
@@ -29,8 +29,8 @@
 	}
 
 	> li > * {
-		margin-top: calc(0.333 * var(--global--spacing-vertical));
-		margin-bottom: calc(0.333 * var(--global--spacing-vertical));
+		margin-top: calc(0.333 * #{$global--spacing-vertical});
+		margin-bottom: calc(0.333 * #{$global--spacing-vertical});
 
 		&:first-child {
 			margin-top: 0;
@@ -44,25 +44,25 @@
 	// Post title
 	> li > a {
 		display: inline-block;
-		font-family: var(--latest-posts--title-font-family);
-		font-size: var(--latest-posts--title-font-size);
-		font-weight: var(--heading--font-weight);
-		line-height: var(--global--line-height-heading);
-		margin-bottom: calc(0.333 * var(--global--spacing-vertical));
+		font-family: $heading--font-family;
+		font-size: $heading--font-size-h3;
+		font-weight: $heading--font-weight;
+		line-height: $global--line-height-heading;
+		margin-bottom: calc(0.333 * #{$global--spacing-vertical});
 	}
 
 	// Post author
 	.wp-block-latest-posts__post-author {
-		color: var(--global--color-primary);
-		font-size: var(--global--font-size-md);
-		line-height: var(--global--line-height-body);
+		color: $global--color-primary;
+		font-size: $global--font-size-md;
+		line-height: $global--line-height-body;
 	}
 
 	// Post date
 	.wp-block-latest-posts__post-date {
-		color: var(--global--color-primary);
-		font-size: var(--global--font-size-xs);
-		line-height: var(--global--line-height-body);
+		color: $global--color-primary;
+		font-size: $global--font-size-xs;
+		line-height: $global--line-height-body;
 
 		[class*="inner-container"] &,
 		.has-background & {
@@ -73,23 +73,23 @@
 	// Post content
 	.wp-block-latest-posts__post-excerpt,
 	.wp-block-latest-posts__post-full-content {
-		font-family: var(--latest-posts--description-font-family);
-		font-size: var(--latest-posts--description-font-size);
-		line-height: var(--global--line-height-body);
-		margin-top: calc(0.666 * var(--global--spacing-vertical));
+		font-family: $global--font-secondary;
+		font-size: $global--font-size-sm;
+		line-height: $global--line-height-body;
+		margin-top: calc(0.666 * #{$global--spacing-vertical});
 	}
 
 	// Block Styles
 	&.is-style-twentytwentyone-latest-posts-dividers {
-		border-top: calc(3 * var(--separator--height)) solid var(--global--color-border);
-		border-bottom: calc(3 * var(--separator--height)) solid var(--global--color-border);
+		border-top: calc(3 * 1px) solid $global--color-border;
+		border-bottom: calc(3 * 1px) solid $global--color-border;
 
 		&:not(.is-grid) > li,
 		> li {
-			padding-bottom: var(--global--spacing-vertical);
-			border-bottom: var(--separator--height) solid var(--global--color-border);
-			margin-top: var(--global--spacing-vertical);
-			margin-bottom: var(--global--spacing-vertical);
+			padding-bottom: $global--spacing-vertical;
+			border-bottom: 1px solid $global--color-border;
+			margin-top: $global--spacing-vertical;
+			margin-bottom: $global--spacing-vertical;
 
 			&:last-child {
 				padding-bottom: 0;
@@ -99,16 +99,16 @@
 
 		&.is-grid {
 			// Border moves up 1px to overlap the li borders in the last row.
-			box-shadow: inset 0 -1px 0 0 var(--global--color-border);
-			border-bottom: calc(2 * var(--separator--height)) solid var(--global--color-border);
+			box-shadow: inset 0 -1px 0 0 $global--color-border;
+			border-bottom: calc(2 * 1px) solid $global--color-border;
 
 			li {
 				margin: 0;
-				padding-top: var(--global--spacing-vertical);
-				padding-right: var(--global--spacing-horizontal);
+				padding-top: $global--spacing-vertical;
+				padding-right: $global--spacing-horizontal;
 
 				&:last-child {
-					padding-bottom: var(--global--spacing-vertical);
+					padding-bottom: $global--spacing-vertical;
 				}
 			}
 
@@ -116,6 +116,7 @@
 			// https://github.com/WordPress/gutenberg/blob/master/packages/block-library/src/latest-posts/style.scss#L28-L34
 			@media screen and (min-width: 600px) {
 				@for $i from 2 through 6 {
+
 					&.columns-#{ $i } li {
 						width: calc((100% / #{ $i }));
 					}
@@ -127,18 +128,18 @@
 	&.is-style-twentytwentyone-latest-posts-borders {
 
 		li {
-			border: calc(3 * var(--separator--height)) solid var(--global--color-border);
-			padding: var(--global--spacing-vertical) var(--global--spacing-horizontal);
+			border: calc(3 * 1px) solid $global--color-border;
+			padding: $global--spacing-vertical $global--spacing-horizontal;
 
 			&:last-child {
-				padding-bottom: var(--global--spacing-vertical);
-				margin-bottom: var(--global--spacing-vertical);
+				padding-bottom: $global--spacing-vertical;
+				margin-bottom: $global--spacing-vertical;
 			}
 		}
 
 		&:not(.is-grid) li {
-			margin-top: var(--global--spacing-horizontal);
-			margin-bottom: var(--global--spacing-horizontal);
+			margin-top: $global--spacing-horizontal;
+			margin-bottom: $global--spacing-horizontal;
 		}
 	}
 }

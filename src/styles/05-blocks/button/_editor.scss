@@ -14,11 +14,11 @@
 	margin-bottom: 0;
 
 	.wp-block-button:first-child {
-		margin-top: var(--global--spacing-vertical);
+		margin-top: $global--spacing-vertical;
 	}
 
 	.wp-block-button:last-child {
-		margin-bottom: var(--global--spacing-vertical);
+		margin-bottom: $global--spacing-vertical;
 	}
 }
 
@@ -30,15 +30,15 @@
 		.wp-block-button__link {
 
 			&:active {
-				color: var(--button--color-text-active) !important;
+				color: $button--color-text-active !important;
 				background: transparent !important;
-				border-color: var(--button--color-background);
+				border-color: $button--color-background;
 			}
 
 			&:hover {
-				color: var(--button--color-text-hover) !important;
+				color: $button--color-text-hover !important;
 				background: transparent !important;
-				border-color: var(--button--color-background);
+				border-color: $button--color-background;
 			}
 		}
 	}
@@ -47,35 +47,35 @@
 	&.is-style-outline {
 
 		.wp-block-button__link {
-			color: var(--button--color-background);
+			color: $button--color-background;
 			background: transparent;
-			border: var(--button--border-width) solid currentColor;
-			padding: var(--button--padding-vertical) var(--button--padding-horizontal);
+			border: $button--border-width solid currentColor;
+			padding: $button--padding-vertical $button--padding-horizontal;
 
 			&:active,
 			&:hover {
-				background-color: var(--button--color-background);
-				color: var(--button--color-text);
-				border-color: var(--button--color-background);
+				background-color: $button--color-background;
+				color: $button--color-text-hover;
+				border-color: $button--color-background;
 			}
 
 			&.has-background {
-				border-color: var(--button--color-background);
+				border-color: $button--color-background;
 
 				&:active,
 				&:hover {
-					background-color: var(--button--color-background) !important;
+					background-color: $button--color-background !important;
 				}
 			}
 
 			&.has-background:not(.has-text-color) {
-				color: var(--global--color-dark-gray);
+				color: $global--color-gray-alt;
 			}
 
 			&.has-background.has-gray-background-color:not(.has-text-color),
 			&.has-background.has-dark-gray-background-color:not(.has-text-color),
 			&.has-background.has-black-background-color:not(.has-text-color) {
-				color: var(--global--color-white);
+				color: $global--color-white;
 			}
 
 			.is-dark-theme & {
@@ -89,7 +89,7 @@
 					&.has-background.has-red-background-color,
 					&.has-background.has-orange-background-color,
 					&.has-background.has-yellow-background-color {
-						color: var(--global--color-dark-gray);
+						color: $global--color-gray-alt;
 					}
 				}
 			}
@@ -99,8 +99,8 @@
 
 				&:active,
 				&:hover {
-					color: var(--button--color-text) !important;
-					border-color: var(--button--color-background);
+					color: $button--color-text-hover !important;
+					border-color: $button--color-background;
 				}
 			}
 		}

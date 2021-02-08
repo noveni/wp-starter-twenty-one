@@ -1,19 +1,19 @@
 .page-title {
-	font-size: var(--global--font-size-page-title);
+	font-size: $global--font-size-page-title;
 }
 
 h1.page-title,
 h2.page-title {
-	font-weight: var(--heading--font-weight-page-title);
+	font-weight: $heading--font-weight-page-title;
 }
 
 h1.page-title {
-	line-height: var(--heading--line-height-h1);
+	line-height: $heading--line-height-h1;
 }
 
 .page-header {
-	border-bottom: 3px solid var(--global--color-border);
-	padding-bottom: calc(2 * var(--global--spacing-vertical));
+	border-bottom: 3px solid $global--color-border;
+	padding-bottom: calc(2 * #{$global--spacing-vertical});
 }
 
 .archive,
@@ -27,7 +27,7 @@ h1.page-title {
 		.format-link {
 
 			.entry-content {
-				font-size: var(--global--font-size-lg);
+				font-size: $global--font-size-lg;
 			}
 		}
 
@@ -38,7 +38,7 @@ h1.page-title {
 	.format-video {
 
 		.entry-content {
-			margin-top: calc(2 * var(--global--spacing-vertical));
+			margin-top: calc(2 * #{$global--spacing-vertical});
 		}
 	}
 
@@ -55,14 +55,14 @@ h1.page-title {
 		.entry-footer {
 
 			.posted-on {
-				margin-right: calc(0.5 * var(--global--spacing-unit));
+				margin-right: calc(0.5 * #{$global--spacing-unit});
 			}
 		}
 	}
 }
 
 .archive-description {
-	margin-top: var(--global--spacing-vertical);
-	font-size: var(--global--font-size-xl);
-	line-height: var(--global--line-height-heading);
+	margin-top: $global--spacing-vertical;
+	font-size: $global--font-size-xl;
+	line-height: $global--line-height-heading;
 }

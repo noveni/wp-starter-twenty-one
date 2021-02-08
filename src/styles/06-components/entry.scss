@@ -1,36 +1,36 @@
 .entry-title {
 
-	color: var(--entry-header--color);
-	font-size: var(--entry-header--font-size);
-	letter-spacing: var(--heading--letter-spacing-h2);
-	line-height: var(--heading--line-height-h2);
+	color: $global--color-primary;
+	font-size: $heading--font-size-h2;
+	letter-spacing: $heading--letter-spacing-h2;
+	line-height: $heading--line-height-h2;
 	overflow-wrap: break-word;
 
 	a {
-		color: var(--entry-header--color-link);
+		color: currentColor;
 		text-underline-offset: 0.15em;
 
 		&:hover {
-			color: var(--entry-header--color-hover);
+			color: $global--color-primary-hover;
 		}
 
 		&:focus {
-			color: var(--entry-header--color-focus);
+			color: $global--color-secondary;
 		}
 
 		&:active {
-			color: var(--entry-header--color-link);
+			color: currentColor;
 		}
 	}
 }
 
 .singular .entry-title {
-	font-size: var(--global--font-size-page-title);
+	font-size: $global--font-size-page-title;
 }
 
 h1.entry-title {
-	line-height: var(--heading--line-height-h1);
-	font-weight: var(--heading--font-weight-page-title);
+	line-height: $heading--line-height-h1;
+	font-weight: $heading--font-weight-page-title;
 }
 
 /**
@@ -39,7 +39,7 @@ h1.entry-title {
 
 .entry-content,
 .entry-summary {
-	font-family: var(--entry-content--font-family);
+	font-family: $global--font-secondary;
 }
 
 .entry-content {
@@ -51,7 +51,7 @@ h1.entry-title {
 	// Overwrite iframe embeds that have inline styles.
 	> iframe[style] {
 
-		margin: var(--global--spacing-vertical) 0 !important;
+		margin: $global--spacing-vertical 0 !important;
 		max-width: 100% !important;
 	}
 
@@ -63,10 +63,10 @@ h1.entry-title {
 
 .entry-footer {
 
-	color: var(--global--color-primary);
+	color: $global--color-primary;
 	clear: both;
 	float: none;
-	font-size: var(--global--font-size-xs);
+	font-size: $global--font-size-xs;
 	display: block;
 
 	> span {
@@ -78,7 +78,7 @@ h1.entry-title {
 
 		&:hover,
 		&:focus {
-			color: var(--global--color-primary-hover);
+			color: $global--color-primary-hover;
 		}
 
 		&:active {
@@ -89,26 +89,26 @@ h1.entry-title {
 
 // Extra specificity to override rules in _vertical-margins.scss
 .site-main > article > .entry-footer {
-	margin-top: var(--global--spacing-vertical);
-	padding-top: var(--global--spacing-unit);
-	padding-bottom: calc(3 * var(--global--spacing-vertical));
-	border-bottom: var(--separator--height) solid var(--separator--border-color);
+	margin-top: $global--spacing-vertical;
+	padding-top: $global--spacing-unit;
+	padding-bottom: calc(3 * #{$global--spacing-vertical});
+	border-bottom: 1px solid $global--color-border;
 }
 
 body:not(.single) .site-main > article:last-of-type .entry-footer {
-	border-bottom: var(--separator--height) solid transparent;
+	border-bottom: 1px solid transparent;
 }
 
 .single .site-main > article > .entry-footer {
-	margin-top: calc(3.4 * var(--global--spacing-vertical));
-	margin-bottom: calc(3.4 * var(--global--spacing-vertical));
+	margin-top: calc(3.4 * #{$global--spacing-vertical});
+	margin-bottom: calc(3.4 * #{$global--spacing-vertical});
 	padding-bottom: 0;
-	padding-top: calc(0.8 * var(--global--spacing-vertical));
-	border-top: 3px solid var(--separator--border-color);
-	border-bottom: var(--separator--height) solid transparent;
+	padding-top: calc(0.8 * #{$global--spacing-vertical});
+	border-top: 3px solid $global--color-border;
+	border-bottom: 1px solid transparent;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	column-gap: calc(2 * var(--global--spacing-horizontal));
+	column-gap: calc(2 * #{$global--spacing-horizontal});
 
 	.post-taxonomies,
 	.full-size-link {
@@ -160,7 +160,7 @@ body:not(.single) .site-main > article:last-of-type .entry-footer {
 		max-width: 100%;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: calc(2 * var(--global--spacing-vertical));
+		margin-top: calc(2 * #{$global--spacing-vertical});
 	}
 }
 
@@ -170,11 +170,11 @@ body:not(.single) .site-main > article:last-of-type .entry-footer {
 
 .author-bio {
 	position: relative;
-	font-size: var(--global--font-size-xs);
+	font-size: $global--font-size-xs;
 	max-width: var(--responsive--aligndefault-width);
 
 	.site-main > article > & {
-		margin-top: calc(2 * var(--global--spacing-vertical));
+		margin-top: calc(2 * #{$global--spacing-vertical});
 	}
 
 	// Avatars are optional and can be turned off.
@@ -188,7 +188,7 @@ body:not(.single) .site-main > article:last-of-type .entry-footer {
 
 		.author-bio-content {
 			display: inline-block;
-			padding-left: var(--global--spacing-horizontal);
+			padding-left: $global--spacing-horizontal;
 			max-width: calc(var(--responsive--aligndefault-width) - 90px);
 		}
 	}
@@ -196,15 +196,15 @@ body:not(.single) .site-main > article:last-of-type .entry-footer {
 	.author-bio-content {
 
 		.author-title {
-			font-family: var(--entry-author-bio--font-family);
-			font-size: var(--entry-author-bio--font-size);
+			font-family: $heading--font-family;
+			font-size: $heading--font-size-h4;
 			display: inline;
 		}
 
 		.author-description {
-			font-size: var(--global--font-size-xs);
-			margin-top: calc(0.5 * var(--global--spacing-vertical));
-			margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+			font-size: $global--font-size-xs;
+			margin-top: calc(0.5 * #{$global--spacing-vertical});
+			margin-bottom: calc(0.5 * #{$global--spacing-vertical});
 		}
 	}
 }

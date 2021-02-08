@@ -5,8 +5,8 @@
 		clear: both;
 	}
 
-	background-color: var(--cover--color-background);
-	min-height: var(--cover--height);
+	background-color: $global--color-black;
+	min-height: 30px;
 	margin-top: inherit;
 	margin-bottom: inherit;
 
@@ -28,7 +28,7 @@
 		}
 
 		.has-link-color a {
-			color: var(--wp--style--color--link, var(--global--color-primary));
+			color: var(--wp--style--color--link, $global--color-primary);
 		}
 	}
 
@@ -39,15 +39,15 @@
 		.wp-block-cover-image-text,
 		.wp-block-cover-text,
 		.block-editor-block-list__block {
-			color: var(--cover--color-foreground);
+			color: $global--color-white;
 		}
 	}
 
 	// Treating H2 separately to account for legacy /core styles
 	h2 {
-		font-size: var(--heading--font-size-h2);
-		letter-spacing: var(--heading--letter-spacing-h2);
-		line-height: var(--heading--line-height-h2);
+		font-size: $heading--font-size-h2;
+		letter-spacing: $heading--letter-spacing-h2;
+		line-height: $heading--line-height-h2;
 		padding: 0;
 		max-width: inherit; // undo opinionated styles
 		text-align: inherit;
@@ -67,6 +67,6 @@
 
 	// Block Styles
 	&.is-style-twentytwentyone-border {
-		border: calc(3 * var(--separator--height)) solid var(--global--color-border);
+		border: calc(3 * 1px) solid $global--color-border;
 	}
 }

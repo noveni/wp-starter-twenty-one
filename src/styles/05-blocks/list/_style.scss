@@ -1,8 +1,8 @@
 ul,
 ol {
-	font-family: var(--list--font-family);
+	font-family: $global--font-secondary;
 	margin: 0;
-	padding-left: calc(2 * var(--global--spacing-horizontal));
+	padding-left: calc(2 * #{$global--spacing-horizontal});
 
 	// Utility classes
 	&.aligncenter {
@@ -26,11 +26,11 @@ ol {
 }
 
 dt {
-	font-family: var(--definition-term--font-family);
+	font-family: $global--font-primary;
 	font-weight: bold;
 }
 
 dd {
 	margin: 0;
-	padding-left: calc(2 * var(--global--spacing-horizontal));
+	padding-left: calc(2 * #{$global--spacing-horizontal});
 }
