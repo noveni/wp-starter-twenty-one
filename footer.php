@@ -16,18 +16,18 @@ $separator = '<span class="separator"> | </span>';
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-	<div class="site-info">
-		<div class="site-name">
-			<a class="footer-logo" href="<?php echo esc_url( get_home_url( null, '/' ) ) ?>">
-				<?php ecrannoir_twenty_one_the_logo(); ?>
-			</a>
+		<div class="site-info">
+			<div class="site-name">
+				<a class="footer-logo" href="<?php echo esc_url( get_home_url( null, '/' ) ) ?>">
+					<?php ecrannoir_twenty_one_the_logo(); ?>
+				</a>
+			</div>
+			<?php if (is_active_sidebar('site-description')): ?>
+			<div class="site-description">
+				<?php dynamic_sidebar( 'site-description' ); ?>
+			</div>
+			<?php endif; ?>
 		</div>
-		<?php if (is_active_sidebar('site-description')): ?>
-		<div class="site-description">
-			<?php dynamic_sidebar( 'site-description' ); ?>
-		</div>
-		<?php endif; ?>
-	</div>
 	
 	<?php if ( has_nav_menu( 'footer' ) ) : ?>
 		<h3><?php esc_html_e( 'Menu', 'ecrannoirtwentyone' ); ?></h3>
@@ -52,14 +52,14 @@ $separator = '<span class="separator"> | </span>';
 	<?php endif; ?>
 
 	<?php if ( is_active_sidebar('sidebar-1') ) : ?>
-	<div>
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
-	</div>
+		<div>
+			<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		</div>
 	<?php endif; ?>
 	<?php if ( is_active_sidebar('sidebar-2') ) : ?>
-	<div>
-		<?php dynamic_sidebar( 'sidebar-2' ); ?>
-	</div>
+		<div>
+			<?php dynamic_sidebar( 'sidebar-2' ); ?>
+		</div>
 	<?php endif; ?>
 
 	<?php if (has_nav_menu( 'social' )) : ?>
@@ -84,7 +84,7 @@ $separator = '<span class="separator"> | </span>';
 				?>
 			</ul>
 		</nav>
-		<?php endif; ?>
+	<?php endif; ?>
 
 	<?php if ($has_credits) : ?>
 		<div class="footer-credits">

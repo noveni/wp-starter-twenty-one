@@ -131,6 +131,7 @@ $breakpoint_xxl: 1024px;
 }
 
 @include media(mobile) {
+
 	%responsive-alignfull-width {
 		max-width: var(--responsive--alignfull-width);
 		width: auto;
@@ -154,6 +155,7 @@ $breakpoint_xxl: 1024px;
 }
 
 @include media(desktop) {
+
 	%responsive-alignfull-width-nested {
 		margin-left: auto;
 		margin-right: auto;
@@ -173,6 +175,7 @@ $breakpoint_xxl: 1024px;
 }
 
 @include media(mobile) {
+
 	%responsive-alignleft {
 
 		/*rtl:ignore*/
@@ -193,6 +196,7 @@ $breakpoint_xxl: 1024px;
 }
 
 @include media(mobile) {
+
 	%responsive-alignright {
 
 		/*rtl:ignore*/
