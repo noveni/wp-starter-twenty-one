@@ -279,19 +279,30 @@ class EcrannoirTwentyOne
         // Enqueue editor styles.
         add_editor_style( $editor_stylesheet_path );
         
-        $configFontSizes = ecrannoir_twenty_one_get_config_value('fontsize', $this->theme_shared_config);
-        $editorFontSizes = [];
-        foreach ($configFontSizes as $fontSizeName => $fontSizeValue) {
+        $configFontSizes = ecrannoir_twenty_one_get_config_value('theme-font-size', $this->theme_shared_config);
+        $editorFontSizes = array();
+        foreach ($configFontSizes as $fontSizeKeyName => $fontSizeContent) {
+            if (is_array($fontSizeContent)) {
+                $fontSizeName = isset($fontSizeContent['name']) ? $fontSizeContent['name'] : $fontSizeKeyName;
+                $fontSizeShortName = isset($fontSizeContent['shortname']) ? $fontSizeContent['shortname'] : $fontSizeName;
+                $fontSizeValue = $fontSizeContent['size'];
+                $fontSizeSlug = isset($fontSizeContent['slug']) ? $fontSizeContent['slug'] : $fontSizeKeyName;
+            } else {
+                $fontSizeName = $fontSizeKeyName;
+                $fontSizeShortName = $fontSizeName;
+                $fontSizeValue = $fontSizeContent;
+                $fontSizeSlug = $fontSizeName;
+            }
             $editorFontSizes[] = array(
                 'name' => $fontSizeName,
-                'shortName' => $fontSizeName,
+                'shortName' => $fontSizeShortName,
                 'size' => $fontSizeValue,
-                'slug' => $fontSizeName,
+                'slug' => $fontSizeSlug,
             );
         }
         add_theme_support( 'editor-font-sizes', $editorFontSizes );
 
-        $editorColor = ecrannoir_twenty_one_get_config_value('color', $this->theme_shared_config);
+        $editorColor = ecrannoir_twenty_one_get_config_value('theme-color', $this->theme_shared_config);
         $editorColorPalette = [];
         foreach ($editorColor as $colorName => $colorHex) {
             $editorColorPalette[] = array(
