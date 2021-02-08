@@ -61,10 +61,6 @@
 		&:focus {
 			color: $global--color-primary-hover;
 
-			.is-dark-theme & {
-				color: var(--wp--style--color--link, $global--color-background);
-			}
-
 			// Change colors when the body background is white.
 			.has-background-white & {
 				color: var(--wp--style--color--link, $global--color-white);

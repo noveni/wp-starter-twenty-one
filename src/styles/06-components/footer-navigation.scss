@@ -39,13 +39,6 @@
 
 			&:focus {
 
-				.is-dark-theme & {
-
-					.svg-icon {
-						fill: var(--wp--style--color--link, $global--color-background);
-					}
-				}
-
 				// Change colors when the body background is white.
 				.has-background-white & {
 

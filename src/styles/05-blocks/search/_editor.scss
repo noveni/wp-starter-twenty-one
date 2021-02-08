@@ -17,23 +17,6 @@
 		margin-right: calc(-1 * #{$button--border-width});
 		padding: $form--spacing-unit;
 
-		.is-dark-theme & {
-			background: $global--color-white-90;
-		}
-
-		.has-background.has-white-background-color &,
-		.has-background.has-green-background-color &,
-		.has-background.has-blue-background-color &,
-		.has-background.has-purple-background-color &,
-		.has-background.has-red-background-color &,
-		.has-background.has-orange-background-color &,
-		.has-background.has-yellow-background-color & {
-
-			.is-dark-theme & {
-				border-color: $form--color-text;
-			}
-		}
-
 		.has-background.has-gray-background-color &,
 		.has-background.has-dark-gray-background-color &,
 		.has-background.has-black-background-color & {
@@ -72,11 +55,6 @@
 				color: $global--color-white;
 				background-color: $button--color-background;
 				border-color: $global--color-white;
-
-				.is-dark-theme & {
-					color: $button--color-text-hover;
-					background-color: $button--color-background;
-				}
 			}
 		}
 
@@ -92,17 +70,6 @@
 				color: $global--color-white;
 				background-color: $form--border-color;
 				border-color: $form--border-color;
-			}
-
-			.is-dark-theme & {
-				color: $form--color-text;
-				border-color: currentColor;
-
-				&:hover {
-					color: $global--color-white;
-					background-color: $button--color-text-hover;
-					border-color: $button--color-text-hover;
-				}
 			}
 		}
 	}
@@ -130,17 +97,6 @@
 
 		.wp-block-search__button {
 
-			.is-dark-theme & {
-				color: $button--color-text-hover;
-				border-color: currentColor;
-
-				&:hover {
-					color: $global--color-white;
-					background-color: $button--color-text-hover;
-					border-color: $button--color-text-hover;
-				}
-			}
-
 			.has-background.has-gray-background-color &,
 			.has-background.has-dark-gray-background-color &,
 			.has-background.has-black-background-color & {
@@ -151,17 +107,6 @@
 					color: $global--color-white;
 					background-color: $button--color-background;
 					border-color: $button--color-background;
-				}
-
-				.is-dark-theme & {
-					color: $button--color-text-hover;
-					border-color: currentColor;
-
-					&:hover {
-						color: $global--color-white;
-						background-color: $button--color-text-hover;
-						border-color: $button--color-text-hover;
-					}
 				}
 			}
 		}

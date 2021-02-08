@@ -73,10 +73,6 @@
 				background-color: $button--color-background;
 				border-color: $global--color-white;
 				color: $global--color-white;
-
-				.is-dark-theme & {
-					color: $button--color-text-hover;
-				}
 			}
 		}
 
@@ -94,12 +90,6 @@
 				background-color: $form--border-color;
 				border-color: $form--border-color;
 				color: $global--color-white;
-
-				.is-dark-theme & {
-					border-color: $button--color-text-hover;
-					background-color: $button--color-text-hover;
-					color: $button--color-background;
-				}
 			}
 		}
 	}
@@ -117,10 +107,6 @@
 				&:focus {
 					outline: 2px dotted $form--border-color;
 					outline-offset: -5px;
-
-					.is-dark-theme & {
-						outline-color: currentColor;
-					}
 				}
 			}
 		}
@@ -143,26 +129,6 @@
 
 				&:hover {
 					color: $global--color-white;
-				}
-
-				.is-dark-theme & {
-					border-color: $button--color-text-hover;
-					color: $button--color-text-hover;
-
-					&:hover {
-						color: $global--color-white;
-					}
-				}
-			}
-
-			.is-dark-theme & {
-				border-color: $button--color-text-hover;
-				color: $button--color-text-hover;
-
-				&:hover {
-					border-color: $button--color-text-hover;
-					background-color: $button--color-text-hover;
-					color: $button--color-background;
 				}
 			}
 		}

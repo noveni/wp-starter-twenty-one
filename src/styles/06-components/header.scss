@@ -6,10 +6,6 @@
 	flex-wrap: wrap;
 	row-gap: $global--spacing-vertical; // Add space in case the menu wraps below the site branding.
 
-	.wp-custom-logo & {
-		align-items: center;
-	}
-
 	@include media(mobile) {
 		padding-top: calc(#{$global--spacing-vertical} / 0.75); // 40px
 	}
@@ -77,17 +73,6 @@
 	line-height: 1.4;
 }
 
-a.custom-logo-link {
-	text-decoration: none;
-
-	&:focus {
-		// Change colors when the body background is white.
-		.has-background-white &,
-		.is-dark-theme & {
-			background: none;
-		}
-	}
-}
 
 .site-title > a {
 	text-decoration-color: $global--color-secondary;
@@ -103,26 +88,6 @@ a.custom-logo-link {
 		padding-bottom: calc(#{$global--spacing-vertical} * 1.5);
 		border-bottom: 1px solid;
 		text-align: center;
-	}
-
-	.custom-logo {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: $branding--logo--max-width-mobile;
-		max-height: $branding--logo--max-height-mobile;
-		height: auto;
-		display: inline-block;
-		width: auto;
-	}
-
-	@include media(mobile) {
-
-		.custom-logo {
-			max-width: $branding--logo--max-width;
-			max-height: $branding--logo--max-height;
-			height: auto;
-			width: auto;
-		}
 	}
 }
 

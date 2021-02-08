@@ -37,10 +37,6 @@
 		outline-offset: -6px;
 		outline: 2px dotted currentColor;
 
-		.is-dark-theme & {
-			color: $button--color-background;
-		}
-
 		&:not(.has-background) {
 			color: $button--color-text-hover;
 		}

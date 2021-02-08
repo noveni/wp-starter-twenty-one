@@ -82,22 +82,6 @@ input[type="reset"],
 				color: $global--color-white;
 			}
 
-			.is-dark-theme & {
-
-				&:not(.has-text-color) {
-
-					&.has-background {
-						color: $global--color-gray-alt;
-					}
-
-					&.has-background.has-gray-background-color,
-					&.has-background.has-dark-gray-background-color,
-					&.has-background.has-black-background-color {
-						color: $global--color-white;
-					}
-				}
-			}
-
 			&.has-text-color,
 			&.has-background.has-text-color {
 				border-color: currentColor;

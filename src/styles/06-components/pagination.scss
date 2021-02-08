@@ -149,15 +149,6 @@
 			color: $global--color-primary-hover;
 		}
 
-		.is-dark-theme & {
-
-			a:active,
-			a:hover:active,
-			a:hover:focus {
-				color: $global--color-background;
-			}
-		}
-
 		.has-background-white & {
 
 			a:active,

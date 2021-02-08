@@ -31,10 +31,6 @@ input[type="color"],
 	&:disabled {
 		opacity: 0.7;
 	}
-
-	.is-dark-theme & {
-		background: $global--color-white-90;
-	}
 }
 
 // Reset the negative offset from normalize to make the thicker "border" work on focus.
@@ -42,10 +38,6 @@ input[type="search"] {
 
 	&:focus {
 		outline-offset: -7px;
-
-		.is-dark-theme & {
-			outline-color: $global--color-background;
-		}
 	}
 }
 
@@ -75,11 +67,6 @@ select {
 	&:focus {
 		outline-offset: 2px;
 		outline: 2px dotted $form--border-color;
-	}
-
-	.is-dark-theme & {
-		background: $global--color-white-90 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2328303d'><polygon points='0,0 10,0 5,5'/></svg>") no-repeat; // stylelint-disable-line function-url-quotes
-		background-position: right $form--spacing-unit top 60%;
 	}
 }
 
@@ -112,10 +99,6 @@ License: MIT.
 
 		&:disabled {
 			opacity: 0.7;
-		}
-
-		.is-dark-theme & {
-			background: $global--color-white-90;
 		}
 	}
 
