@@ -15,7 +15,7 @@
         "base": {
             "name": "Base",
             "shortname": "base",
-            "size": 10,
+            "size": 12,
             "slug": "base"
         },
         "xs": 8,

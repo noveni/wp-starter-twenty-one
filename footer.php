@@ -108,8 +108,8 @@ $separator = '<span class="separator"> | </span>';
 				<?php
 				printf(
 					esc_html__( 'Site créé par %1$s & %2$s.', 'ecrannoirtwentyone' ),
-					'<a href="' . esc_url( __( 'https://tampala.be/', 'ecrannoirtwentyone' ) ) . '">Tampala Studio</a>',
-					'<a href="' . esc_url( __( 'https://ecrannoir.be/', 'ecrannoirtwentyone' ) ) . '">Ecran Noir</a>'
+					'<a href="' . esc_url( __( 'https://tampala.be/', 'ecrannoirtwentyone' ) ) . '" target="_blank" rel="noopener noreferrer">Tampala Studio</a>',
+					'<a href="' . esc_url( __( 'https://ecrannoir.be/', 'ecrannoirtwentyone' ) ) . '" target="_blank" rel="noopener noreferrer">Ecran Noir</a>'
 				);
 				?>
 				</span>
