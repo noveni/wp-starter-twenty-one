@@ -221,3 +221,18 @@ if ( ! function_exists( 'ecrannoir_twenty_one_post_thumbnail' ) ) {
 		<?php
 	}
 }
+
+if ( ! function_exists( 'ecrannoir_twenty_one_block_button' ) ) {
+	/**
+	 * Displays an block button.
+	 *
+	 * @return void
+	 */
+	function ecrannoir_twenty_one_block_button($url, $label) {
+		?>
+		<div class="wp-block-buttons">
+			<div class="wp-block-button"><a class="wp-block-button__link" href="<?php echo esc_url( $url); ?>"><?php echo $label; ?></a></div>
+		</div>
+		<?php
+	}
+}

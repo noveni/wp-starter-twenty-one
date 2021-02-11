@@ -15,14 +15,9 @@ class EcranNoirTwentyOne_Options
         add_action( 'admin_init', [$this, 'pageInit']);
     }
 
-    public static function init()
-    {
-        new \Admin\Options();
-    }
-
     public function addPage()
     {
-        add_options_page(
+        $page_hook_suffix = add_options_page(
             'Theme Options', // page <title>Title</title>
             'Theme options', // menu link text
             'manage_options', // capability to access the page
@@ -30,6 +25,9 @@ class EcranNoirTwentyOne_Options
             [$this, 'addContent'], // callback function with content
             2 // priority
         );
+
+        add_action( "admin_print_scripts-{$page_hook_suffix}", [$this, 'enqueuePageAssets'] );
+
     }
 
     public function addContent()
@@ -44,6 +42,7 @@ class EcranNoirTwentyOne_Options
                 <?php submit_button(); ?>
             </form>
         </div>
+        <div id="ecrannoirtwentyone-theme-settings"></div>
 
         <?php
     }
@@ -94,6 +93,15 @@ class EcranNoirTwentyOne_Options
             'ecrannoirtwentyone-theme-settings', // Page
             'setting_section_template' // Section           
         );  
+    }
+
+    /**
+     * Enqueue Script and Style for the Admin
+     */
+    public function enqueuePageAssets()
+    {
+        EcranNoirTwentyOne_Scripts::toEnqueueScript('theme-option-admin');
+        EcranNoirTwentyOne_Scripts::toEnqueueStyle('theme-option-admin');
     }
 
     /**
