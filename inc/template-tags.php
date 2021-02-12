@@ -236,3 +236,13 @@ if ( ! function_exists( 'ecrannoir_twenty_one_block_button' ) ) {
 		<?php
 	}
 }
+
+function ecrannoir_twenty_one_has_title() {
+	$title = get_the_title();
+
+	if ( strlen( $title ) == 0 ) {
+		return false;
+	}
+
+	return true;
+}

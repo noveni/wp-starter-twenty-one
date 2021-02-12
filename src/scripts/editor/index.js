@@ -3,6 +3,7 @@ import domReady from '@wordpress/dom-ready';
 
 import { unregisterBlockStyle, registerBlockStyle } from '@wordpress/blocks';
 
+import './extensions/disable-title';
 // import './ExampleEditableBlock'
 // import './ExampleDynamicBlock'
 /**

@@ -72,6 +72,14 @@ $theme_configuration = array(
 // $theme = new EcrannoirTwentyOne($theme_configuration);
 $theme = new EcrannoirTwentyOne($theme_configuration);
 
+
+// Custom Post Types
+require get_template_directory() . '/inc/custom-post-type.php';
+
+// Register Meta
+require get_template_directory() . '/inc/block-post-meta.php';
+
+
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
 
@@ -89,10 +97,6 @@ require get_template_directory() . '/inc/block-patterns.php';
 
 // Block Styles.
 require get_template_directory() . '/inc/block-styles.php';
-
-// Custom Post Types
-require get_template_directory() . '/inc/custom-post-type.php';
-
 
 // Contact Form 7
 if (class_exists('WPCF7')) {

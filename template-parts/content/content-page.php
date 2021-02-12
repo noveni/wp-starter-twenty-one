@@ -10,14 +10,14 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( ! is_front_page() ) : ?>
+	<?php if (ecrannoir_twenty_one_has_title() || has_post_thumbnail()) : ?>
 		<header class="entry-header alignwide">
-			<?php get_template_part( 'template-parts/header/entry-header' ); ?>
-			<?php ecrannoir_twenty_one_post_thumbnail(); ?>
-		</header>
-	<?php elseif ( has_post_thumbnail() ) : ?>
-		<header class="entry-header alignwide">
-			<?php ecrannoir_twenty_one_post_thumbnail(); ?>
+			<?php if(ecrannoir_twenty_one_has_title()): ?>
+				<?php get_template_part( 'template-parts/header/entry-header' ); ?>
+			<?php endif; ?>
+			<?php if(has_post_thumbnail()): ?>
+				<?php ecrannoir_twenty_one_post_thumbnail(); ?>
+			<?php endif; ?>
 		</header>
 	<?php endif; ?>
 

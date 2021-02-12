@@ -236,3 +236,22 @@ function ecrannoir_twenty_one_get_attachment_image_attributes( $attr, $attachmen
 	return $attr;
 }
 add_filter( 'wp_get_attachment_image_attributes', 'ecrannoir_twenty_one_get_attachment_image_attributes', 10, 3 );
+
+
+
+/**
+ * Filter the number of result for query
+ */
+
+function ecrannoir_twenty_one_limit_type_post( $query ) {
+    // check if the user is requesting an admin page 
+	// or current query is not the main query
+    if ( is_admin() || !$query->is_main_query() ){
+        return;
+	}
+
+    if(is_home()){
+		$query->set('posts_per_page', 6);
+	}
+}
+add_action( 'pre_get_posts', 'ecrannoir_twenty_one_limit_type_post' );
