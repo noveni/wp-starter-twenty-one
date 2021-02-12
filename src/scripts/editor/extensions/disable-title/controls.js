@@ -62,7 +62,7 @@ class DisableTitle extends Component {
 					label={ __( 'Hide ' + posttype + ' Title', 'ecrannoirtwentyone' ) }
 					checked={ isHidden }
 					onChange={ onToggle }
-					help={ isHidden ? __( 'Title is hidden on your website.', 'ecrannoirtwentyone' ) : null }
+					help={ isHidden ? __( 'Le titre est masqué sur votre site Web.', 'ecrannoirtwentyone' ) : null }
 				/>
 			</PluginPostStatusInfo>
 		);

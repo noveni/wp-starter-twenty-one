@@ -255,3 +255,30 @@ function ecrannoir_twenty_one_limit_type_post( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'ecrannoir_twenty_one_limit_type_post' );
+
+
+if ( ! function_exists( 'ecrannoirtwentyone_hide_title' ) ) {
+
+	/**
+	 * Replace title with blank
+	 *
+	 * @param string $title The post title.
+	 * @param int    $id The post id.
+	 *
+	 * @return string Returns the new title.
+	 */
+	function ecrannoirtwentyone_hide_title( $title, $id = null ) {
+		// phpcs:ignore
+		if ( ! is_admin() && ! is_search() && in_the_loop() && ( strpos( esc_url( $_SERVER[ 'REQUEST_URI' ] ), '/wp-json/' ) === false ) ) {
+
+			$hidden = get_post_meta( $id, '_ecrannoirtwentyone_title_hidden', true );
+			if ( $hidden ) {
+
+				return '';
+			}
+		}
+
+		return $title;
+	}
+	add_filter( 'the_title', 'ecrannoirtwentyone_hide_title', 90, 2 );
+}

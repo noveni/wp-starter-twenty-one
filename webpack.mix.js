@@ -9,10 +9,11 @@ require("@tinypixelco/laravel-mix-wp-blocks")
 // Front theme
 mix.js('src/scripts/theme/index.js', 'js/theme.js')
     .block('src/scripts/editor/index.js', 'js/editor.js')
-    .block('src/scripts/admin/index.js', 'js/theme-option-admin.js')
+    .block('src/scripts/theme-option-admin/index.js', 'js/theme-option-admin.js')
     .sass('src/styles/theme.scss', 'css/style.css')
+    .sass('src/styles/theme-option-admin.scss', 'css/theme-option-admin.css')
     .sass('src/styles/editor.scss', 'css/editor.css')
-    .sass('src/styles/admin.scss', 'css/theme-option-admin.css')
+    .sass('src/styles/admin-editor.scss', 'css/admin-editor.css')
     .options({
       fileLoaderDirs: {
         images: 'img',

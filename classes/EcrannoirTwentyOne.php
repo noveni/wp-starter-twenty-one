@@ -389,6 +389,7 @@ class EcrannoirTwentyOne
 		 */
 		add_action('enqueue_block_editor_assets', function($hook) {
             EcranNoirTwentyOne_Scripts::toEnqueueScript( 'editor' );
+            EcranNoirTwentyOne_Scripts::toEnqueueStyle( 'admin-editor' );
         });
 
         /**
