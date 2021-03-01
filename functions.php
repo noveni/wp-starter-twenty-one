@@ -108,6 +108,8 @@ require get_template_directory() . '/inc/block-patterns.php';
 // Block Styles.
 require get_template_directory() . '/inc/block-styles.php';
 
+require get_template_directory() . '/assets/blocks/simple-block.php';
+
 // Contact Form 7
 if (class_exists('WPCF7')) {
     add_filter( 'wpcf7_load_js', '__return_false' );

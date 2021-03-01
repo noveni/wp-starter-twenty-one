@@ -21,7 +21,7 @@ mix.js('src/scripts/theme/index.js', 'js/theme.js')
       }
     });
     
-// mix.copy('src/scripts/editor/**/*.php', 'dist/blocks/');
+mix.copy('src/blocks/**/*.php', 'assets/blocks/');
 mix.setPublicPath('assets/');
 mix.setResourceRoot('./');
 mix.autoload({
