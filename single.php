@@ -25,11 +25,11 @@ while ( have_posts() ) :
 	}
 
 	// Previous/next post navigation.
-	$ecrannoirtwentyone_next = is_rtl() ? ecrannoir_twenty_one_get_icon_svg( 'ui', 'arrow_left' ) : ecrannoir_twenty_one_get_icon_svg( 'ui', 'arrow_right' );
-	$ecrannoirtwentyone_prev = is_rtl() ? ecrannoir_twenty_one_get_icon_svg( 'ui', 'arrow_right' ) : ecrannoir_twenty_one_get_icon_svg( 'ui', 'arrow_left' );
+	$ecrannoirtwentyone_next = is_rtl() ? ecrannoir_twenty_one_get_icon_svg( 'ui', 'arrow_left', 16 ) : ecrannoir_twenty_one_get_icon_svg( 'ui', 'arrow_right', 16 );
+	$ecrannoirtwentyone_prev = is_rtl() ? ecrannoir_twenty_one_get_icon_svg( 'ui', 'arrow_right', 16 ) : ecrannoir_twenty_one_get_icon_svg( 'ui', 'arrow_left', 16 );
 
-	$ecrannoirtwentyone_next_label     = esc_html__( 'Next post', 'ecrannoirtwentyone' );
-	$ecrannoirtwentyone_previous_label = esc_html__( 'Previous post', 'ecrannoirtwentyone' );
+	$ecrannoirtwentyone_next_label     = esc_html__( 'Article suivant', 'ecrannoirtwentyone' );
+	$ecrannoirtwentyone_previous_label = esc_html__( 'Article précédent', 'ecrannoirtwentyone' );
 
 	the_post_navigation(
 		array(

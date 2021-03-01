@@ -186,4 +186,6 @@ assets/css/*
 assets/icons/*
 assets/img/*
 assets/js/*
+assets/blocks/*
 assets/*.*
+.npmrc

@@ -13,11 +13,8 @@ if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post();
 		
-        get_template_part( 'template-parts/content/content', ! is_singular() ? 'excerpt' : '' );
+        get_template_part( 'template-parts/content/content', 'front-page' );
 	}
-
-    // Previous/next page navigation.
-    get_template_part( 'template-parts/pagination/pagination' );
 
 }
 

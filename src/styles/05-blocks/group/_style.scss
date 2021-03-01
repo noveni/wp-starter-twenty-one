@@ -48,18 +48,8 @@
 		@include media(mobile) {
 			padding: $global--spacing-vertical;
 		}
-	}
 
-	// Block Styles
-	&.is-style-twentytwentyone-border {
-		border: calc(3 * 1px) solid $global--color-border;
-		padding: $global--spacing-vertical;
-	}
-
-	// Adjust alignfull items to account for left and right padding.
-	&.has-background,
-	&.is-style-twentytwentyone-border {
-
+		// Adjust alignfull items to account for left and right padding.
 		.wp-block-group__inner-container > .alignfull,
 		.wp-block-group__inner-container > hr.wp-block-separator:not(.is-style-dots):not(.alignwide).alignfull {
 			max-width: calc(var(--responsive--alignfull-width) + (2 * #{$global--spacing-vertical}));
@@ -67,4 +57,8 @@
 			margin-left: calc(-1 * #{$global--spacing-vertical});
 		}
 	}
+
+	// Block Styles
+
+
 }

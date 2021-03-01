@@ -1,6 +1,7 @@
 import primaryMenu from '../elements/primary-navigation';
 import ecrannoirtwentyoneResponsiveEmbeds from '../elements/responsive-embeds';
 import skipLinkFocus from '../elements/skip-link-focus-fix';
+import Animations from '../elements/animations';
 
 import { touchEnabled, intrinsicRatioVideos } from '../../utils/dom';
 
@@ -55,7 +56,7 @@ export default {
 		// Run on resize.
 		window.onresize = ecrannoirtwentyoneResponsiveEmbeds;
 
-
+		Animations.init();
 		// addHeaderHeightAsMarginToElement('#site-content');
 
 	},

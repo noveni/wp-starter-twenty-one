@@ -42,14 +42,7 @@ img {
 }
 
 // Block Styles
-.wp-block-image.is-style-twentytwentyone-border img,
-.wp-block-image.is-style-twentytwentyone-image-frame img {
-	border: calc(3 * 1px) solid $global--color-border;
-}
 
-.wp-block-image.is-style-twentytwentyone-image-frame img {
-	padding: $global--spacing-unit;
-}
 
 .entry-content {
 

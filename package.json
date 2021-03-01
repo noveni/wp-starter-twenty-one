@@ -26,6 +26,7 @@
     "@wordpress/dependency-extraction-webpack-plugin": "^3.0.0",
     "@wordpress/element": "^2.19.0",
     "@wordpress/i18n": "^3.17.0",
+    "@wordpress/rich-text": "^3.24.6",
     "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^3.0.0",
@@ -41,5 +42,8 @@
     "stylelint-config-wordpress": "^17.0.0",
     "stylelint-webpack-plugin": "^2.1.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@glidejs/glide": "^3.4.1",
+    "gsap": "npm:@gsap/business@^3.6.0"
+  }
 }

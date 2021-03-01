@@ -17,8 +17,11 @@
  */
 class EcranNoirTwentyOne_Icons {
 
-
+	/**
+	 * Asset Path
+	 */
 	public static $assets_path = '/assets/img/';
+
     /**
      * Brand SVG
      * 
@@ -34,10 +37,10 @@ class EcranNoirTwentyOne_Icons {
 	 * @var array
 	 */
 	protected static $icons = array(
-		'arrow_right' => '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m4 13v-2h12l-4-4 1-2 7 7-7 7-1-2 4-4z" fill="currentColor"/></svg>',
-		'arrow_left'  => '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 13v-2H8l4-4-1-2-7 7 7 7 1-2-4-4z" fill="currentColor"/></svg>',
+		'arrow_right' => '<svg xmlns="http://www.w3.org/2000/svg" width="19" height="34" viewBox="0 0 19 34"><path fill-rule="evenodd" d="m.90160863 33c-.49703989.0008943-.90067913-.3874262-.90160863-.8672073-.00042047-.2312984.094752-.4532307.2644256-.6166055l15.5642416-15.0219297-15.5642416-15.02201115c-.34533767-.34507428-.33538169-.89505932.02210566-1.2284058.34879696-.32512073.90169161-.32512073 1.25040419 0l16.19956845 15.63706915c.3513281.3392104.3513281.889114 0 1.2284058l-16.19956845 15.6370692c-.16857676.1623975-.39705817.2536153-.63532682.2536153z" transform="translate(.834 .552)"/></svg>',
+		'arrow_left'  => '<svg xmlns="http://www.w3.org/2000/svg" width="19" height="34" viewBox="0 0 19 34"><path fill-rule="evenodd" d="m.90160863 33c-.49703989.0008943-.90067913-.3874262-.90160863-.8672073-.00042047-.2312984.094752-.4532307.2644256-.6166055l15.5642416-15.0219297-15.5642416-15.02201115c-.34533767-.34507428-.33538169-.89505932.02210566-1.2284058.34879696-.32512073.90169161-.32512073 1.25040419 0l16.19956845 15.63706915c.3513281.3392104.3513281.889114 0 1.2284058l-16.19956845 15.6370692c-.16857676.1623975-.39705817.2536153-.63532682.2536153z" transform="matrix(-1 0 0 1 18.834 .552)"/></svg>',
 		'close'       => '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 10.9394L5.53033 4.46973L4.46967 5.53039L10.9393 12.0001L4.46967 18.4697L5.53033 19.5304L12 13.0607L18.4697 19.5304L19.5303 18.4697L13.0607 12.0001L19.5303 5.53039L18.4697 4.46973L12 10.9394Z" fill="currentColor"/></svg>',
-		'menu'        => [ 'path' => 'menu.svg' ],
+		'menu'        => [ 'path' => 'hamburger.svg' ],
 		'plus'        => '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M18 11.2h-5.2V6h-1.6v5.2H6v1.6h5.2V18h1.6v-5.2H18z" fill="currentColor"/></svg>',
 		'minus'       => '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 11h12v2H6z" fill="currentColor"/></svg>',
 	);
@@ -182,7 +185,7 @@ class EcranNoirTwentyOne_Icons {
             $icon_content = $arr[ $icon ];
             if (is_array($arr[ $icon ])) {
                 if (array_key_exists('path', $arr[$icon])) {
-                    $icon_content = file_get_contents( get_template_directory() . self::$assets_path .  $arr[$icon]['path'], true);
+                    $icon_content = file_get_contents( get_template_directory() . self::$assets_path . $arr[$icon]['path'], true);
                 }
 			}
 			if ($size) {

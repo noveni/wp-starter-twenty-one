@@ -24,7 +24,7 @@ function ecrannoir_twenty_one_add_sub_menu_toggle( $output, $item, $depth, $args
 	if ( 0 === $depth && in_array( 'menu-item-has-children', $item->classes, true ) ) {
 
 		// Add toggle button.
-		$output .= '<button class="sub-menu-toggle" aria-expanded="false" onClick="ecrannoirtwentyoneExpandSubMenu(this)">';
+		$output .= '<button class="sub-menu-toggle" aria-expanded="false">';
 		$output .= '<span class="icon-plus">' . ecrannoir_twenty_one_get_icon_svg( 'ui', 'plus', 18 ) . '</span>';
 		$output .= '<span class="icon-minus">' . ecrannoir_twenty_one_get_icon_svg( 'ui', 'minus', 18 ) . '</span>';
 		$output .= '<span class="screen-reader-text">' . esc_html__( 'Open menu', 'ecrannoirtwentyone' ) . '</span>';
@@ -88,3 +88,51 @@ function ecrannoir_twenty_one_add_menu_description_args( $args, $item, $depth ) 
 	return $args;
 }
 add_filter( 'nav_menu_item_args', 'ecrannoir_twenty_one_add_menu_description_args', 10, 3 );
+
+
+/**
+ * Display Logo in place of a menu item if it's a logo
+ */
+function ecrannoir_twenty_one_get_logo_menu_svg(  ) {
+	return EcranNoirTwentyOne_Icons::get_svg('brand', 'logo', false);
+}
+
+function ecrannoir_twenty_one_add_menu_logo_args( $args, $item, $depth ) {
+	if ( 0 === $depth && 'primary' === $args->theme_location) {
+		$args->link_before = '';
+		$args->link_after = '';
+		$args->before = '';
+		$args->after = '';
+		if ('logo' === sanitize_title($item->title) ) {
+			$blog_info = get_bloginfo( 'name' );
+			if (is_front_page() || is_home()) {
+				$args->before = '<div class="site-logo-menu">';
+				$args->after = '</div>';
+				$args->link_before = '<h1 class="site-logo">';
+				$args->link_after = '<span class="screen-reader-text">' . $blog_info . '</span></h1>';
+	
+			} else {
+				$args->before = '<div class="site-logo-menu">';
+				$args->after = '</div>';
+				$args->link_before = '<div class="site-logo">';
+				$args->link_after = '<span class="screen-reader-text">' . $blog_info . '</span></div>';
+			}
+		}
+	}
+	return $args;
+}
+add_filter( 'nav_menu_item_args', 'ecrannoir_twenty_one_add_menu_logo_args', 10, 3 );
+
+function ecrannoir_twenty_one_nav_menu_logo( $item_output, $item, $depth, $args ) {
+	// Change SVG icon inside social links menu if there is supported URL.
+	// if ( 0 === $depth && in_array( 'menu-item-has-children', $item->classes, true ) ) {
+	if ( 'primary' === $args->theme_location && 0 === $depth && 'logo' === sanitize_title($item->title) ) {
+		$svg = ecrannoir_twenty_one_get_logo_menu_svg();
+		if ( ! empty( $svg ) ) {
+			$item_output = str_replace( 'Logo<span class="screen-reader-text">', $svg . '<span class="screen-reader-text">', $item_output );
+		}
+	}
+
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'ecrannoir_twenty_one_nav_menu_logo', 10, 4 );

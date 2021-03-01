@@ -35,13 +35,13 @@ if ( ! function_exists( 'ecrannoir_twenty_one_posted_on' ) ) {
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() )
 		);
-		echo '<span class="posted-on">';
+		echo '<span class="posted-on"><strong>';
 		printf(
 			/* translators: %s: publish date. */
-			esc_html__( 'Published %s', 'ecrannoirtwentyone' ),
+			esc_html__( 'Publié le %s', 'ecrannoirtwentyone' ),
 			$time_string // phpcs:ignore WordPress.Security.EscapeOutput
 		);
-		echo '</span>';
+		echo '</strong></span>';
 	}
 }
 
@@ -57,7 +57,7 @@ if ( ! function_exists( 'ecrannoir_twenty_one_posted_by' ) ) {
 			echo '<span class="byline">';
 			printf(
 				/* translators: %s author name. */
-				esc_html__( 'By %s', 'ecrannoirtwentyone' ),
+				esc_html__( 'Par %s', 'ecrannoirtwentyone' ),
 				'<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author">' . esc_html( get_the_author() ) . '</a>'
 			);
 			echo '</span>';
@@ -83,9 +83,9 @@ if ( ! function_exists( 'ecrannoir_twenty_one_entry_meta_footer' ) ) {
 		// Hide meta information on pages.
 		if ( ! is_single() ) {
 
-			if ( is_sticky() ) {
-				echo '<p>' . esc_html_x( 'Featured post', 'Label for sticky posts', 'ecrannoirtwentyone' ) . '</p>';
-			}
+			// if ( is_sticky() ) {
+			// 	echo '<p>' . esc_html_x( 'Featured post', 'Label for sticky posts', 'ecrannoirtwentyone' ) . '</p>';
+			// }
 
 			$post_format = get_post_format();
 			if ( 'aside' === $post_format || 'status' === $post_format ) {
@@ -95,37 +95,27 @@ if ( ! function_exists( 'ecrannoir_twenty_one_entry_meta_footer' ) ) {
 			// Posted on.
 			ecrannoir_twenty_one_posted_on();
 
-			// Edit post link.
-			edit_post_link(
-				sprintf(
-					/* translators: %s: Name of current post. Only visible to screen readers. */
-					esc_html__( 'Edit %s', 'ecrannoirtwentyone' ),
-					'<span class="screen-reader-text">' . get_the_title() . '</span>'
-				),
-				'<span class="edit-link">',
-				'</span><br>'
-			);
 
 			if ( has_category() || has_tag() ) {
 
 				echo '<div class="post-taxonomies">';
 
 				/* translators: used between list items, there is a space after the comma. */
-				$categories_list = get_the_category_list( __( ', ', 'ecrannoirtwentyone' ) );
+				$categories_list = get_the_category_list(' ');
 				if ( $categories_list ) {
 					printf(
 						/* translators: %s: list of categories. */
-						'<span class="cat-links">' . esc_html__( 'Categorized as %s', 'ecrannoirtwentyone' ) . ' </span>',
+						'<span class="cat-links">' . esc_html__( 'Catégories: %s', 'ecrannoirtwentyone' ) . ' </span>',
 						$categories_list // phpcs:ignore WordPress.Security.EscapeOutput
 					);
 				}
 
 				/* translators: used between list items, there is a space after the comma. */
-				$tags_list = get_the_tag_list( '', __( ', ', 'ecrannoirtwentyone' ) );
+				$tags_list = get_the_tag_list( );
 				if ( $tags_list ) {
 					printf(
 						/* translators: %s: list of tags. */
-						'<span class="tags-links">' . esc_html__( 'Tagged %s', 'ecrannoirtwentyone' ) . '</span>',
+						'<span class="tags-links">' . esc_html__( 'Tags: %s', 'ecrannoirtwentyone' ) . '</span>',
 						$tags_list // phpcs:ignore WordPress.Security.EscapeOutput
 					);
 				}
@@ -138,16 +128,7 @@ if ( ! function_exists( 'ecrannoir_twenty_one_entry_meta_footer' ) ) {
 			ecrannoir_twenty_one_posted_on();
 			// Posted by.
 			ecrannoir_twenty_one_posted_by();
-			// Edit post link.
-			edit_post_link(
-				sprintf(
-					/* translators: %s: Name of current post. Only visible to screen readers. */
-					esc_html__( 'Edit %s', 'ecrannoirtwentyone' ),
-					'<span class="screen-reader-text">' . get_the_title() . '</span>'
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
+
 			echo '</div>';
 
 			if ( has_category() || has_tag() ) {
@@ -155,21 +136,21 @@ if ( ! function_exists( 'ecrannoir_twenty_one_entry_meta_footer' ) ) {
 				echo '<div class="post-taxonomies">';
 
 				/* translators: used between list items, there is a space after the comma. */
-				$categories_list = get_the_category_list( __( ', ', 'ecrannoirtwentyone' ) );
+				$categories_list = get_the_category_list( ' ' );
 				if ( $categories_list ) {
 					printf(
 						/* translators: %s: list of categories. */
-						'<span class="cat-links">' . esc_html__( 'Categorized as %s', 'ecrannoirtwentyone' ) . ' </span>',
+						'<span class="cat-links">' . esc_html__( 'Catégories: %s', 'ecrannoirtwentyone' ) . ' </span>',
 						$categories_list // phpcs:ignore WordPress.Security.EscapeOutput
 					);
 				}
 
 				/* translators: used between list items, there is a space after the comma. */
-				$tags_list = get_the_tag_list( '', __( ', ', 'ecrannoirtwentyone' ) );
+				$tags_list = get_the_tag_list();
 				if ( $tags_list ) {
 					printf(
 						/* translators: %s: list of tags. */
-						'<span class="tags-links">' . esc_html__( 'Tagged %s', 'ecrannoirtwentyone' ) . '</span>',
+						'<span class="tags-links">' . esc_html__( 'Tags: %s', 'ecrannoirtwentyone' ) . '</span>',
 						$tags_list // phpcs:ignore WordPress.Security.EscapeOutput
 					);
 				}

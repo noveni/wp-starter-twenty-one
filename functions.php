@@ -72,6 +72,16 @@ $theme_configuration = array(
 // $theme = new EcrannoirTwentyOne($theme_configuration);
 $theme = new EcrannoirTwentyOne($theme_configuration);
 
+add_action( 'after_setup_theme', 'ecrannoir_twenty_one_add_image_size' );
+function ecrannoir_twenty_one_add_image_size() {
+    add_image_size( 'footer-gallery-widget', 300, 300, true ); // (cropped)
+}
+add_filter( 'image_size_names_choose', 'ecrannoir_twenty_one_custom_sizes' );
+function ecrannoir_twenty_one_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'footer-gallery-widget' => __( 'Footer Gallery' ),
+    ) );
+}
 
 // Custom Post Types
 require get_template_directory() . '/inc/custom-post-type.php';

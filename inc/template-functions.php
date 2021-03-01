@@ -49,10 +49,6 @@ function ecrannoir_twenty_one_body_classes( $classes ) {
 		$classes[] = 'has-main-navigation';
 	}
 
-	// Add a body class if there are no footer widgets.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-widgets';
-	}
 	// Remove unnecessary classes
 	$home_id_class = 'page-id-' . get_option('page_on_front');
 	$remove_classes = [
@@ -236,7 +232,6 @@ function ecrannoir_twenty_one_get_attachment_image_attributes( $attr, $attachmen
 	return $attr;
 }
 add_filter( 'wp_get_attachment_image_attributes', 'ecrannoir_twenty_one_get_attachment_image_attributes', 10, 3 );
-
 
 
 /**
