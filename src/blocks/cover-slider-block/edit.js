@@ -1,6 +1,7 @@
 /**
  * External dependencies
  */
+import classnames from 'classnames';
 import {
 	every,
 	filter,
@@ -19,15 +20,23 @@ import {
 import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import {
+  BlockControls,
   MediaPlaceholder,
   InspectorControls,
 	InnerBlocks,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
-import { __experimentalBoxControl as BoxControl } from '@wordpress/components';
-const { __Visualizer: BoxControlVisualizer } = BoxControl;
+import { 
+  Button, 
+	ToolbarGroup,
+	ToolbarButton,
+} from '@wordpress/components';
 import { Platform, useEffect, useState } from '@wordpress/element';
+import {
+	edit as editIcon,
+  check as checkIcon,
+} from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -78,6 +87,7 @@ const GroupEdit = ( props ) => {
   const { imageIds } = attributes;
 
   const [ selectedImage, setSelectedImage ] = useState();
+  const [ isEditingSlider, setEditingSlider ] = useState( false );
 
 	const blockProps = useBlockProps();
 
@@ -202,13 +212,15 @@ const GroupEdit = ( props ) => {
 		}
 	}, [ isSelected ] );
 
+
   const hasImages = ! isEmpty(images);
 
 	const mediaPlaceholder = (
 		<MediaPlaceholder
 			addToGallery={ hasImages }
 			isAppender={ hasImages }
-			className={ className }
+      className="block-cover-slider__media-placeholder"
+      disableMediaButtons={ hasImages && ! isSelected }
 			labels={ {
 				title: ! hasImages && __( 'Gallery' ),
 				instructions: ! hasImages && 'Add image',
@@ -223,39 +235,72 @@ const GroupEdit = ( props ) => {
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: 'wp-block-group__inner-container',
+			className: 'wp-block-cover-slider__inner-container',
 		},
 		{
 			templateLock: false,
       allowedBlocks:  ALLOWED_INNER_BLOCKS,
-			renderAppender: hasInnerBlocks
-				? InnerBlocks.ButtonBlockAppender
-				: InnerBlocks.ButtonBlockAppender,
+      template: INNER_BLOCKS_TEMPLATE,
+      // renderAppender: hasInnerBlocks
+      // ? InnerBlocks.ButtonBlockAppender
+      // : InnerBlocks.ButtonBlockAppender,
 		}
 	);
 
+  const blockClassName = classnames(
+    className,
+    {
+      'is-selected': isSelected,
+      'is-editing-slider': isEditingSlider,
+      'has-images': hasImages,
+    }
+  );
+
 	return (
-    <div className={className}>
-      <div className="block-cover-slider-wrapper">
-        { hasImages && (
-          <Slider
-            images={ images }
-            isSelected={isSelected}
-            selectedImage={ selectedImage }
-            onMoveBackward={ onMoveBackward }
-            onMoveForward={ onMoveForward }
-            onRemoveImage={ onRemoveImage }
-            onSelectImage={ onSelectImage }
-				    onDeselectImage={ onDeselectImage }
-            
-          />
-        )}
-        { mediaPlaceholder }
-      </div>
-      <div { ...blockProps }>
+    <>
+      <BlockControls>
+        <ToolbarGroup>
+          { !isEditingSlider && (
+            <ToolbarButton
+              onClick={ () => setEditingSlider( true ) }
+            >
+              Modifier les images
+            </ToolbarButton>
+
+          )}
+          { isEditingSlider && (
+            <ToolbarButton
+              title="Valider"
+              icon={ checkIcon }
+              onClick={ () => setEditingSlider( false ) }
+            />
+          )}
+        </ToolbarGroup>
+      </BlockControls>
+      <div
+        { ...blockProps }
+        className={ classnames( blockClassName, blockProps.className ) }
+      >
+        <div className="block-cover-slider-wrapper">
+          { hasImages && (
+            <Slider
+              images={ images }
+              isSelected={isSelected}
+              isEditingSlider={isEditingSlider}
+              selectedImage={ selectedImage }
+              onMoveBackward={ onMoveBackward }
+              onMoveForward={ onMoveForward }
+              onRemoveImage={ onRemoveImage }
+              onSelectImage={ onSelectImage }
+              onDeselectImage={ onDeselectImage }
+              mediaPlaceholder={mediaPlaceholder}
+            />
+          )}
+          { !hasImages && mediaPlaceholder }
+        </div>
         <div { ...innerBlocksProps } />
       </div>
-    </div>
+    </>
 	);
 }
 

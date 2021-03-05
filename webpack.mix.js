@@ -104,6 +104,7 @@ mix.browserSync({
   files: [
     "src/styles/**/*.scss",
     "src/scripts/",
+    "src/blocks/",
     "template-parts/",
     "inc/",
     "classes/",

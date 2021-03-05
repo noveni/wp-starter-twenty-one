@@ -45,7 +45,7 @@ export const SliderImage = ( props ) => {
           onFocus={ onSelect }
           tabIndex="0"
         />
-        <ButtonGroup className="block-library-gallery-item__inline-menu is-left">
+        <ButtonGroup className="block-cover-slider-image__inline-menu is-left">
 					<Button
 						icon={ chevronLeft }
 						onClick={ isFirstItem ? undefined : onMoveBackward }
@@ -61,7 +61,7 @@ export const SliderImage = ( props ) => {
 						disabled={ ! isSelected }
 					/>
 				</ButtonGroup>
-				<ButtonGroup className="block-library-gallery-item__inline-menu is-right">
+				<ButtonGroup className="block-cover-slider-image__inline-menu is-right">
 					<Button
 						icon={ closeSmall }
 						onClick={ onRemove }
