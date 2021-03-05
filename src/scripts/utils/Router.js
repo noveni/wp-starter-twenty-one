@@ -52,6 +52,7 @@ class Router {
   loadEvents() {
     // Fire common init JS
     this.fire('common');
+    this.fire('blocks');
 
     // Fire page-specific init JS, and then finalize JS
     document.body.className
@@ -66,6 +67,7 @@ class Router {
 
     // Fire common finalize JS
     this.fire('common', 'finalize');
+    this.fire('blocks', 'finalize');
   }
 }
 

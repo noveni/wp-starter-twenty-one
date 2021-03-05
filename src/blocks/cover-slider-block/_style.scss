@@ -1,3 +1,79 @@
-// .wp-block-ecrannoirtwentyone-cover-slider {
+// Required Core Stylesheet
+@import "@glidejs/glide/src/assets/sass/glide.core";
 
-// }
+// Optional Theme Stylesheet
+@import "@glidejs/glide/src/assets/sass/glide.theme";
+
+.wp-block-ecrannoirtwentyone-cover-slider {
+	min-height: 430px;
+	padding: 0;
+	// This block has customizable padding, border-box makes that more predictable.
+	box-sizing: border-box;
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.block-cover-slider-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+	}
+
+	.glide__track,
+	.glide__slides {
+		height: 100%;
+	}
+
+	.block-cover-slider-gallery {
+		padding: 0;
+		// Some themes give all <ul> default margin instead of padding.
+		margin: 0;
+
+		// not(.is-selected)
+		// position: absolute;
+		// top: 0;
+		width: 100%;
+		height: 100%;
+		// display: flex;
+		// flex-wrap: nowrap;
+
+		.block-cover-slider-image {
+			// Add space between thumbnails, and unset right most thumbnails later.
+			margin: 0;
+			padding: 0;
+			// display: flex;
+			// flex-direction: column;
+			// justify-content: center;
+			// position: relative;
+			// height: 100%;
+			// flex: 1 0 100%;
+
+			figure {
+				margin: 0;
+				height: 100%;
+				width: 100%;
+			}
+
+			img {
+				display: block;
+				max-width: 100%;
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+
+	}
+
+	.wp-block-cover-slider__inner-container {
+		width: 100%;
+		z-index: 1;
+		color: $white;
+	}
+}
+
