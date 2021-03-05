@@ -34,24 +34,13 @@
 		// Some themes give all <ul> default margin instead of padding.
 		margin: 0;
 
-		// not(.is-selected)
-		// position: absolute;
-		// top: 0;
 		width: 100%;
 		height: 100%;
-		// display: flex;
-		// flex-wrap: nowrap;
 
 		.block-cover-slider-image {
 			// Add space between thumbnails, and unset right most thumbnails later.
 			margin: 0;
 			padding: 0;
-			// display: flex;
-			// flex-direction: column;
-			// justify-content: center;
-			// position: relative;
-			// height: 100%;
-			// flex: 1 0 100%;
 
 			figure {
 				margin: 0;
