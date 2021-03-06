@@ -103,7 +103,6 @@ const CoverHeightInput = ( props ) => {
 
 	const inputValue = temporaryInput !== null ? temporaryInput : value;
 	const min = isPx ? COVER_MIN_HEIGHT : 0;
-  console.log(min);
 
 	return (
 		<BaseControl label={ __( 'Minimum height of cover' ) } id={ inputId }>

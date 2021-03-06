@@ -3,9 +3,14 @@ import domReady from '@wordpress/dom-ready';
 
 import { unregisterBlockStyle, registerBlockStyle } from '@wordpress/blocks';
 
-import '../../blocks'
+
 
 import './extensions/disable-title';
+import './extensions/block-full-height';
+import './extensions/no-padding-block';
+import './extensions/block-animation';
+
+import '../../blocks'
 // import './ExampleEditableBlock'
 // import './ExampleDynamicBlock'
 /**

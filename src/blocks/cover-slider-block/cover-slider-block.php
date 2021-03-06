@@ -31,6 +31,10 @@ function ecrannoir_twenty_one_render_cover_slider( $attributes, $content ) {
 		$class .= ' theme-anim-' . $attributes['themeApparitionEffect'];
 	}
 
+    if ( isset( $attributes['ecrannoirtwentyoneNoPadding'] ) ) {
+		$class .= $attributes['ecrannoirtwentyoneNoPadding'] === true ? ' ecrannoirtwentyone-no-padding' : '';
+	}
+
     
     ob_start(); ?>
     <div class="<?php echo $class; ?>" <?php echo $style; ?>>

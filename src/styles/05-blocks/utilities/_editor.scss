@@ -138,3 +138,36 @@
 .wp-block-freeform.block-library-rich-text__tinymce blockquote:before {
 	left: 5px;
 }
+
+.ecrannoirtwentyone-is-full-height {
+	height: 100%;
+	display: flex;
+
+	> *:first-child {
+		display: flex;
+		flex-direction: column;
+		align-content: flex-end;
+
+		> * {
+			margin-top: 0;
+			margin-bottom: calc(0.666 * #{$global--spacing-vertical});
+
+			@include media(mobile) {
+				margin-top: 0;
+				margin-bottom: $global--spacing-vertical;
+			}
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:nth-last-child(2) {
+				flex-grow: 1;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

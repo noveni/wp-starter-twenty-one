@@ -158,3 +158,15 @@
 		display: block;
 	}
 }
+
+.ecrannoirtwentyone-is-full-height {
+	height: 100%;
+
+	.wp-block-group__inner-container {
+		height: 100%;
+	}
+}
+
+.ecrannoirtwentyone-no-padding {
+	padding: 0 !important;
+}
