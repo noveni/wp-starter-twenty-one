@@ -26,13 +26,18 @@ import {
 	InnerBlocks,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+  __experimentalUnitControl as UnitControl,
 } from '@wordpress/block-editor';
-import { 
-  Button, 
+import {
+  BaseControl,
+	Button,
+	PanelBody,
+	PanelRow,
 	ToolbarGroup,
 	ToolbarButton,
 } from '@wordpress/components';
 import { Platform, useEffect, useState } from '@wordpress/element';
+import { compose, withInstanceId, useInstanceId } from '@wordpress/compose';
 import {
 	edit as editIcon,
   check as checkIcon,
@@ -41,6 +46,7 @@ import {
 /**
  * Internal dependencies
  */
+import { CSS_UNITS, COVER_MIN_HEIGHT } from './shared';
 import Slider from './slider';
 
 /**
@@ -59,20 +65,64 @@ const INNER_BLOCKS_TEMPLATE = [
 	],
 ];
 
-const pickRelevantMediaFiles = ( image, sizeSlug = 'large' ) => {
-	const imageProps = pick( image, [ 'alt', 'id', 'link', 'caption' ] );
-	imageProps.url =
-		get( image, [ 'sizes', sizeSlug, 'url' ] ) ||
-		get( image, [ 'media_details', 'sizes', sizeSlug, 'source_url' ] ) ||
-		image.url;
-	const fullUrl =
-		get( image, [ 'sizes', 'full', 'url' ] ) ||
-		get( image, [ 'media_details', 'sizes', 'full', 'source_url' ] );
-	if ( fullUrl ) {
-		imageProps.fullUrl = fullUrl;
-	}
-	return imageProps;
-};
+const CoverHeightInput = ( props ) => {
+  const {
+    onChange,
+    onUnitChange,
+    unit = 'px',
+    value = '',
+  } = props;
+
+	const [ temporaryInput, setTemporaryInput ] = useState( null );
+	const instanceId = useInstanceId( UnitControl );
+	const inputId = `block-cover-slider-height-input-${ instanceId }`;
+	const isPx = unit === 'px';
+
+	const handleOnChange = ( unprocessedValue ) => {
+		const inputValue =
+			unprocessedValue !== ''
+				? parseInt( unprocessedValue, 10 )
+				: undefined;
+
+		if ( isNaN( inputValue ) && inputValue !== undefined ) {
+			setTemporaryInput( unprocessedValue );
+			return;
+		}
+		setTemporaryInput( null );
+		onChange( inputValue );
+		if ( inputValue === undefined ) {
+			onUnitChange();
+		}
+	};
+
+	const handleOnBlur = () => {
+		if ( temporaryInput !== null ) {
+			setTemporaryInput( null );
+		}
+	};
+
+	const inputValue = temporaryInput !== null ? temporaryInput : value;
+	const min = isPx ? COVER_MIN_HEIGHT : 0;
+  console.log(min);
+
+	return (
+		<BaseControl label={ __( 'Minimum height of cover' ) } id={ inputId }>
+			<UnitControl
+				id={ inputId }
+				isResetValueOnUnitChange
+				min={ min }
+				onBlur={ handleOnBlur }
+				onChange={ handleOnChange }
+				onUnitChange={ onUnitChange }
+				step="1"
+				style={ { maxWidth: 80 } }
+				unit={ unit }
+				units={ CSS_UNITS }
+				value={ inputValue }
+			/>
+		</BaseControl>
+	);
+}
 
 const GroupEdit = ( props ) => {
 
@@ -81,13 +131,17 @@ const GroupEdit = ( props ) => {
     isSelected,
     attributes,
     setAttributes,
-    clientId
+    clientId,
   } = props;
-  
-  const { imageIds } = attributes;
+  const { 
+    imageIds,
+    minHeight,
+    minHeightUnit
+  } = attributes;
 
   const [ selectedImage, setSelectedImage ] = useState();
   const [ isEditingSlider, setEditingSlider ] = useState( false );
+  const [ temporaryMinHeight, setTemporaryMinHeight ] = useState( null );
 
 	const blockProps = useBlockProps();
 
@@ -212,6 +266,9 @@ const GroupEdit = ( props ) => {
 		}
 	}, [ isSelected ] );
 
+  
+
+	
 
   const hasImages = ! isEmpty(images);
 
@@ -256,6 +313,14 @@ const GroupEdit = ( props ) => {
     }
   );
 
+  const minHeightWithUnit = minHeightUnit
+		? `${ minHeight }${ minHeightUnit }`
+		: minHeight;
+
+  const style = {
+		minHeight: temporaryMinHeight || minHeightWithUnit || undefined,
+	};
+
 	return (
     <>
       <BlockControls>
@@ -277,9 +342,26 @@ const GroupEdit = ( props ) => {
           )}
         </ToolbarGroup>
       </BlockControls>
+      <InspectorControls>
+        <PanelBody title={ __( 'Dimensions' ) }>
+          <CoverHeightInput
+            value={ temporaryMinHeight || minHeight }
+            unit={ minHeightUnit }
+            onChange={ ( newMinHeight ) =>
+              setAttributes( { minHeight: newMinHeight } )
+            }
+            onUnitChange={ ( nextUnit ) => {
+              setAttributes( {
+                minHeightUnit: nextUnit,
+              } );
+            } }
+          />
+        </PanelBody>
+      </InspectorControls>
       <div
         { ...blockProps }
         className={ classnames( blockClassName, blockProps.className ) }
+        style={ { ...style, ...blockProps.style } }
       >
         <div className="block-cover-slider-wrapper">
           { hasImages && (

@@ -6,11 +6,20 @@ function ecrannoir_twenty_one_render_cover_slider( $attributes, $content ) {
         return;
     }
 
-    $images = [];
+    $style = 'style="';
 
-    if( !empty($attributes['imageIds'])) {
-
+    if ( isset ($attributes['minHeight'])) {
+        $minHeightUnit = $attributes['minHeightUnit'];
+        $minHeightProp = $attributes['minHeight'];
+        $minHeight = $minHeightUnit
+            ? $minHeightProp . $minHeightUnit
+            : $minHeightProp;
+        if ($minHeight) {
+            $style .= "min-height: $minHeight;";
+        }
     }
+
+    $style .= '"';
 
     $class = 'wp-block-ecrannoirtwentyone-cover-slider';
 
@@ -24,7 +33,7 @@ function ecrannoir_twenty_one_render_cover_slider( $attributes, $content ) {
 
     
     ob_start(); ?>
-    <div class="<?php echo $class; ?>">
+    <div class="<?php echo $class; ?>" <?php echo $style; ?>>
         <div class="wp-block-cover-slider__inner-container">
             <?php echo $content; ?>
         </div>
@@ -61,13 +70,16 @@ function ecrannoir_twenty_one_register_block_core_cover_slider() {
 	register_block_type(
 		'ecrannoirtwentyone/cover-slider',
 		array(
-            'attributes'      => array(
-                'imageIds'                => array(
-                    'type'  => 'array',
+            'attributes' => array(
+                'imageIds'  => array(
+                    'type'          => 'array',
                 ),
-                'globalContent'             => array(
-                    'type'    => 'string',
-                    'default' => '',
+                'minHeight'     => array(
+                    'type'          => 'number'
+                ),
+                'minHeightUnit' => array(
+                    'type'          => 'string',
+                    'default'       => 'px'
                 )
             ),
 			'render_callback' => 'ecrannoir_twenty_one_render_cover_slider',

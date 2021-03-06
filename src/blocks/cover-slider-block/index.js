@@ -30,10 +30,14 @@ registerBlockType('ecrannoirtwentyone/cover-slider', {
     imageIds: {
       type: 'array',
     },
-    globalContent: {
+    minHeight: {
+      type: 'number',
+    },
+    minHeightUnit: {
       type: 'string',
-      default: ''
+      default: 'px'
     }
+
   },
   edit,
   save
