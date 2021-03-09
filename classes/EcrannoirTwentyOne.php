@@ -379,10 +379,13 @@ class EcrannoirTwentyOne
 		/**
 		 * Enqueue admin assets.
 		 */
-		// add_action('admin_enqueue_scripts', function($hook) {
-		// 	EcranNoirTwentyOne_Scripts::toEnqueueScript('admin');
-		// 	EcranNoirTwentyOne_Scripts::toEnqueueStyle('admin');
-        // });
+		add_action('admin_enqueue_scripts', function($hook) {
+            if ( ! did_action( 'wp_enqueue_media' ) ) {
+                wp_enqueue_media();
+            }
+			EcranNoirTwentyOne_Scripts::toEnqueueScript('admin');
+			// EcranNoirTwentyOne_Scripts::toEnqueueStyle('admin');
+        });
         
         /**
 		 * Enqueue editor assets.

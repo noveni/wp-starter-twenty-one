@@ -108,6 +108,8 @@ require get_template_directory() . '/inc/block-patterns.php';
 // Block Styles.
 require get_template_directory() . '/inc/block-styles.php';
 
+require get_template_directory() . '/inc/taxonomy-terms-fields.php';
+
 require get_template_directory() . '/assets/blocks/cover-slider-block.php';
 require get_template_directory() . '/assets/blocks/picked-post-block.php';
 require get_template_directory() . '/assets/blocks/latest-posts.php';
