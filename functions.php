@@ -109,6 +109,7 @@ require get_template_directory() . '/inc/block-patterns.php';
 require get_template_directory() . '/inc/block-styles.php';
 
 require get_template_directory() . '/assets/blocks/cover-slider-block.php';
+require get_template_directory() . '/assets/blocks/picked-post-block.php';
 
 // Contact Form 7
 if (class_exists('WPCF7')) {
