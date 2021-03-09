@@ -29,18 +29,14 @@ function ecrannoir_twenty_one_render_picked_term( $attributes, $content ) {
         }
     
     $term_image = false;
-    // if ( $attributes['displayImage'] ) {
-    //     if (has_post_thumbnail( $term )) {
-    //         $term_image = get_the_post_thumbnail( $term, 'post-thumbnail' );
-    //     } else {
-    //         $width = 621;
-    //         $height = 803;
-    //         $style = 'style="width:100%;height:' . round( 100 * $height / $width, 2 ) . '%;max-width:' . $width . 'px;" ';
-    //         $url = get_template_directory_uri() . '/assets/img/placeholder.jpg';
-    //         $imgClassName = "attachment-post-thumbnail size-post-thumbnail wp-post-image";
-    //         $term_image = sprintf('<img src="%1$s" class="%2$s" alt="" %3$s>', $url, $imgClassName, $style );
-    //     }
-    // }
+    if ( $attributes['displayImage'] ) {
+        $image_id = get_term_meta( $term->term_id, 'ecrannoirtwentyone-img', true );
+        if( $image = wp_get_attachment_image_src( $image_id ) ) {
+            $term_image = '<img src="' . $image[0] . '" />';
+        } else {
+            $term_image = ecrannoir_twenty_one_get_image_placeholder();
+        }
+    }
 
     ob_start(); ?>
     <div class="<?php echo $class; ?>" <?php echo $style; ?>>

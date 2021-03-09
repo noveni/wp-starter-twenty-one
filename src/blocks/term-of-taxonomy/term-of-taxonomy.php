@@ -34,31 +34,31 @@ function ecrannoir_twenty_one_render_term_of_taxonomy( $attributes ) {
         if ( ! $title ) {
             $title = __( '(no title)' );
         }
-        $description = $term->description;
+        $term_description = $term->description;
         
-        // $featured_image = false;
-        // if ( $attributes['displayImage'] ) {
-        //     if (has_post_thumbnail( $post )) {
-        //         $featured_image = get_the_post_thumbnail( $post, 'post-thumbnail' );
-        //     } else {
-        //         $width = 621;
-        //         $height = 803;
-        //         $style = 'style="width:100%;height:' . round( 100 * $height / $width, 2 ) . '%;max-width:' . $width . 'px;" ';
-        //         $url = get_template_directory_uri() . '/assets/img/placeholder.jpg';
-        //         $imgClassName = "attachment-post-thumbnail size-post-thumbnail wp-post-image";
-        //         $featured_image = sprintf('<img src="%1$s" class="%2$s" alt="" %3$s>', $url, $imgClassName, $style );
-        //     }
-        // }
+        $term_image = false;
+        if ( $attributes['displayImage'] ) {
+            $image_id = get_term_meta( $term->term_id, 'ecrannoirtwentyone-img', true );
+            if( $image = wp_get_attachment_image_src( $image_id ) ) {
+                $term_image = '<img src="' . $image[0] . '" />';
+            } else {
+                $term_image = ecrannoir_twenty_one_get_image_placeholder();
+            }
+        }
         ?>
         <article>
-
+            <?php if ( $term_image ) : ?>
+                <a href="<?php echo $term_link; ?>"><figure>
+                <?php echo $term_image; ?>
+                </figure></a>
+            <?php endif; ?> 
             <header>
                 <h3 class="post-title h2">
                     <a href="<?php echo $term_link; ?>"><?php echo $title; ?></a>
                 </h3>
             </header>
-            <?php if ($attributes['displayDescription']): ?>
-                <?php echo $term->description; ?>
+            <?php if ($term_description): ?>
+                <?php echo $term_description; ?>
             <?php endif; ?> 
             <?php ecrannoir_twenty_one_block_button($term_link, esc_html__('Je découvre', 'ecrannoirtwentyone')); ?>
         </article>

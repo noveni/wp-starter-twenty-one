@@ -49,12 +49,7 @@ function ecrannoir_twenty_one_render_latest_posts( $attributes ) {
             if (has_post_thumbnail( $post )) {
                 $featured_image = get_the_post_thumbnail( $post, 'post-thumbnail' );
             } else {
-                $width = 621;
-                $height = 803;
-                $style = 'style="width:100%;height:' . round( 100 * $height / $width, 2 ) . '%;max-width:' . $width . 'px;" ';
-                $url = get_template_directory_uri() . '/assets/img/placeholder.jpg';
-                $imgClassName = "attachment-post-thumbnail size-post-thumbnail wp-post-image";
-                $featured_image = sprintf('<img src="%1$s" class="%2$s" alt="" %3$s>', $url, $imgClassName, $style );
+                $featured_image = ecrannoir_twenty_one_get_image_placeholder();
             }
         }
         ?>

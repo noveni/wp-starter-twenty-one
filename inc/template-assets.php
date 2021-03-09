@@ -52,3 +52,25 @@ add_filter('sanitize_file_name', 'ecrannoir_twenty_one_sanitize_file_name');
 function ecrannoir_twenty_one_get_icon_svg( $group, $icon, $size = 24 ) {
 	return EcranNoirTwentyOne_Icons::get_svg( $group, $icon, $size );
 }
+
+
+
+/**
+ * Get Image Placeholder for image replacement
+ */
+function ecrannoir_twenty_one_get_image_placeholder( ) {
+	$image_placeholder_default_size = [
+		'width' => 600,
+		'height' => 600,
+	];
+
+	$style = '';
+
+	$url = get_template_directory_uri() . '/assets/img/placeholder-color.png';
+
+	$className = 'attachment-post-thumbnail size-post-thumbnail wp-post-image';
+
+	$image = sprintf('<img src="%1$s" class="%2$s" alt="" %3$s>', $url, $className, $style );
+
+	return $image;
+}
