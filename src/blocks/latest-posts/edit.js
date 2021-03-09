@@ -250,7 +250,6 @@
            label="Post Type: "
            options={postTypeListOptions}
            onChange={ (value) => {
-             console.log(value)
              setAttributes( { postType: value } )
            }}
          />

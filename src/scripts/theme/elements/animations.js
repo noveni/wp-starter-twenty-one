@@ -26,7 +26,6 @@ const BannerTextSlider = () => {
     //       dirFromLeft = "+=" + totalWidth,
     //       dirFromRight = "-=" + totalWidth;
 
-    // console.log({totalWidth, 'window.innerWidth': window.innerWidth, boxWidth});
 
     // const windowWrap = gsap.utils.wrap(0, window.innerWidth);
 

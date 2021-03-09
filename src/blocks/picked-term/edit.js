@@ -90,7 +90,6 @@ const PickedTermEdit = ( props ) => {
       path: addQueryArgs( `/wp/v2/taxonomies`, CATEGORIES_LIST_QUERY ),
     } )
       .then( ( data ) => {
-				console.log(data);
         if ( isStillMounted.current ) {
           setTaxonomyList( data );
         }
@@ -192,7 +191,6 @@ const PickedTermEdit = ( props ) => {
 	}
 
 
-	console.log(termId, pickedTerm);
   const hasTerm = termId && typeof pickedTerm === 'object' && pickedTerm !== null
 	if ( !hasTerm ) {
 		return (
