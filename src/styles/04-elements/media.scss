@@ -4,6 +4,17 @@ img {
 	max-width: 100%;
 }
 
+svg {
+	width: 100%;
+	height: auto;
+}
+
+svg.svg-has-size {
+	width: unset;
+	height: unset;
+}
+
+
 /* Classic editor images */
 .entry-content img {
 	max-width: 100%;

@@ -158,7 +158,7 @@ class EcranNoirTwentyOne_Icons {
 	 *
 	 * @return string
 	 */
-	public static function get_svg( $group, $icon, $size ) {
+	public static function get_svg( $group, $icon, $size, $additionnais_class = '' ) {
 
 		if ( 'ui' === $group ) {
 			$arr = self::$icons;
@@ -180,6 +180,16 @@ class EcranNoirTwentyOne_Icons {
 		 */
 		$arr = apply_filters( "ecrannoir_twenty_one_svg_icons_{$group}", $arr );
 
+		$class = 'svg-icon';
+
+		if ($additionnais_class != '' )  {
+			$class .= " $additionnais_class";
+		}
+
+		if ($size) {
+			$class .= " svg-has-size $additionnais_class";
+		}
+
 		$svg = '';
 		if ( array_key_exists( $icon, $arr ) ) {
             $icon_content = $arr[ $icon ];
@@ -189,9 +199,9 @@ class EcranNoirTwentyOne_Icons {
                 }
 			}
 			if ($size) {
-				$repl = sprintf( '<svg class="svg-icon" width="%d" height="%d" aria-hidden="true" role="img" focusable="false" ', $size, $size );
+				$repl = sprintf( '<svg class="' . $class . '" width="%d" height="%d" aria-hidden="true" role="img" focusable="false" ', $size, $size );
 			} else {
-				$repl = '<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" ';
+				$repl = '<svg class="' . $class . '" aria-hidden="true" role="img" focusable="false" ';
 			}
 
 			$svg = preg_replace( '/^<svg /', $repl, trim( $icon_content ) ); // Add extra attributes to SVG code.
