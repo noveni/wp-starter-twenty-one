@@ -28,7 +28,7 @@ class EcranNoirTwentyOne_Scripts
         wp_enqueue_script($handleFileName, $base_uri . $scriptName . '.js', $script_asset['dependencies'], $script_asset['version'], true);
     }
 
-    public static function toEnqueueStyle($styleName, $customHandleStyleName = '') {
+    public static function toEnqueueStyle($styleName, $customHandleStyleName = '', $media = 'all') {
 
         $base_uri = get_template_directory_uri() . self::$assets_path . 'css/';
         $base_dir = get_template_directory() . self::$assets_path . 'css/';
@@ -49,7 +49,7 @@ class EcranNoirTwentyOne_Scripts
         
         $handleFileName = $customHandleStyleName !== '' ? $customHandleStyleName : 'ecrannoirtwentyone-' . $styleName . '-styles';
         // Enqueue Style
-        wp_enqueue_style($handleFileName, $base_uri . $styleName . '.css', array(), $script_asset['version'], 'all');
+        wp_enqueue_style($handleFileName, $base_uri . $styleName . '.css', array(), $script_asset['version'], $media);
     }
     
     public static function toRegisterScript($scriptName, $customHandleScriptName) {
