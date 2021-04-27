@@ -209,10 +209,25 @@ if ( ! function_exists( 'ecrannoir_twenty_one_block_button' ) ) {
 	 *
 	 * @return void
 	 */
-	function ecrannoir_twenty_one_block_button($url, $label) {
+	function ecrannoir_twenty_one_block_button($url = false, $label = '', $style = '', $extraClass = '' ) {
+		$href = "";
+		if ($url) {
+			$href = 'href="' . esc_url( $url ) . '"';
+		}
+
+		$class = 'wp-block-button';
+
+		if ($style != '') {
+			$class .= " is-style-ecrannoirtwentyone-button-$style";
+		}
+
+		if ($extraClass != '') {
+			$class .= " $extraClass";
+		}
+		
 		?>
 		<div class="wp-block-buttons">
-			<div class="wp-block-button"><a class="wp-block-button__link" href="<?php echo esc_url( $url); ?>"><?php echo $label; ?></a></div>
+			<div class="<?php echo $class ?>"><a class="wp-block-button__link" <?php echo $href; ?>><?php echo $label; ?></a></div>
 		</div>
 		<?php
 	}
