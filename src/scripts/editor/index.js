@@ -8,6 +8,7 @@ import { unregisterBlockStyle, registerBlockStyle } from '@wordpress/blocks';
 import './extensions/disable-title';
 import './extensions/block-full-height';
 import './extensions/no-padding-block';
+import './extensions/hide-block';
 import './extensions/block-animation';
 
 import '../../blocks'

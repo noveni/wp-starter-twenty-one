@@ -277,3 +277,28 @@ if ( ! function_exists( 'ecrannoirtwentyone_hide_title' ) ) {
 	}
 	add_filter( 'the_title', 'ecrannoirtwentyone_hide_title', 90, 2 );
 }
+
+
+if ( ! function_exists('ecrannoirtwentyone_hide_block')) {
+
+	function ecrannoirtwentyone_hide_block($block_content, $block)
+	{
+		if ( ! is_admin() && ! is_search() && in_the_loop() && ( strpos( esc_url( $_SERVER[ 'REQUEST_URI' ] ), '/wp-json/' ) === false ) ) {
+			$hide_block = isset( $block['attrs']['ecrannoirtwentyoneHideBlock'] )
+			? $block['attrs']['ecrannoirtwentyoneHideBlock']
+			: null;
+	
+			if ( isset( $hide_block ) ) {
+				
+				if ($hide_block == true) {
+					return null;
+				} else {
+					return $block_content;
+				}
+			}
+		}
+		return $block_content;
+	}
+
+	add_filter( 'render_block', 'ecrannoirtwentyone_hide_block', 10, 2 );
+}
