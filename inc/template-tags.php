@@ -242,3 +242,13 @@ function ecrannoir_twenty_one_has_title() {
 
 	return true;
 }
+
+/**
+ * Get Content from a slug Page
+ */
+function ecrannoir_twenty_get_post_page_content( $slug ) {
+	$page = get_page_by_path( $slug );
+	if ($page) {
+		echo $page->post_content;
+	}
+}
