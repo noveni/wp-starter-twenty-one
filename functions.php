@@ -38,12 +38,16 @@ require get_template_directory() . '/classes/EcrannoirTwentyOne-Meta.php';
 // SVG Icons class.
 require get_template_directory() . '/classes/EcrannoirTwentyOne-Icons.php';
 
+require get_template_directory() . '/classes/widgets/EcrannoirTwentyOne-Widget-LinkPage.php';
+
 $shared_theme_configuration = ecrannoir_twenty_one_get_config_data();
 $theme_configuration = array(
     'theme_content_width' => ecrannoir_twenty_one_get_config_value( 'theme-content-width', $shared_theme_configuration),
     'disable_comment' => true,
     'clean' => true,
     'menus' => array(
+        'primary-left'   => __( 'Header Menu Left', 'ecrannoirtwentyone' ),
+        'primary-right'   => __( 'Header Menu Right', 'ecrannoirtwentyone' ),
         'primary'   => __( 'Header Menu', 'ecrannoirtwentyone' ),
         'mobile'    => __( 'Mobile Menu', 'ecrannoirtwentyone' ),
         'footer'    => __( 'Footer Menu', 'ecrannoirtwentyone' ),
@@ -52,18 +56,18 @@ $theme_configuration = array(
     ),
     'widgets' => array(
         array(
-            'name'          => __('Site Description', 'ecrannoirtwentyone'),
-            'id'            => 'site-description',
-            'description'   => __( 'Add description here to appear in the footer.', 'ecrannoirtwentyone' ),
-        ),
-        array(
-            'name'          => __('Footer Sidebar 1', 'ecrannoirtwentyone'),
-            'id'            => 'sidebar-1',
+            'name'          => __('Footer Column 1', 'ecrannoirtwentyone'),
+            'id'            => 'footer-1',
             'description'   => __( 'Add Widgets here to appear in the footer.', 'ecrannoirtwentyone' ),
         ),
         array(
-            'name'          => __('Footer Sidebar 2', 'ecrannoirtwentyone'),
-            'id'            => 'sidebar-2',
+            'name'          => __('Footer Column 2', 'ecrannoirtwentyone'),
+            'id'            => 'footer-2',
+            'description'   => __( 'Add Widgets here to appear in the footer.', 'ecrannoirtwentyone' ),
+        ),
+        array(
+            'name'          => __('Footer Column 3', 'ecrannoirtwentyone'),
+            'id'            => 'footer-3',
             'description'   => __( 'Add Widgets here to appear in the footer.', 'ecrannoirtwentyone' ),
         )
     ),
@@ -127,4 +131,13 @@ if (class_exists('WPCF7')) {
         }
     }
     add_action( 'wp_footer', 'load_wpcf7_js' );
+}
+
+if ( ecrannoirtwentyone_is_woocommerce_activated() ) {
+	require get_template_directory() . '/classes/EcrannoirTwentyOne-Woocommerce.php';
+    $theme_woocommerce =new EcranNoirTwentyOne_WooCommerce();
+
+    require  get_template_directory() . '/inc/woocommerce/ecrannoirtwentyone-woocommerce-template-hooks.php';
+    require  get_template_directory() . '/inc/woocommerce/ecrannoirtwentyone-woocommerce-template-functions.php';
+	require  get_template_directory() . '/inc/woocommerce/ecrannoirtwentyone-woocommerce-functions.php';
 }

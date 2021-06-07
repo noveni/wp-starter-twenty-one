@@ -52,6 +52,7 @@ $grey:      map_get($themeColor, grey); /* stylelint-disable-line */
 $grey-alt:      map_get($themeColor, grey-alt); /* stylelint-disable-line */
 $lightgrey:      map_get($themeColor, lightgrey); /* stylelint-disable-line */
 $red:       map_get($themeColor, red); /* stylelint-disable-line */
+$rose-light:       map_get($themeColor, red); /* stylelint-disable-line */
 $green:     map_get($themeColor, green); /* stylelint-disable-line */
 $blue:     map_get($themeColor, blue); /* stylelint-disable-line */
 $yellow:     map_get($themeColor, yellow); /* stylelint-disable-line */
@@ -97,7 +98,7 @@ $global--font-size-xl: $font-size-xl;
 $global--font-size-xxl: $font-size-xxl;
 $global--font-size-xxxl: $font-size-xxxl;
 $global--font-size-page-title: $font-size-page-title;
-$global--letter-spacing: normal;
+$global--letter-spacing: 0;
 
 /* Line Height */
 $global--line-height-body: 1.7;
@@ -135,6 +136,7 @@ $heading--font-weight-strong: 600;
 /* Colors */
 $global--color-black: $black;
 $global--color-gray-alt: $grey-alt;
+$global--color-grey: $grey;
 $global--color-gray: $grey;
 $global--color-light-gray: $lightgrey;
 $global--color-green: $green;
@@ -174,12 +176,14 @@ $form--border-radius: 0;
 $form--spacing-unit: calc(0.5 * #{$global--spacing-unit});
 
 /* Buttons */
+$button--font-size: $global--font-size-md;
 // Colors
 $button--color-text: $global--color-background;
 $button--color-text-hover: $global--color-secondary;
 $button--color-text-active: $global--color-secondary;
 $button--color-background: $global--color-secondary;
 $button--color-background-active: $global--color-background;
+$button--color-border: $button--color-text;
 // Borders
 $button--border-width: 3px;
 // Spacing
@@ -193,6 +197,7 @@ $branding--logo--max-width-mobile: 96px;
 $branding--logo--max-height-mobile: 96px;
 
 /* Main navigation */
+$primary-nav--font-family: $global--font-primary;
 $primary-nav--font-size: $global--font-size-md;
 $primary-nav--color-link: $global--color-primary;
 $primary-nav--color-link-hover: $global--color-primary-hover;
@@ -226,3 +231,5 @@ $global--admin-bar--height: 0;
 // 		--heading--font-size-h2: 3rem; // 48px / 16px
 // 	}
 // }
+
+$color_woocommerce: #96588a;

@@ -27,7 +27,8 @@ class EcranNoirTwentyOne_Icons {
      * 
      */
     public static $brand_svg = array(
-        'logo'			=> ['path' => 'logo.svg'],
+        'logo'			=> ['path' => 'logo-theme-author.svg'],
+        'logo-theme-author'			=> ['path' => 'logo-theme-author.svg'],
     );
 	/**
 	 * User Interface icons – svg sources.

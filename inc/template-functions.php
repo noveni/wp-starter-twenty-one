@@ -302,3 +302,13 @@ if ( ! function_exists('ecrannoirtwentyone_hide_block')) {
 
 	add_filter( 'render_block', 'ecrannoirtwentyone_hide_block', 10, 2 );
 }
+
+
+if ( ! function_exists( 'ecrannoirtwentyone_is_woocommerce_activated' ) ) {
+	/**
+	 * Query WooCommerce activation
+	 */
+	function ecrannoirtwentyone_is_woocommerce_activated() {
+		return class_exists( 'WooCommerce' ) ? true : false;
+	}
+}

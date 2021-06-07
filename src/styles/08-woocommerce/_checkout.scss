@@ -1,0 +1,466 @@
+/**
+ * Checkout
+ *
+ * 1 - Required to make the blockUI overlay cover the entire page rather than
+ *     just the checkout form. We do this because otherwise our sticky order
+ *     review can break out of the checkout form (and the blockUI element).
+ */
+.checkout_coupon {
+	margin-bottom: calc(1 * #{$global--spacing-vertical});
+}
+
+form.checkout {
+
+	// @include clearfix;
+	// position: static !important; /* 1 */
+	flex-wrap: wrap;
+	margin-top: calc(1 * #{$global--spacing-vertical});
+
+	counter-reset: ecrannoirtwentyone-checkout-step-counter;
+
+	h4 {
+		margin-bottom: calc(1 * #{$global--spacing-vertical});
+		line-height: 41px;
+	}
+
+	// > .checkout-step-second,
+	// > .checkout-step-third,
+	// > .col2-set {
+
+	// }
+
+	> .blockUI {
+		position: fixed !important; /* 1 */
+	}
+
+	> .wrapper-checkout-row {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	> .checkout-step-second,
+	> .checkout-step-third,
+	.col2-set {
+		width: 58.333%;
+		padding-bottom: calc(0.7 * #{$global--spacing-vertical});
+		margin-bottom: calc(0.7 * #{$global--spacing-vertical});
+
+	}
+
+	> .checkout-step-second,
+	.col2-set,
+	.wc_payment_methods {
+		border-bottom: 1px solid #d8d8d8;
+		padding-bottom: calc(0.7 * #{$global--spacing-vertical});
+		margin-bottom: calc(0.7 * #{$global--spacing-vertical});
+	}
+
+	.col2-set {
+		width: 56%;
+	}
+
+	.wrapper-order-review {
+		width: 41%;
+	}
+
+
+	.ecrannoirtwentyone-checkout-numbered-step {
+		padding-top: calc(1 * #{$global--spacing-vertical});
+		counter-increment: ecrannoirtwentyone-checkout-step-counter;
+		display: flex;
+		align-items: center;
+
+		&::before {
+			content: counter(ecrannoirtwentyone-checkout-step-counter);
+
+			/* Style away! */
+			font-family: $global--font-secondary;
+			background: $global--color-black;
+			width: 38px;
+			height: 38px;
+			border-radius: 50%;
+			display: inline-block;
+			color: $global--color-white;
+			text-align: center;
+			font-size: 20px;
+			line-height: 38px;
+			font-weight: 400;
+			font-style: italic;
+			margin-right: 1rem;
+		}
+	}
+
+}
+
+.ecrannoirtwentyone-woocommerce-shipping-totals {
+
+	th,
+	td {
+		border: none;
+		padding: 0;
+	}
+
+	th {
+		display: none;
+		visibility: hidden;
+	}
+
+	ul {
+		padding: 0;
+	}
+}
+
+#payment {
+
+	@include clearfix;
+
+	.create-account {
+		clear: both;
+	}
+
+	.payment_methods {
+		padding-left: 0;
+
+		> .woocommerce-PaymentMethod,
+		> .wc_payment_method {
+
+			> label {
+				display: inline-block;
+				cursor: pointer;
+			}
+		}
+
+		li {
+			list-style: none !important;
+			margin-left: 0;
+			margin-bottom: calc(0.7 * #{$global--spacing-vertical});
+			position: relative;
+			display: flex;
+			flex-wrap: wrap;
+
+			.input-radio {
+				flex-shrink: 0;
+			}
+
+			> label {
+				flex-grow: 1;
+			}
+
+			img {
+				float: right;
+				border: 0;
+				padding: 0;
+				max-height: ms(3);
+			}
+
+			&:last-child:not(.woocommerce-notice) {
+				padding-bottom: 0;
+				border-bottom: 0;
+			}
+
+			p {
+				margin: 0;
+			}
+
+			.payment_box {
+				padding: ms(2);
+
+				fieldset {
+					border: 0;
+					margin: 0;
+					padding: 1em 0 0;
+					font-size: ms(-1);
+
+					label {
+						width: auto;
+						margin-left: 0;
+					}
+
+					.form-row {
+						margin-bottom: 1em;
+
+						input[type="checkbox"] {
+							margin-right: 5px;
+						}
+					}
+
+					#cvv {
+						width: 22% !important;
+					}
+
+					.help {
+						width: 75%;
+						float: right;
+					}
+				}
+
+				.woocommerce-SavedPaymentMethods {
+					padding-top: 1em;
+					margin: 0;
+
+					li {
+						margin-top: ms(-2);
+
+						input[type="radio"] {
+							margin-right: 0.236em;
+						}
+					}
+				}
+
+				ul.wc-saved-payment-methods {
+					margin-left: 0;
+				}
+
+				.wc-credit-card-form-card-number,
+				.wc-credit-card-form-card-expiry,
+				.wc-credit-card-form-card-cvc {
+					font-size: ms(2);
+				}
+
+				.wc-credit-card-form-card-number {
+					background-repeat: no-repeat;
+					background-position: right ms(-2) center;
+					background-size: 31px 20px;
+					background-image: url(../../img/credit-cards/unknown.svg);
+
+					&.visa {
+						background-image: url(../../img/credit-cards/visa.svg);
+					}
+
+					&.mastercard {
+						background-image: url(../../img/credit-cards/mastercard.svg);
+					}
+
+					&.laser {
+						background-image: url(../../img/credit-cards/laser.svg);
+					}
+
+					&.dinersclub {
+						background-image: url(../../img/credit-cards/diners.svg);
+					}
+
+					&.maestro {
+						background-image: url(../../img/credit-cards/maestro.svg);
+					}
+
+					&.jcb {
+						background-image: url(../../img/credit-cards/jcb.svg);
+					}
+
+					&.amex {
+						background-image: url(../../img/credit-cards/amex.svg);
+					}
+
+					&.discover {
+						background-image: url(../../img/credit-cards/discover.svg);
+					}
+				}
+			}
+		}
+	}
+
+	.terms {
+		width: 100%;
+		clear: both;
+		float: none;
+		margin-bottom: 1em;
+
+		label {
+			display: block;
+			cursor: pointer;
+		}
+	}
+
+	.woocommerce-terms-and-conditions {
+		box-shadow: inset 0 1px 3px rgba(#000, 0.2);
+		margin-bottom: 16px;
+		background-color: rgba(#000, 0.05);
+	}
+
+	.place-order {
+		padding: ms(2);
+		margin-bottom: 0;
+		float: none;
+		width: 100%;
+		margin-top: ms(5);
+		clear: both;
+
+		.button {
+			// width: 100%;
+			float: right;
+			white-space: pre-wrap;
+
+			background: $button--color-background-active;
+			color: $button--color-background;
+			border-color: $button--color-background-active;
+		}
+	}
+}
+
+.woocommerce-checkout-review-order {
+	border: 1px solid #979797;
+	padding: calc(1 * #{$global--spacing-vertical}) calc(1 * #{$global--spacing-horizontal});
+}
+
+table.woocommerce-checkout-review-order-table {
+
+	td,
+	th {
+		border: none;
+		padding: 0;
+	}
+
+	tfoot {
+		border-top: 1px solid $global--color-black;
+
+		td {
+			text-align: right;
+		}
+
+		.woocommerce-Price-amount {
+			font-weight: 600;
+		}
+
+		th,
+		td {
+			padding-bottom: calc(0.6 * #{$global--spacing-vertical});
+		}
+
+		tr:last-child td {
+			padding-bottom: 0;
+		}
+	}
+
+
+	.add_gift_card_form {
+		margin-bottom: calc(1 * #{$global--spacing-vertical});
+
+		#wc_gc_cart_redeem_form { /* stylelint-disable-line */
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+
+			.wc_gc_add_gift_card_form__notices {
+				flex: 1 0 100%;
+			}
+
+			input[type="text"] {
+				flex: 0 1 54%;
+			}
+
+			.button {
+				flex: 0 0 42%;
+				width: auto;
+			}
+		}
+	}
+
+	.cart-subtotal {
+
+		th,
+		td {
+			padding-top: calc(1 * #{$global--spacing-vertical});
+		}
+	}
+
+	.order-review-custom-btn {
+		width: 100%;
+
+		a {
+			width: 100%;
+		}
+	}
+}
+
+.admin-bar {
+
+	.woocommerce-checkout {
+
+		#wc_checkout_add_ons label + br { /* stylelint-disable-line */
+			display: none;
+		}
+	}
+}
+
+form.checkout .woocommerce-billing-fields > h3:first-child,
+#order_review_heading { /* stylelint-disable-line */
+	display: none;
+	visibility: hidden;
+}
+
+
+@include media(tablet) {
+
+	#ship-to-different-address {
+		position: relative;
+
+		label {
+			font-weight: 300;
+		}
+
+		.woocommerce-form__input-checkbox {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			margin-right: 0;
+		}
+	}
+
+	#customer_details + #wc_checkout_add_ons { /* stylelint-disable-line */
+
+		width: 44.44%;
+	}
+
+	#wc_checkout_add_ons { /* stylelint-disable-line */
+
+		input[type="radio"] {
+			float: left;
+			margin-right: ms(-3);
+			clear: left;
+			margin-top: 0.35em;
+		}
+	}
+	/* stylelint-disable */
+
+	
+
+	// Payment forms in account
+	.woocommerce-order-pay,
+	.page-template-template-fullwidth-php.woocommerce-order-pay {
+
+		#order_review {
+			width: 100%;
+			float: none;
+
+			#payment {
+
+				h3 {
+					padding-left: 1em;
+					padding-top: 1em;
+				}
+
+				.form-row {
+					padding: 1em;
+				}
+			}
+
+			.payment_methods + .form-row {
+				padding: 1em;
+			}
+
+			.button#place_order {
+				display: block;
+				width: 100%;
+				font-size: ms(2);
+			}
+		}
+	}
+}
+/* stylelint-enable */
+
+
+// .woocommerce-order-received .woocommerce-order {
+// 	display: flex;
+// 	flex-wrap: wrap;
+// }

@@ -30,8 +30,8 @@ class EcranNoirTwentyOne_Scripts
 
     public static function toEnqueueStyle($styleName, $customHandleStyleName = '', $media = 'all') {
 
-        $base_uri = get_template_directory_uri() . self::$assets_path . 'css/';
-        $base_dir = get_template_directory() . self::$assets_path . 'css/';
+        $base_uri = get_template_directory_uri() . self::$assets_path . '';
+        $base_dir = get_template_directory() . self::$assets_path . '';
 
         $style_path = $base_dir . $styleName . '.css';
 

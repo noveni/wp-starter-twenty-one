@@ -1,0 +1,28 @@
+.wc-block-grid {
+
+	&.has-3-columns:not(.alignwide):not(.alignfull) {
+		font-size: inherit;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.wc-block-grid__product-title {
+		font-family: $heading--font-family;
+		font-weight: $heading--font-weight;
+		font-size: $heading--font-size-h4;
+		letter-spacing: $heading--letter-spacing-h4;
+		line-height: $heading--line-height-h4;
+		font-style: italic;
+		text-align: center;
+		text-decoration: none;
+
+		padding-left: calc(0.5 * #{$global--spacing-unit});
+		padding-right: calc(0.5 * #{$global--spacing-unit});
+	}
+
+	.wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
+		@include button-style();
+	}
+}

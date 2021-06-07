@@ -65,6 +65,13 @@ function ecrannoir_twenty_one_nav_menu_social_icons( $item_output, $item, $depth
 		}
 	}
 
+	if ( 'social-links' === $args->menu->slug) {
+		$svg = ecrannoir_twenty_one_get_social_link_svg( $item->url, 24 );
+		if ( ! empty( $svg ) ) {
+			$item_output = str_replace( '>'.$item->post_name .'<', '>' . $svg .'<', $item_output );
+		}
+	}
+
 	return $item_output;
 }
 

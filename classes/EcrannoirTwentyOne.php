@@ -274,7 +274,7 @@ class EcrannoirTwentyOne
         // Add support for editor styles.
         add_theme_support( 'editor-styles' );
         
-        $editor_stylesheet_path = './assets/css/editor.css';
+        $editor_stylesheet_path = './assets/editor.css';
 
         // Enqueue editor styles.
         add_editor_style( $editor_stylesheet_path );
@@ -359,6 +359,8 @@ class EcrannoirTwentyOne
                 );
             }
         }
+
+        register_widget( 'EcrannoirTwentyOne_Widget_LinkPage' );
     }
 
     /**

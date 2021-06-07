@@ -209,7 +209,16 @@ if ( ! function_exists( 'ecrannoir_twenty_one_block_button' ) ) {
 	 *
 	 * @return void
 	 */
-	function ecrannoir_twenty_one_block_button($url = false, $label = '', $style = '', $extraClass = '' ) {
+	function ecrannoir_twenty_one_block_button($url = false, $label = '', $style = '', $extraClass = '', $args = array() ) {
+
+		$defaults = array(
+			'parent_class' => '',
+			'label' => 'Je découvre',
+			'href' => '#'
+		);
+		$args = wp_parse_args( $args, $defaults );
+		
+
 		$href = "";
 		if ($url) {
 			$href = 'href="' . esc_url( $url ) . '"';
@@ -226,7 +235,7 @@ if ( ! function_exists( 'ecrannoir_twenty_one_block_button' ) ) {
 		}
 		
 		?>
-		<div class="wp-block-buttons">
+		<div class="wp-block-buttons <?php echo $args['parent_class'];?>">
 			<div class="<?php echo $class ?>"><a class="wp-block-button__link" <?php echo $href; ?>><?php echo $label; ?></a></div>
 		</div>
 		<?php

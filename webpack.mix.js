@@ -11,10 +11,11 @@ mix.js('src/scripts/theme/index.js', 'js/theme.js')
     .block('src/scripts/admin/index.js', 'js/admin.js')
     .block('src/scripts/editor/index.js', 'js/editor.js')
     .block('src/scripts/theme-option-admin/index.js', 'js/theme-option-admin.js')
-    .sass('src/styles/theme.scss', 'css/style.css')
-    .sass('src/styles/editor.scss', 'css/editor.css')
-    .sass('src/styles/theme-option-admin.scss', 'css/theme-option-admin.css')
-    .sass('src/styles/admin-editor.scss', 'css/admin-editor.css')
+    .sass('src/styles/theme.scss', 'style.css')
+    .sass('src/styles/editor.scss', 'editor.css')
+    .sass('src/styles/theme-option-admin.scss', 'theme-option-admin.css')
+    .sass('src/styles/admin-editor.scss', 'admin-editor.css')
+    .sass('src/styles/woocommerce.scss', 'woocommerce.css')
     .options({
       fileLoaderDirs: {
         images: 'img',
@@ -107,7 +108,9 @@ mix.browserSync({
     "src/scripts/",
     "src/blocks/",
     "template-parts/",
-    "inc/",
+    "inc/*.php",
+    "inc/**/*.php",
+    "woocommerce/**/*.php",
     "classes/",
     "*.php"
   ]

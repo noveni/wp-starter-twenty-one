@@ -1,0 +1,78 @@
+
+.u-columns.col2-set {
+	display: flex;
+
+	> .u-column1 {
+		width: 33.33%;
+	}
+
+	> .u-column2 {
+		width: 33.33%;
+	}
+}
+
+.u-columns.col2-set#customer_login { /* stylelint-disable-line */
+	justify-content: space-evenly;
+
+	.u-column2,
+	.u-column1 {
+		width: 35%;
+		text-align: center;
+
+		.form-row {
+
+			label {
+				text-align: left;
+			}
+		}
+	}
+
+	h3 + .is-style-ecrannoirtwentyone-paragraph-sous-paragraph {
+		margin-bottom: calc(1 * #{$global--spacing-vertical});
+	}
+
+	// .u-column2 {
+	// 	width: 33.33%;
+	// 	text-align: center;
+	// }
+}
+
+.woocommerce-account:not(.logged-in) {
+
+	.site-main > .hentry {
+		background-color: $rose-light;
+		overflow: hidden;
+
+		// > header {
+		// 	overflow: hidden;
+		// }
+	}
+
+	.entry-content > .woocommerce {
+		@extend %responsive-alignfull-width;
+	}
+}
+
+.woocommerce-form .form-row {
+
+	.info-required {
+		font-weight: 500;
+		font-size: 8px;
+		color: $global--color-black;
+		letter-spacing: 0;
+		line-height: 24px;
+		text-transform: uppercase;
+		display: block;
+		text-align: right;
+		transform: translateY(calc(-1 * #{$global--spacing-vertical}));
+	}
+}
+
+.woocommerce-LostPassword {
+	font-size: 13px;
+	letter-spacing: 0;
+	text-align: center;
+	line-height: 14px;
+	text-transform: uppercase;
+	margin-top: calc(0.25 * #{$global--spacing-vertical});
+}
